@@ -1,7 +1,7 @@
 ---
-title: "The Quest for Compile-Time String Formatting in Rust: A Developer's Tale"
+title: "The Quest for Compile-Time String Formatting in Rust"
 layout: post
-date: 2024-09-03 2:30
+date: 2024-09-01 2:30
 image: /assets/images/rust-crab.png
 headerImage: true
 tag:
