@@ -36,7 +36,7 @@ console.log(
 );
 ```
 
-This script utilizes the `v8` module, an integral part of Node.js, offering methods like `v8.getHeapStatistics()` to fetch heap-related memory information. For a deeper understanding of process memory, refer to [this resource](https://www.guru99.com/stack-vs-heap.html).
+This script utilizes the `v8` module, an integral part of Node.js, offering methods like `v8.getHeapStatistics()` to fetch heap-related memory information. 
 
 ### Adjusting Memory Capacity
 
