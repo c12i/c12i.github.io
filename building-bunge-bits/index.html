@@ -557,27 +557,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 <p>Here’s how data flows through the system:</p>
 
-<pre><code class="language-mermaid">    A[Parliament of Kenya&lt;br/&gt;YouTube Livestreams] --&gt; B{Cron Job&lt;br/&gt;Every 12 hours}
-    B --&gt;|Check for new streams| C{New streams&lt;br/&gt;detected?}
-    C --&gt;|No| B
-    C --&gt;|Yes| D[yt-dlp&lt;br/&gt;Download stream audio]
-    D --&gt; E[Audio File&lt;br/&gt;.mp3]
-    E --&gt; F[ffmpeg&lt;br/&gt;Split into 10-minute chunks]
-    F --&gt; G[Audio Chunks&lt;br/&gt;chunk_001.mp3&lt;br/&gt;chunk_002.mp3&lt;br/&gt;...]
-    G --&gt; H[OpenAI Whisper&lt;br/&gt;Transcribe chunks]
-    H --&gt; I[Raw Transcript Chunks&lt;br/&gt;Text segments]
-    I --&gt; J[GPT-4 Algorithm&lt;br/&gt;Generate structured summaries]
-    J --&gt; K[Structured Summaries&lt;br/&gt;Coherent final summary]
-    K --&gt; L[(PostgreSQL Database&lt;br/&gt;Store summaries)]
-
-    style A fill:#ff6b6b
-    style B fill:#4ecdc4
-    style D fill:#45b7d1
-    style F fill:#96ceb4
-    style H fill:#ffeaa7
-    style J fill:#fd79a8
-    style L fill:#6c5ce7
-</code></pre>
+<p><img src="/assets/images/bunge-bits-pipeline.png" alt="bunge-bits Pipeline Diagram" /></p>
 
 <h1 id="engineering-challenges">Engineering Challenges</h1>
 

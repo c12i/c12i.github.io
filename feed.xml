@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-06-14T19:24:40+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/">&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-06-14T19:31:28+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/">&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
 
 &lt;p&gt;I built bunge-bits out of frustration. Kenya’s National Assembly and Senate regularly livestream their proceedings, but these sessions are long, often poorly indexed, and inaccessible to most people. The average citizen doesn’t have the time—or bandwidth—to sit through five-hour videos of parliamentary debates.&lt;/p&gt;
 
@@ -22,27 +22,7 @@
 
 &lt;p&gt;Here’s how data flows through the system:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;    A[Parliament of Kenya&amp;lt;br/&amp;gt;YouTube Livestreams] --&amp;gt; B{Cron Job&amp;lt;br/&amp;gt;Every 12 hours}
-    B --&amp;gt;|Check for new streams| C{New streams&amp;lt;br/&amp;gt;detected?}
-    C --&amp;gt;|No| B
-    C --&amp;gt;|Yes| D[yt-dlp&amp;lt;br/&amp;gt;Download stream audio]
-    D --&amp;gt; E[Audio File&amp;lt;br/&amp;gt;.mp3]
-    E --&amp;gt; F[ffmpeg&amp;lt;br/&amp;gt;Split into 10-minute chunks]
-    F --&amp;gt; G[Audio Chunks&amp;lt;br/&amp;gt;chunk_001.mp3&amp;lt;br/&amp;gt;chunk_002.mp3&amp;lt;br/&amp;gt;...]
-    G --&amp;gt; H[OpenAI Whisper&amp;lt;br/&amp;gt;Transcribe chunks]
-    H --&amp;gt; I[Raw Transcript Chunks&amp;lt;br/&amp;gt;Text segments]
-    I --&amp;gt; J[GPT-4 Algorithm&amp;lt;br/&amp;gt;Generate structured summaries]
-    J --&amp;gt; K[Structured Summaries&amp;lt;br/&amp;gt;Coherent final summary]
-    K --&amp;gt; L[(PostgreSQL Database&amp;lt;br/&amp;gt;Store summaries)]
-
-    style A fill:#ff6b6b
-    style B fill:#4ecdc4
-    style D fill:#45b7d1
-    style F fill:#96ceb4
-    style H fill:#ffeaa7
-    style J fill:#fd79a8
-    style L fill:#6c5ce7
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/bunge-bits-pipeline.png&quot; alt=&quot;bunge-bits Pipeline Diagram&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;engineering-challenges&quot;&gt;Engineering Challenges&lt;/h1&gt;
 
