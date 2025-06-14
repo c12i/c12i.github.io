@@ -9,26 +9,26 @@
     <meta name=author content="Collins Muriuki">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Programming in the Shadow of AI | Collins Muriuki</title>
+<title>Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament | Collins Muriuki</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Programming in the Shadow of AI" />
+<meta property="og:title" content="Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament" />
 <meta name="author" content="Collins Muriuki" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A personal account of a developer’s struggle with imposter syndrome in the age of AI-assisted programming, and finding a path to empowerment." />
-<meta property="og:description" content="A personal account of a developer’s struggle with imposter syndrome in the age of AI-assisted programming, and finding a path to empowerment." />
-<link rel="canonical" href="https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/" />
-<meta property="og:url" content="https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/" />
+<meta name="description" content="A deep dive into how I used Rust, Whisper, and GPT-4 to build a reliable AI pipeline that summarizes livestreams of Kenya’s Parliament, making civic proceedings more accessible to everyday citizens." />
+<meta property="og:description" content="A deep dive into how I used Rust, Whisper, and GPT-4 to build a reliable AI pipeline that summarizes livestreams of Kenya’s Parliament, making civic proceedings more accessible to everyday citizens." />
+<link rel="canonical" href="https://collinsmuriuki.xyz/building-bunge-bits/" />
+<meta property="og:url" content="https://collinsmuriuki.xyz/building-bunge-bits/" />
 <meta property="og:site_name" content="Collins Muriuki" />
-<meta property="og:image" content="https://collinsmuriuki.xyz/assets/images/developer.png" />
+<meta property="og:image" content="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-03T03:00:00+03:00" />
+<meta property="article:published_time" content="2025-06-12T19:00:00+03:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://collinsmuriuki.xyz/assets/images/developer.png" />
-<meta property="twitter:title" content="Programming in the Shadow of AI" />
+<meta property="twitter:image" content="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" />
+<meta property="twitter:title" content="Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Collins Muriuki" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Collins Muriuki"},"dateModified":"2024-09-03T03:00:00+03:00","datePublished":"2024-09-03T03:00:00+03:00","description":"A personal account of a developer’s struggle with imposter syndrome in the age of AI-assisted programming, and finding a path to empowerment.","headline":"Programming in the Shadow of AI","image":"https://collinsmuriuki.xyz/assets/images/developer.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/"},"url":"https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Collins Muriuki"},"dateModified":"2025-06-12T19:00:00+03:00","datePublished":"2025-06-12T19:00:00+03:00","description":"A deep dive into how I used Rust, Whisper, and GPT-4 to build a reliable AI pipeline that summarizes livestreams of Kenya’s Parliament, making civic proceedings more accessible to everyday citizens.","headline":"Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament","image":"https://collinsmuriuki.xyz/assets/images/bunge-bits.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://collinsmuriuki.xyz/building-bunge-bits/"},"url":"https://collinsmuriuki.xyz/building-bunge-bits/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -54,7 +54,7 @@
 <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 
 
-    <link rel="canonical" href="https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/">
+    <link rel="canonical" href="https://collinsmuriuki.xyz/building-bunge-bits/">
     <link rel="alternate" type="application/rss+xml" title="" href="https://collinsmuriuki.xyz/feed.xml" />
 
     <style>
@@ -498,13 +498,13 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 
 
-    <img class="title-image" src="/assets/images/developer.png" alt="Programming in the Shadow of AI">
+    <img class="title-image" src="/assets/images/bunge-bits.png" alt="Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament">
 
 
-<h1 class="title">Programming in the Shadow of AI</h1>
+<h1 class="title">Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament</h1>
 
 <span class="date">
-    <time datetime="03-09-2024">Tuesday. September 03, 2024</time>
+    <time datetime="12-06-2025">Thursday. June 12, 2025</time>
      - <span class="reading-time" title="Estimated read time">
     
 
@@ -518,82 +518,112 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
     <div class="post-tags">
         
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#rust">Rust</a>
+        
             <a class="item" href="https://collinsmuriuki.xyz/tags/#ai">AI</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#programming">programming</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#civictech">CivicTech</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#developer-experience">developer-experience</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#kenya">Kenya</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#machine-learning">machine-learning</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#gpt-4">GPT-4</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#career">career</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#whisper">Whisper</a>
         
     </div>
 
 
-<p>It’s 3 AM, and I’m staring at my screen, fingers hovering over the keyboard. The cursor blinks, mocking me. I should be coding, but instead, I’m frozen, paralyzed by a question that’s been gnawing at me for months:</p>
+<h1 id="motivation">Motivation</h1>
 
-<p>Am I even a real developer anymore?</p>
+<p>I built bunge-bits out of frustration. Kenya’s National Assembly and Senate regularly livestream their proceedings, but these sessions are long, often poorly indexed, and inaccessible to most people. The average citizen doesn’t have the time—or bandwidth—to sit through five-hour videos of parliamentary debates.</p>
 
-<p>I’ve been using AI to help me code. A lot. At first, it felt like a secret weapon, a way to supercharge my productivity. But now? Now it feels like a crutch I can’t let go of. And it’s eating me alive.</p>
+<p>At the same time, Kenya is experiencing a generational shift. Young people are increasingly vocal about governance, public spending, and corruption. I wanted to contribute something tangible to that movement—something that makes civic discussions more transparent, digestible, and shareable.</p>
 
-<h2 id="the-spiral">The Spiral</h2>
+<p>bunge-bits is my attempt to bridge that gap: an AI-powered pipeline that listens to Parliament so citizens don’t have to, and summarizes the highlights in plain markdown.</p>
 
-<p>Every time I fire up ChatGPT, Claude or let GitHub Copilot autocomplete my functions, a little voice in my head whispers: “Fraud.” It’s getting louder. I find myself second-guessing every line of code. Did I write this, or did AI? And if AI wrote it, what does that say about me?</p>
+<h1 id="the-stack">The Stack</h1>
 
-<p>I used to pride myself on my problem-solving skills, on those eureka moments when a solution would suddenly click into place. Now? I’m not sure I remember the last time I had one of those moments without AI prompting.</p>
+<p>This project leans heavily on modern AI tools and a reliable Rust backbone:</p>
 
-<h2 id="the-fear">The Fear</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Rust</code>: For performance, error handling, and concurrency.</li>
+  <li><code class="language-plaintext highlighter-rouge">yt-dlp</code>: To fetch livestream recordings from YouTube.</li>
+  <li><code class="language-plaintext highlighter-rouge">ffmpeg</code>: For slicing audio into manageable chunks.</li>
+  <li><code class="language-plaintext highlighter-rouge">OpenAI Whisper</code>: To transcribe spoken audio to text.</li>
+  <li><code class="language-plaintext highlighter-rouge">GPT-4</code>: To summarize transcripts into clear, structured markdown.</li>
+  <li><code class="language-plaintext highlighter-rouge">Postgres</code>: For storing metadata and summaries.</li>
+  <li><code class="language-plaintext highlighter-rouge">Cron jobs</code>: For scheduling runs and cleaning up old artifacts.</li>
+</ul>
 
-<p>It’s not just about feeling like a fraud. It’s the creeping dread that I’m making myself obsolete. Every day, these AI models get smarter, more capable. They’re already writing code faster and often cleaner than I can. How long until they don’t need me at all?</p>
+<p>Here’s how data flows through the system:</p>
 
-<p>I lie awake at night, imagining a future where algorithms have replaced us all. Where creativity and critical thinking are relics of the past, and human developers are nothing more than quaint curiosities.</p>
+<pre><code class="language-mermaid">    A[Parliament of Kenya&lt;br/&gt;YouTube Livestreams] --&gt; B{Cron Job&lt;br/&gt;Every 12 hours}
+    B --&gt;|Check for new streams| C{New streams&lt;br/&gt;detected?}
+    C --&gt;|No| B
+    C --&gt;|Yes| D[yt-dlp&lt;br/&gt;Download stream audio]
+    D --&gt; E[Audio File&lt;br/&gt;.mp3]
+    E --&gt; F[ffmpeg&lt;br/&gt;Split into 10-minute chunks]
+    F --&gt; G[Audio Chunks&lt;br/&gt;chunk_001.mp3&lt;br/&gt;chunk_002.mp3&lt;br/&gt;...]
+    G --&gt; H[OpenAI Whisper&lt;br/&gt;Transcribe chunks]
+    H --&gt; I[Raw Transcript Chunks&lt;br/&gt;Text segments]
+    I --&gt; J[GPT-4 Algorithm&lt;br/&gt;Generate structured summaries]
+    J --&gt; K[Structured Summaries&lt;br/&gt;Coherent final summary]
+    K --&gt; L[(PostgreSQL Database&lt;br/&gt;Store summaries)]
 
-<h2 id="the-doubt">The Doubt</h2>
+    style A fill:#ff6b6b
+    style B fill:#4ecdc4
+    style D fill:#45b7d1
+    style F fill:#96ceb4
+    style H fill:#ffeaa7
+    style J fill:#fd79a8
+    style L fill:#6c5ce7
+</code></pre>
 
-<p>But it’s more than just fear of obsolescence. It’s a deeper, more existential crisis. Am I losing myself? My ability to think critically, to come up with original ideas – are these muscles atrophying while I lean on AI?</p>
+<h1 id="engineering-challenges">Engineering Challenges</h1>
 
-<p>I catch myself reaching for AI assistance for even the simplest tasks now. It’s like I don’t trust my own brain anymore. And that terrifies me more than any job-stealing robot.</p>
+<p>Some parts of this were painful:</p>
 
-<h2 id="the-turning-point">The Turning Point</h2>
+<ul>
+  <li>Whisper often mangled Kenyan names: “John Mbadi” became “John Birdy”, and it only got worse with native pronunciations.</li>
+  <li>Bad transcriptions created hallucinated summaries: GPT-4 would fill in gaps with confident nonsense.</li>
+  <li>OpenAI context limits: Long transcripts could easily exceed GPT’s token window, making summarization error-prone or impossible.</li>
+  <li>Multiple streams per day: My VPS filled up fast with raw audio and transcripts.</li>
+  <li>Chunk order and retries: Ensuring chunks were in sequence and retried correctly took careful design.</li>
+  <li>Summary formatting: I needed markdown output with clean headings, bullets, and time-stamped key moments.</li>
+</ul>
 
-<p>But here’s the thing. As I sit here, pouring my fears onto this digital page, I’m realizing something. These words? They’re mine. No AI prompted them. No language model crafted them. This is me, raw and unfiltered, grappling with my fears.</p>
+<h1 id="solutions-and-architecture-decisions">Solutions and Architecture Decisions</h1>
 
-<p>And maybe that’s the key.</p>
+<p>To tackle these, I made a few key calls:</p>
 
-<h2 id="a-new-perspective">A New Perspective</h2>
+<ul>
+  <li>Context-aware summarization: I inject lists of Kenyan MPs, CSs, Senators, and known figures into the prompt so GPT-4 can correct misheard names with confidence.</li>
+  <li>System/user prompt separation: This helps enforce markdown formatting, avoid emojis, and ensure consistent structure.</li>
+  <li>Linear, contextual summarization pipeline: This was the biggest challenge. To avoid exceeding OpenAI’s context window, I chunk transcripts and summarize each piece separately, feeding each new summary back in as context for the next. The final output is then stitched together in a “combine” step. This closure-based approach let me scale summaries without blowing the token limit.</li>
+  <li>Batching via cron: The job runs every 12 hours, fetching and processing only new streams.</li>
+  <li>Separate cron for cleanup: A lightweight system cron wipes old audio/transcripts after processing to avoid disk bloat.</li>
+</ul>
 
-<p>AI isn’t going away. It’s part of our world now, part of our profession. But it doesn’t have to be the enemy. Maybe, just maybe, it can be a partner.</p>
+<h1 id="whats-next">What’s Next</h1>
 
-<p>What if, instead of fearing AI, I embrace it as a tool to handle the mundane, freeing me to focus on the truly human aspects of development? The big-picture thinking, the creative problem-solving, the ability to understand and empathize with users in a way no AI can.</p>
+<p>There’s a lot more I want to do (in order of priority):</p>
 
-<h2 id="moving-forward">Moving Forward</h2>
+<ul>
+  <li>A public UI where users can browse summaries and filter by topic or MP.</li>
+  <li>Automatic timestamp injection for key moments (e.g. heated debates, bill passages, speaker interventions) to make summaries easier to navigate — this is a planned feature.</li>
+  <li>Real-time summarization as streams happen.</li>
+  <li>The repo is already open source, but I plan to apply for OpenAI credits, civic tech grants, or journalism fellowships to fund ongoing compute and infrastructure costs.</li>
+  <li>Eventually, I’d love to collaborate with civil society groups, media houses, or transparency orgs to expand its reach.</li>
+</ul>
 
-<p>I’m not going to lie and say all my fears have magically disappeared. They haven’t. But I’m starting to see a path forward:</p>
-
-<ol>
-  <li>Use AI, but question it. Challenge its outputs, understand the ‘why’ behind its suggestions.</li>
-  <li>Focus on developing skills AI can’t replicate – soft skills, architectural thinking, understanding business needs.</li>
-  <li>Embrace the role of the “AI whisperer” – learning to craft the perfect prompts, to guide AI tools towards truly innovative solutions.</li>
-  <li>Never stop learning. The more I know, the better I can harness AI’s power without being consumed by it.</li>
-</ol>
-
-<h2 id="the-human-element">The Human Element</h2>
-
-<p>At the end of the day, there’s one thing AI can never replicate: my unique human experience. My quirks, my intuitions, my ability to connect seemingly unrelated dots – these are what make me valuable as a developer and as a human being.</p>
-
-<p>So yes, I’ll continue to use AI. But I’ll do it on my terms, as a tool to amplify my human creativity and insight, not replace it.</p>
-
-<p>I am not obsolete. I am evolving. And that’s a pretty exciting thought to hold onto as I finally, finally drift off to sleep.</p>
+<p><a href="https://github.com/c12i/bunge-bits">View the code on GitHub</a></p>
 
 
 
     <div class="blog-navigation">
         
-            <a class="prev" href="https://collinsmuriuki.xyz/compile-time-string-formatting/">&laquo; The Quest for Compile-Time String Formatting in Rust</a>
+            <a class="prev" href="https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/">&laquo; Programming in the Shadow of AI</a>
         
-        
-            <a class="next" href="https://collinsmuriuki.xyz/building-bunge-bits/">Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament &raquo;</a>
         
     </div>
 
@@ -615,7 +645,84 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
+                
+            
         
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
             
                 
                     
@@ -623,7 +730,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
                     <ul>
                     
                     <li class="relatedPost">
-                        <a href="https://collinsmuriuki.xyz/building-bunge-bits/">Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament
+                        <a href="https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/">Programming in the Shadow of AI
                         
                         </a>
                     </li>
@@ -651,46 +758,11 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
             
                 
             
@@ -714,31 +786,11 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
             
                 
             
@@ -765,28 +817,11 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-                    
-                    <li class="relatedPost">
-                        <a href="https://collinsmuriuki.xyz/compile-time-string-formatting/">The Quest for Compile-Time String Formatting in Rust
-                        
-                        </a>
-                    </li>
-                    
-                    
-                
-            
-                
-            
-                
-            
                 
             
         
+            
+                
             
                 
             
@@ -810,31 +845,6 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
@@ -849,31 +859,11 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
             
                 
             
@@ -900,16 +890,6 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
@@ -924,6 +904,22 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
         
             
                 
@@ -936,37 +932,11 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
-    
-        
-        
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
             
                 
             
@@ -993,16 +963,6 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
@@ -1017,7 +977,25 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
+                
+            
         
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
             
                 
             
@@ -1044,7 +1022,118 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
+                
+            
         
+    
+        
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
             
                 
             
@@ -1084,7 +1173,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/ - Programming in the Shadow of AI by @"
+                href="https://twitter.com/intent/tweet?text=https://collinsmuriuki.xyz/building-bunge-bits/ - Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament by @"
             >
                 <svg class="icon icon-twitter">
                     <use xlink:href="#icon-twitter"></use></svg
@@ -1101,11 +1190,11 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
                 ><span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/&amp;title=Programming in the Shadow of AI&amp;summary=A personal account of a developer's struggle with imposter syndrome in the age of AI-assisted programming, and finding a path to empowerment.&amp;source=https://collinsmuriuki.xyz" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://collinsmuriuki.xyz/building-bunge-bits/&amp;title=Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament&amp;summary=A deep dive into how I used Rust, Whisper, and GPT-4 to build a reliable AI pipeline that summarizes livestreams of Kenya’s Parliament, making civic proceedings more accessible to everyday citizens.&amp;source=https://collinsmuriuki.xyz" target="_blank">
                 <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg><span class="icon-linkedin">Share</span>
             </a> -->
 
-            <!-- <a class="reddit" href="https://reddit.com/submit?url=https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/&amp;title=Programming in the Shadow of AI" target="_blank">
+            <!-- <a class="reddit" href="https://reddit.com/submit?url=https://collinsmuriuki.xyz/building-bunge-bits/&amp;title=Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament" target="_blank">
                 <svg class="icon icon-reddit"><use xlink:href="#icon-reddit"></use></svg><span class="icon-reddit">Share</span>
             </a> -->
         </div>
@@ -1120,8 +1209,8 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     <script type="text/javascript">
 
         var disqus_config = function () {
-            this.page.url = 'https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai/';
-            this.page.identifier = '/programming-in-the-shadow-of-ai';
+            this.page.url = 'https://collinsmuriuki.xyz/building-bunge-bits/';
+            this.page.identifier = '/building-bunge-bits';
         };
         var disqus_shortname = 'https-muriuki-dev';
         var disqus_developer = 0;
