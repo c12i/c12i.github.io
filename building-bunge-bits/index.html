@@ -579,10 +579,10 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 <p>To tackle these, I made a few key calls:</p>
 
 <ul>
-  <li>Context-aware summarization: I inject lists of Kenyan MPs, CSs, Senators, and known figures into the prompt so GPT-4 can correct misheard names with confidence.</li>
+  <li>Context-aware summarization: I use a closure-based system where each transcript chunk is summarized in sequence, with earlier summaries passed in as context. To improve recognition of Kenyan public figures, I enrich GPT-4 prompts with curated lists of MPs, Senators, and Cabinet Secretaries. This leverages both GPT’s internal knowledge and its ability to ground responses via web search, reducing hallucinations and transcription errors.</li>
   <li>System/user prompt separation: This helps enforce markdown formatting, avoid emojis, and ensure consistent structure.</li>
   <li>Linear, contextual summarization pipeline: This was the biggest challenge. To avoid exceeding OpenAI’s context window, I chunk transcripts and summarize each piece separately, feeding each new summary back in as context for the next. The final output is then stitched together in a “combine” step. This closure-based approach let me scale summaries without blowing the token limit.</li>
-  <li>Batching via cron: The job runs every 12 hours, fetching and processing only new streams.</li>
+  <li>Batching via cron: The job runs every 12 hours, fetching and processing only new streams. To conserve storage on the VPS, each run processes a fixed number of unprocessed streams (currently capped at 3), prioritized by upload date. This prevents overload during periods of high parliamentary activity.</li>
   <li>Separate cron for cleanup: A lightweight system cron wipes old audio/transcripts after processing to avoid disk bloat.</li>
 </ul>
 
@@ -593,7 +593,6 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 <ul>
   <li>A public UI where users can browse summaries and filter by topic or MP.</li>
   <li>Automatic timestamp injection for key moments (e.g. heated debates, bill passages, speaker interventions) to make summaries easier to navigate — this is a planned feature.</li>
-  <li>Real-time summarization as streams happen.</li>
   <li>The repo is already open source, but I plan to apply for OpenAI credits, civic tech grants, or journalism fellowships to fund ongoing compute and infrastructure costs.</li>
   <li>Eventually, I’d love to collaborate with civil society groups, media houses, or transparency orgs to expand its reach.</li>
 </ul>

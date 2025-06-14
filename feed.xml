@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-06-14T19:35:27+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/">&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-06-14T19:40:50+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building bunge-bits, an AI-Powered Summary Pipeline for Kenyan Parliament" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/">&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
 
 &lt;p&gt;I built bunge-bits out of frustration. Kenya’s National Assembly and Senate regularly livestream their proceedings, but these sessions are long, often poorly indexed, and inaccessible to most people. The average citizen doesn’t have the time—or bandwidth—to sit through five-hour videos of parliamentary debates.&lt;/p&gt;
 
@@ -44,10 +44,10 @@
 &lt;p&gt;To tackle these, I made a few key calls:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Context-aware summarization: I inject lists of Kenyan MPs, CSs, Senators, and known figures into the prompt so GPT-4 can correct misheard names with confidence.&lt;/li&gt;
+  &lt;li&gt;Context-aware summarization: I use a closure-based system where each transcript chunk is summarized in sequence, with earlier summaries passed in as context. To improve recognition of Kenyan public figures, I enrich GPT-4 prompts with curated lists of MPs, Senators, and Cabinet Secretaries. This leverages both GPT’s internal knowledge and its ability to ground responses via web search, reducing hallucinations and transcription errors.&lt;/li&gt;
   &lt;li&gt;System/user prompt separation: This helps enforce markdown formatting, avoid emojis, and ensure consistent structure.&lt;/li&gt;
   &lt;li&gt;Linear, contextual summarization pipeline: This was the biggest challenge. To avoid exceeding OpenAI’s context window, I chunk transcripts and summarize each piece separately, feeding each new summary back in as context for the next. The final output is then stitched together in a “combine” step. This closure-based approach let me scale summaries without blowing the token limit.&lt;/li&gt;
-  &lt;li&gt;Batching via cron: The job runs every 12 hours, fetching and processing only new streams.&lt;/li&gt;
+  &lt;li&gt;Batching via cron: The job runs every 12 hours, fetching and processing only new streams. To conserve storage on the VPS, each run processes a fixed number of unprocessed streams (currently capped at 3), prioritized by upload date. This prevents overload during periods of high parliamentary activity.&lt;/li&gt;
   &lt;li&gt;Separate cron for cleanup: A lightweight system cron wipes old audio/transcripts after processing to avoid disk bloat.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -58,7 +58,6 @@
 &lt;ul&gt;
   &lt;li&gt;A public UI where users can browse summaries and filter by topic or MP.&lt;/li&gt;
   &lt;li&gt;Automatic timestamp injection for key moments (e.g. heated debates, bill passages, speaker interventions) to make summaries easier to navigate — this is a planned feature.&lt;/li&gt;
-  &lt;li&gt;Real-time summarization as streams happen.&lt;/li&gt;
   &lt;li&gt;The repo is already open source, but I plan to apply for OpenAI credits, civic tech grants, or journalism fellowships to fund ongoing compute and infrastructure costs.&lt;/li&gt;
   &lt;li&gt;Eventually, I’d love to collaborate with civil society groups, media houses, or transparency orgs to expand its reach.&lt;/li&gt;
 &lt;/ul&gt;
