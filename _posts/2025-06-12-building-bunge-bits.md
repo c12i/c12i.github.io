@@ -1,5 +1,5 @@
 ---
-title: "Building bunge-bits, an AI-Powered Summary Pipeline for the Parliament of Kenya"
+title: "Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya"
 layout: post
 date: 2025-06-12 19:00
 image: /assets/images/bunge-bits.png
@@ -23,7 +23,7 @@ I built bunge-bits out of frustration. Kenya’s National Assembly and Senate re
 
 At the same time, Kenya is experiencing a generational shift. Young people are increasingly vocal about governance, public spending, and corruption. I wanted to contribute something tangible to that movement, something that makes civic discussions more transparent, digestible, and shareable.
 
-bunge-bits is my attempt to bridge that gap: an AI-powered pipeline that listens to Parliament so citizens don’t have to, and summarizes the highlights in plain markdown.
+Bunge Bits is my attempt to bridge that gap: an AI-powered pipeline that listens to Parliament so citizens don’t have to, and summarizes the highlights in plain markdown.
 
 # The Stack
 
