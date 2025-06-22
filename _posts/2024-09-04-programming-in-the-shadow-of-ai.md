@@ -67,4 +67,4 @@ At the end of the day, there's one thing AI can never replicate: my unique human
 
 So yes, I'll continue to use AI. But I'll do it on my terms, as a tool to amplify my human creativity and insight, not replace it.
 
-I am not obsolete. I am evolving. And that's a pretty exciting thought to hold onto as I finally, finally drift off to sleep.
+I am not obsolete. I am evolving. And that's a pretty exciting thought to hold onto.
