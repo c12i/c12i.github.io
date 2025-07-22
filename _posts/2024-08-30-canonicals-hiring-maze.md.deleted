@@ -10,7 +10,7 @@ tag:
     - canonical
     - ubuntu
     - software-engineering
-star: true
+star: false
 category: blog
 author: Collins Muriuki
 description: An in-depth look at Canonical's unique hiring process and why they always seem to have many open positions
@@ -32,7 +32,6 @@ Here's a taste of what you might encounter:
 6. Presentations (time to dust off those public speaking skills)
 
 Multiple applicants have reported going through "months of tests, interviews", with some even making it all the way to an interview with Mark Shuttleworth himself. One HackerNews user described the process as "relatively lengthy," noting that by the time they reached the offer stage, they were already interviewing with other companies [[6]](https://news.ycombinator.com/item?id=36667863).
-
 
 ## The Good, The Bad, and The... High School Grades?
 

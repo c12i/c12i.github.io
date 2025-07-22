@@ -18,8 +18,6 @@ description: Exploring the challenges and solutions for compile-time string form
 
 Imagine you're deep in Rust code, building a CLI tool that's going to make waves in the developer community. You've got your `clap` derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your `about` attribute to show compatibility information, and Rust isn't playing ball.
 
-"Hmm, compile-time string formatting is more complicated than I expected," you think, furrowing your brow at the error message on your screen.
-
 Welcome to Rust, where safety and zero-cost abstractions reign supreme, but sometimes the simplest tasks can become unexpected challenges.
 
 ## The Problem: Rust's Compile-Time Conundrum
