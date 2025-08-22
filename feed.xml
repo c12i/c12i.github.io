@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-08-22T21:53:39+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/">&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-08-22T21:54:43+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/">&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
 
 &lt;p&gt;I built bunge-bits out of frustration. Kenya’s National Assembly and Senate regularly livestream their proceedings, but these sessions are long, often poorly indexed, and inaccessible to most people. The average citizen doesn’t have the time, or bandwidth, to sit through up to five-hour videos of parliamentary debates. Most people end up relying on the media to highlight key moments, often missing the full context or nuance.&lt;/p&gt;
 
@@ -62,58 +62,7 @@
   &lt;li&gt;Eventually, I’d love to collaborate with civil society groups, media houses, or transparency orgs to expand its reach.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/c12i/bunge-bits&quot;&gt;View the code on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Rust" /><category term="AI" /><category term="CivicTech" /><category term="Kenya" /><category term="GPT-4" /><category term="Whisper" /><summary type="html">Motivation</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Programming in the Shadow of AI</title><link href="https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai.md/" rel="alternate" type="text/html" title="Programming in the Shadow of AI" /><published>2024-09-03T03:00:00+03:00</published><updated>2024-09-03T03:00:00+03:00</updated><id>https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai.md</id><content type="html" xml:base="https://collinsmuriuki.xyz/programming-in-the-shadow-of-ai.md/">It's 3 AM, and I'm staring at my screen, fingers hovering over the keyboard. The cursor blinks, mocking me. I should be coding, but instead, I'm frozen, paralyzed by a question that's been gnawing at me for months:
-
-Am I even a real developer anymore?
-
-I've been using AI to help me code. A lot. At first, it felt like a secret weapon, a way to supercharge my productivity. But now? Now it feels like a crutch I can't let go of. And it's eating me alive.
-
-## The Spiral
-
-Every time I fire up ChatGPT, Claude or let GitHub Copilot autocomplete my functions, a little voice in my head whispers: &quot;Fraud.&quot; It's getting louder. I find myself second-guessing every line of code. Did I write this, or did AI? And if AI wrote it, what does that say about me?
-
-I used to pride myself on my problem-solving skills, on those eureka moments when a solution would suddenly click into place. Now? I'm not sure I remember the last time I had one of those moments without AI prompting.
-
-## The Fear
-
-It's not just about feeling like a fraud. It's the creeping dread that I'm making myself obsolete. Every day, these AI models get smarter, more capable. They're already writing code faster and often cleaner than I can. How long until they don't need me at all?
-
-I lie awake at night, imagining a future where algorithms have replaced us all. Where creativity and critical thinking are relics of the past, and human developers are nothing more than quaint curiosities.
-
-## The Doubt
-
-But it's more than just fear of obsolescence. It's a deeper, more existential crisis. Am I losing myself? My ability to think critically, to come up with original ideas – are these muscles atrophying while I lean on AI?
-
-I catch myself reaching for AI assistance for even the simplest tasks now. It's like I don't trust my own brain anymore. And that terrifies me more than any job-stealing robot.
-
-## The Turning Point
-
-But here's the thing. As I sit here, pouring my fears onto this digital page, I'm realizing something. These words? They're mine. No AI prompted them. No language model crafted them. This is me, raw and unfiltered, grappling with my fears.
-
-And maybe that's the key.
-
-## A New Perspective
-
-AI isn't going away. It's part of our world now, part of our profession. But it doesn't have to be the enemy. Maybe, just maybe, it can be a partner.
-
-What if, instead of fearing AI, I embrace it as a tool to handle the mundane, freeing me to focus on the truly human aspects of development? The big-picture thinking, the creative problem-solving, the ability to understand and empathize with users in a way no AI can.
-
-## Moving Forward
-
-I'm not going to lie and say all my fears have magically disappeared. They haven't. But I'm starting to see a path forward:
-
-1. Use AI, but question it. Challenge its outputs, understand the 'why' behind its suggestions.
-2. Focus on developing skills AI can't replicate – soft skills, architectural thinking, understanding business needs.
-3. Embrace the role of the &quot;AI whisperer&quot; – learning to craft the perfect prompts, to guide AI tools towards truly innovative solutions.
-4. Never stop learning. The more I know, the better I can harness AI's power without being consumed by it.
-
-## The Human Element
-
-At the end of the day, there's one thing AI can never replicate: my unique human experience. My quirks, my intuitions, my ability to connect seemingly unrelated dots – these are what make me valuable as a developer and as a human being.
-
-So yes, I'll continue to use AI. But I'll do it on my terms, as a tool to amplify my human creativity and insight, not replace it.
-
-I am not obsolete. I am evolving. And that's a pretty exciting thought to hold onto.</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="AI" /><category term="programming" /><category term="developer-experience" /><category term="machine-learning" /><category term="career" /><summary type="html">It's 3 AM, and I'm staring at my screen, fingers hovering over the keyboard. The cursor blinks, mocking me. I should be coding, but instead, I'm frozen, paralyzed by a question that's been gnawing at me for months:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/developer.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/developer.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Quest for Compile-Time String Formatting in Rust</title><link href="https://collinsmuriuki.xyz/compile-time-string-formatting/" rel="alternate" type="text/html" title="The Quest for Compile-Time String Formatting in Rust" /><published>2024-09-01T02:30:00+03:00</published><updated>2024-09-01T02:30:00+03:00</updated><id>https://collinsmuriuki.xyz/compile-time-string-formatting</id><content type="html" xml:base="https://collinsmuriuki.xyz/compile-time-string-formatting/">&lt;p&gt;Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clap&lt;/code&gt; derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;about&lt;/code&gt; attribute to show compatibility information, and Rust isn’t playing ball.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/c12i/bunge-bits&quot;&gt;View the code on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Rust" /><category term="AI" /><category term="CivicTech" /><category term="Kenya" /><category term="GPT-4" /><category term="Whisper" /><summary type="html">Motivation</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Quest for Compile-Time String Formatting in Rust</title><link href="https://collinsmuriuki.xyz/compile-time-string-formatting/" rel="alternate" type="text/html" title="The Quest for Compile-Time String Formatting in Rust" /><published>2024-09-01T02:30:00+03:00</published><updated>2024-09-01T02:30:00+03:00</updated><id>https://collinsmuriuki.xyz/compile-time-string-formatting</id><content type="html" xml:base="https://collinsmuriuki.xyz/compile-time-string-formatting/">&lt;p&gt;Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clap&lt;/code&gt; derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;about&lt;/code&gt; attribute to show compatibility information, and Rust isn’t playing ball.&lt;/p&gt;
 
 &lt;p&gt;Welcome to Rust, where safety and zero-cost abstractions reign supreme, but sometimes the simplest tasks can become unexpected challenges.&lt;/p&gt;
 
@@ -236,67 +185,7 @@ error: aborting due to previous error
   &lt;li&gt;With some creativity, we can usually find a way around language limitations.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;While Rust may not support compile-time formatting out of the box, we have multiple ways to achieve our goals. Whether it’s through community-created crates or clever use of build scripts, Rust developers always find a way forward.&lt;/p&gt;</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="rust" /><category term="programming" /><category term="cli" /><category term="compile-time" /><category term="string-formatting" /><summary type="html">Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your clap derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your about attribute to show compatibility information, and Rust isn’t playing ball.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Canonical’s Hiring Maze: Adventure, Nightmare, or Endless Job Fair?</title><link href="https://collinsmuriuki.xyz/canonicals-hiring-maze.md/" rel="alternate" type="text/html" title="Canonical’s Hiring Maze: Adventure, Nightmare, or Endless Job Fair?" /><published>2024-08-30T09:45:00+03:00</published><updated>2024-08-30T09:45:00+03:00</updated><id>https://collinsmuriuki.xyz/canonicals-hiring-maze.md</id><content type="html" xml:base="https://collinsmuriuki.xyz/canonicals-hiring-maze.md/">Ever thought about working for the company behind Ubuntu? Well, buckle up, because Canonical's hiring process is quite the ride. And have you noticed how they always seem to have a ton of open positions? Let's dive into what you might expect if you decide to throw your hat in the ring and explore why their job board looks like a never-ending buffet of opportunities.
-
-## The Gauntlet Begins
-
-First things first: Canonical doesn't do things by halves. Their hiring process is like the tech world's version of an ultra-marathon. We're talking about a journey that can last anywhere from 2 to 5 months. Yep, you read that right – months, not weeks [[1]](https://www.glassdoor.com/Interview/Canonical-Interview-Questions-E230560.htm)[[6]](https://news.ycombinator.com/item?id=36667863).
-
-Here's a taste of what you might encounter:
-
-1. A written essay (think high school flashbacks)
-2. Personality tests (because why not?)
-3. Intelligence tests (flex those brain muscles!)
-4. Multiple interviews (like, a lot of them – some folks report up to 15!)
-5. Technical assessments (gotta prove those coding chops)
-6. Presentations (time to dust off those public speaking skills)
-
-Multiple applicants have reported going through &quot;months of tests, interviews&quot;, with some even making it all the way to an interview with Mark Shuttleworth himself. One HackerNews user described the process as &quot;relatively lengthy,&quot; noting that by the time they reached the offer stage, they were already interviewing with other companies [[6]](https://news.ycombinator.com/item?id=36667863).
-
-## The Good, The Bad, and The... High School Grades?
-
-Now, let's talk about the elephant in the room – or should I say, the penguin? 🐧 Canonical seems to have a peculiar fascination with your academic past. And I'm not just talking about your university days. Nope, they want to know about your high school glory days too [[2]](https://www.reddit.com/r/linux/comments/thsrcp/this_was_the_first_stage_of_the_interview_process/)[[6]](https://news.ycombinator.com/item?id=#36667863).
-Picture this: You're a seasoned dev with years of experience under your belt, and you're asked about your high school math ranking. It's like applying for a F1 race and being quizzed about your first bicycle. As one HackerNews commenter put it, &quot;...the interview only really focused on what I had done in high school. I graduated 36 years ago - I just don't see the relevance...&quot; [[6]](https://news.ycombinator.com/item?id=36667863)
-
-## The Mixed Bag of Experiences
-
-Some folks actually enjoy this process. They say it gives them a chance to really show off their skills and get to know the company. Others... well, let's just say they're less enthusiastic.
-
-On the plus side, you might get to chat with some cool people from different departments and countries. On the downside, you might feel like you're stuck in an endless loop of interviews and tests [[3]](https://www.glassdoor.com/Interview/Canonical-Interview-Questions-E230560.htm).
-
-## The Compensation Conundrum
-
-After all this, you'd expect a pot of gold at the end of the rainbow, right? Well, according to some reviews, Canonical's compensation isn't always competitive. Some candidates have reported being offered contractor positions with limited benefits [[4]](https://www.glassdoor.com/Interview/Canonical-Interview-Questions-E230560.htm).
-
-## The Perpetual Job Fair: Why So Many Open Roles?
-
-Now, here's something that might make you scratch your head: Canonical always seems to have a ton of open positions. It's like they're hosting a never-ending job fair. But why? 🤔
-
-There are a few theories floating around:
-
-1. **The Marathon Effect**: Remember that ultra-marathon hiring process we talked about? Well, it turns out that when you take 2-5 months to hire someone, positions tend to stay open for a while. It's simple math – the longer the process, the more open roles you'll see at any given time [[1]](https://www.glassdoor.com/Interview/Canonical-Interview-Questions-E230560.htm)[[6]](https://news.ycombinator.com/item?id=36667863).
-
-2. **The Goldilocks Syndrome**: Some folks suggest that Canonical might be looking for candidates that are juuuust right. With their extensive testing and interview process, they might be setting the bar sky-high, making it tough to find the perfect fit [[2]](https://www.reddit.com/r/linux/comments/thsrcp/this_was_the_first_stage_of_the_interview_process/).
-
-3. **The Revolving Door Theory**: A few reviews hint at a high turnover rate. If people are leaving as fast as they're being hired, that would explain the constant stream of job openings [[3]](https://www.glassdoor.com/Interview/Canonical-Interview-Questions-E230560.htm).
-
-4. **The Growth Spurt Hypothesis**: On a more positive note, maybe Canonical is in a phase of rapid expansion. All those open roles could be a sign of a company that's growing faster than it can hire [[4]](https://www.glassdoor.com/Interview/Canonical-Interview-Questions-E230560.htm).
-
-5. **The Fishing Expedition**: Here's a spicy theory – some suggest that not all these jobs are real. There's speculation that Canonical might be using job postings to gather industry insights or ideas. It's a controversial idea, and definitely not confirmed, but it's out there [[5]](https://www.glassdoor.com/Interview/Canonical-Interview-Questions-E230560.htm).
-
-Now, it's important to note that these are theories based on various reviews and discussions. Canonical itself hasn't officially commented on this phenomenon. But it does make you wonder, doesn't it?
-
-## The Million-Dollar Question
-
-So, here's the big question: Should you apply for a role at Canonical?
-
-Well, that depends. Are you up for an adventure? Do you have a few months to spare? Are you cool with digging up your old report cards? If you answered yes to all of these, then hey, why not give it a shot?
-
-But if you're looking for a quick and straightforward hiring process, or if you believe your recent work speaks louder than your high school grades, you might want to think twice.
-
-At the end of the day, it's all about what you're comfortable with. Canonical's process is unique, that's for sure. Whether it's uniquely good or uniquely frustrating – well, that's for you to decide.
-
-What do you think? Would you be willing to go through Canonical's hiring maze? Or would you rather stick to more conventional job applications? And what's your take on their always-full job board? Drop your thoughts in the comments below!</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="tech" /><category term="hiring" /><category term="canonical" /><category term="ubuntu" /><category term="software-engineering" /><summary type="html">Ever thought about working for the company behind Ubuntu? Well, buckle up, because Canonical's hiring process is quite the ride. And have you noticed how they always seem to have a ton of open positions? Let's dive into what you might expect if you decide to throw your hat in the ring and explore why their job board looks like a never-ending buffet of opportunities.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/canonical-ubuntu-logo.jpeg" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/canonical-ubuntu-logo.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Exploring the Differences Between WebRTC Data Channels and WebSockets</title><link href="https://collinsmuriuki.xyz/webrtc-data-channels-vs-websockets/" rel="alternate" type="text/html" title="Exploring the Differences Between WebRTC Data Channels and WebSockets" /><published>2024-03-02T08:31:00+03:00</published><updated>2024-03-02T08:31:00+03:00</updated><id>https://collinsmuriuki.xyz/webrtc-data-channels-vs-websockets</id><content type="html" xml:base="https://collinsmuriuki.xyz/webrtc-data-channels-vs-websockets/">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;While Rust may not support compile-time formatting out of the box, we have multiple ways to achieve our goals. Whether it’s through community-created crates or clever use of build scripts, Rust developers always find a way forward.&lt;/p&gt;</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="rust" /><category term="programming" /><category term="cli" /><category term="compile-time" /><category term="string-formatting" /><summary type="html">Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your clap derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your about attribute to show compatibility information, and Rust isn’t playing ball.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Exploring the Differences Between WebRTC Data Channels and WebSockets</title><link href="https://collinsmuriuki.xyz/webrtc-data-channels-vs-websockets/" rel="alternate" type="text/html" title="Exploring the Differences Between WebRTC Data Channels and WebSockets" /><published>2024-03-02T08:31:00+03:00</published><updated>2024-03-02T08:31:00+03:00</updated><id>https://collinsmuriuki.xyz/webrtc-data-channels-vs-websockets</id><content type="html" xml:base="https://collinsmuriuki.xyz/webrtc-data-channels-vs-websockets/">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 &lt;p&gt;WebRTC (Web Real-Time Communication) &lt;a href=&quot;https://web.dev/articles/webrtc-basics#rtcdatachannel_api&quot;&gt;data channels&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/WebSocket&quot;&gt;WebSockets&lt;/a&gt; are both powerful technologies that enable real-time communication between clients and servers (or other clients) to enable transfer of arbitrary data. However, they have distinct characteristics and use cases. In this blog post, we’ll delve into the key differences between WebRTC data channels and WebSockets, providing code snippets for better understanding.&lt;/p&gt;
 
 &lt;h3 id=&quot;webrtc-data-channels&quot;&gt;WebRTC Data Channels&lt;/h3&gt;
@@ -423,61 +312,7 @@ WebSockets are widely used in applications like chat applications, financial tra
 &lt;p&gt;Ultimately, the choice between WebSocket and WebRTC Data Channel depends on the specific requirements and architecture of your application. Evaluate factors such as communication model, latency needs, privacy concerns, and development complexity to make an informed decision.&lt;/p&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;In summary, WebRTC data channels are ideal for peer-to-peer communication within browsers, while WebSockets offer a more general-purpose solution for real-time communication with the help of a centralized server. The choice between them depends on the specific requirements and use cases of your application. Understanding their differences will empower you to make informed decisions when implementing real-time communication features.&lt;/p&gt;</content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="javascript" /><category term="browsers" /><category term="webrtc" /><category term="websockets" /><summary type="html">Introduction WebRTC (Web Real-Time Communication) data channels and WebSockets are both powerful technologies that enable real-time communication between clients and servers (or other clients) to enable transfer of arbitrary data. However, they have distinct characteristics and use cases. In this blog post, we’ll delve into the key differences between WebRTC data channels and WebSockets, providing code snippets for better understanding.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/string-telephone-ai-generated.jpeg" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/string-telephone-ai-generated.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Art of Avoiding Online Arguments</title><link href="https://collinsmuriuki.xyz/the-art-of-avoiding-online-arguments.md/" rel="alternate" type="text/html" title="The Art of Avoiding Online Arguments" /><published>2023-11-30T08:31:00+03:00</published><updated>2023-11-30T08:31:00+03:00</updated><id>https://collinsmuriuki.xyz/the-art-of-avoiding-online-arguments.md</id><content type="html" xml:base="https://collinsmuriuki.xyz/the-art-of-avoiding-online-arguments.md/">## Introduction
-
-In an age where the internet connects us more than ever, the temptation to engage in debates with strangers online is ever-present. Social media platforms, forums, and comment sections provide ample opportunities for discussions, but they can also be breeding grounds for heated arguments. While healthy debates can foster learning and understanding, arguing with strangers online often leads to unnecessary stress, frustration, and even hostility. 
-
-I understand the struggle all too well. I've found myself grappling with the urge to respond when encountering what seems to be a particularly uninformed or &quot;dumb&quot; take on a given topic, especially on platforms like X (formerly Twitter). In this blog post, we’ll explore why it’s wise to avoid getting entangled in online disputes, especially when it comes to topics you might be misinformed about, and how doing so can contribute to a more positive online experience.
-
-### Differing Perspectives
-
-One of the primary reasons to steer clear of online arguments is the vast diversity of perspectives on the internet. People from various backgrounds, cultures, and experiences come together, each bringing their own unique viewpoint. Engaging in a debate with a stranger means navigating through a complex web of opinions, making it challenging to find common ground. Instead of fostering understanding, such encounters may result in frustration and further division.
-
-### Limited Context
-
-Online communication often lacks the nuance of face-to-face interactions. Text-based conversations can be easily misinterpreted, leading to misunderstandings and unnecessary conflicts. Without the ability to convey tone, body language, and facial expressions, arguments may escalate due to miscommunication. Choosing to avoid online arguments can help prevent unnecessary conflicts arising from the limitations of digital communication.
-
-### Emotional Toll
-
-Arguing with strangers online can take a toll on your emotional well-being. The anonymity provided by the internet may embolden individuals to express opinions more aggressively than they would in person. This lack of accountability can result in hurtful comments, personal attacks, and an overall negative emotional experience. Prioritizing your mental health by avoiding unnecessary online conflicts is essential in maintaining a positive digital presence.
-
-### Unproductive Energy
-
-Engaging in online arguments seldom leads to meaningful resolutions. Many discussions devolve into a cycle of repetitive arguments with no clear winner. The time and energy spent on such debates could be better utilized in more productive ways, such as learning from diverse perspectives, sharing constructive information, or participating in positive online communities.
-
-### Avoiding Arguments About Misinformed Topics
-
-Arguing about topics you are clearly misinformed about can be detrimental to both your credibility and the overall quality of the discussion. Before engaging in debates, it's crucial to ensure that you have a solid understanding of the subject matter. If you lack knowledge on a particular topic, consider taking the time to research and educate yourself before participating in discussions. This approach not only enhances the quality of your contributions but also prevents the spread of misinformation
-
-## Conclusion
-
-Choosing to avoid arguments with strangers online, especially on topics you are misinformed about, is a wise decision. Embracing diverse perspectives, acknowledging the limitations of digital communication, safeguarding your emotional well-being, and redirecting your energy towards positive interactions are key steps in cultivating a harmonious online experience. Remember, fostering understanding and empathy, coupled with informed discussions, can go a long way in creating a more inclusive and supportive digital environment for everyone.</content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="the internet" /><summary type="html">## Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/keyboard-warrior.webp" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/keyboard-warrior.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Living Fully: Oddisee’s ‘Own Appeal’ and Embracing Life’s Brief Brilliance</title><link href="https://collinsmuriuki.xyz/i-never-asked-to-be-born-and-deaths-no-question.md/" rel="alternate" type="text/html" title="Living Fully: Oddisee’s ‘Own Appeal’ and Embracing Life’s Brief Brilliance" /><published>2022-05-19T08:31:00+03:00</published><updated>2022-05-19T08:31:00+03:00</updated><id>https://collinsmuriuki.xyz/i-never-asked-to-be-born-and-deaths-no-question.md</id><content type="html" xml:base="https://collinsmuriuki.xyz/i-never-asked-to-be-born-and-deaths-no-question.md/">Oddisee, a Sudanese-American producer/MC from Washington D.C, has consistently been a favorite rapper/producer of mine over the years, and &quot;Own Appeal&quot; is undeniably one of his standout works. Lately, I've found myself dwelling on the opening line, &quot;I never asked to be born, and death's no question.&quot; Today, I finally put pen to paper to share my thoughts on what this line means to me.
-
-&lt;iframe width=&quot;560&quot; height=&quot;310&quot; src=&quot;https://www.youtube.com/embed/E2Snh2NZHhk&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
-### The Unasked Query of Existence
-
-The words resonate deeply - &quot;I never asked to be born.&quot; This raw expression encapsulates the unasked nature of our existence, a sentiment many grapple with at some point. 
-
-Oddisee's declaration encapsulates the paradox of choice coloring our journey. Reflecting on life's myriad choices against the backdrop of our lack of agency in our own birth, I recognize that while I navigate decisions, the fundamental choice – the decision to exist – wasn't mine to make. Our parents, as the primary architects of our existence, made the profound decision to bring life into being.
-
-This acknowledgment doesn't diminish the importance of the choices we make in our lives or the agency we exercise in navigating our individual paths. Instead, it highlights the inherent complexity of existence, wherein the initial decision to enter this world was made on our behalf by those who came before us.
-
-Considering this perspective invites a deeper understanding of the interconnectedness of our lives and the influence our parents have on our existence. It sparks contemplation about the circumstances and factors beyond our control that shape our journey, laying the foundation for the myriad choices we make as we navigate the complexities of life.
-
-### Death's Unavoidable Certainty
-
-The latter half, &quot;death's no question,&quot; unfolds as a poignant acknowledgment of our mortality. Oddisee lays it bare, prompting a confrontation with the inevitability of death. It's not foreboding but sparks a profound reflection on how I approach life, knowing its finite nature defines our shared human experience.
-
-### Crafting Meaning Through Personal Reflection
-
-Oddisee's words become a soundtrack to my contemplation. How do I navigate this uncharted territory of existence? Finding solace in unique coping mechanisms, be it delving into philosophy, spirituality, or the introspective journey of self-discovery, I seek to create meaning in relationships, cherish experiences, contribute to the world and to live a life of purpose and fulfillment.
-
-Our time here is a precious commodity, and should not to be taken for granted.
-
-### A Personal Odyssey with &quot;Own Appeal&quot;
-
-Oddisee's &quot;Own Appeal&quot; transcends a mere rap track; it mirrors my musings on existence. &quot;I never asked to be born, and death's no question&quot; catalyzes a personal odyssey, prompting me to navigate the nuances of my own narrative. Embracing life's uncharted and inevitable aspects, I resonate with Oddisee's profound exploration of existence through this singular line.</content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="reflection" /><category term="life" /><summary type="html">Oddisee, a Sudanese-American producer/MC from Washington D.C, has consistently been a favorite rapper/producer of mine over the years, and &quot;Own Appeal&quot; is undeniably one of his standout works. Lately, I've found myself dwelling on the opening line, &quot;I never asked to be born, and death's no question.&quot; Today, I finally put pen to paper to share my thoughts on what this line means to me.</summary></entry><entry><title type="html">Building a Web Assembly powered password generator</title><link href="https://collinsmuriuki.xyz/wasm-tutorial/" rel="alternate" type="text/html" title="Building a Web Assembly powered password generator" /><published>2020-10-24T22:44:00+03:00</published><updated>2020-10-24T22:44:00+03:00</updated><id>https://collinsmuriuki.xyz/wasm-tutorial</id><content type="html" xml:base="https://collinsmuriuki.xyz/wasm-tutorial/">&lt;h1 id=&quot;building-a-web-assembly-powered-password-generator-with-rust-and-react&quot;&gt;Building a Web Assembly-powered Password Generator with Rust and React&lt;/h1&gt;
+&lt;p&gt;In summary, WebRTC data channels are ideal for peer-to-peer communication within browsers, while WebSockets offer a more general-purpose solution for real-time communication with the help of a centralized server. The choice between them depends on the specific requirements and use cases of your application. Understanding their differences will empower you to make informed decisions when implementing real-time communication features.&lt;/p&gt;</content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="javascript" /><category term="browsers" /><category term="webrtc" /><category term="websockets" /><summary type="html">Introduction WebRTC (Web Real-Time Communication) data channels and WebSockets are both powerful technologies that enable real-time communication between clients and servers (or other clients) to enable transfer of arbitrary data. However, they have distinct characteristics and use cases. In this blog post, we’ll delve into the key differences between WebRTC data channels and WebSockets, providing code snippets for better understanding.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/string-telephone-ai-generated.jpeg" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/string-telephone-ai-generated.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Web Assembly powered password generator</title><link href="https://collinsmuriuki.xyz/wasm-tutorial/" rel="alternate" type="text/html" title="Building a Web Assembly powered password generator" /><published>2020-10-24T22:44:00+03:00</published><updated>2020-10-24T22:44:00+03:00</updated><id>https://collinsmuriuki.xyz/wasm-tutorial</id><content type="html" xml:base="https://collinsmuriuki.xyz/wasm-tutorial/">&lt;h1 id=&quot;building-a-web-assembly-powered-password-generator-with-rust-and-react&quot;&gt;Building a Web Assembly-powered Password Generator with Rust and React&lt;/h1&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
