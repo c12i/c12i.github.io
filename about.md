@@ -13,17 +13,19 @@ I'm a software engineer with over five years of experience building scalable bac
 Outside of work, you'll find me training Brazilian Jiu-Jitsu, exploring self-hosted tools, or tinkering with side projects that bridge code and creativity. I care deeply about thoughtful design, well-tested code, and using technology to make systems more fair and accessible.
 </p>
 
+---
+
 <em>Online, I go by the alias <a href="https://c12i.xyz" target="_blank"><code>c12i</code></a>, short for Collins Muriuki.</em>
 
-<h2>What I work with</h2>
+<!-- <h2>What I work with</h2> -->
 
-<ul class="skill-list">
-	<li>Rust</li>
-	<li>Python</li>
-	<li>JavaScript / TypeScript</li>
-	<li>Golang</li>
-	<li>Docker / Swarm / Kubernetes / Terraform</li>
-	<li>TCP / HTTP / REST / GraphQL / RPC / WebSockets / WebRTC</li>
-	<li>Postgres / MySQL / Redis</li>
-    <li>WebAssembly</li>
-</ul>
+<!-- <ul class="skill-list"> -->
+<!-- 	<li>Rust</li> -->
+<!-- 	<li>Python</li> -->
+<!-- 	<li>JavaScript / TypeScript</li> -->
+<!-- 	<li>Golang</li> -->
+<!-- 	<li>Docker / Swarm / Kubernetes / Terraform</li> -->
+<!-- 	<li>TCP / HTTP / REST / GraphQL / RPC / WebSockets / WebRTC</li> -->
+<!-- 	<li>Postgres / MySQL / Redis</li> -->
+<!--     <li>WebAssembly</li> -->
+<!-- </ul> -->
