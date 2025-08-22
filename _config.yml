@@ -1,6 +1,6 @@
 # main text of home
 name: Collins Muriuki
-bio: Developer | Tinkerer | Learner
+bio:
 
 # twitter summary info
 description: Understanding the universe and explaining it to a three year old.
@@ -30,8 +30,8 @@ permalink: /:title/
 
 # if you don't want comments in your posts, leave categories empty
 disqus:
-  shortname: https-muriuki-dev # enter this from your disqus account
-  categories: [blog] # only show disqus for posts that have these categories
+    shortname: https-muriuki-dev # enter this from your disqus account
+    categories: [blog] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
 # facebook: myfacebook
@@ -54,12 +54,12 @@ keybase: collinsmuriuki
 email: hello@collinsmuriuki.xyz
 
 authors:
-  collinsmuriuki:
-    name: Collins Muriuki
-    bio: Understanding the universe and explaining it to a three year old.
-    external-image: false
-    picture: assets/images/profile.jpg
-    twitter: c12i_
+    collinsmuriuki:
+        name: Collins Muriuki
+        bio: Understanding the universe and explaining it to a three year old.
+        external-image: false
+        picture: assets/images/profile.jpg
+        twitter: c12i_
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
@@ -68,11 +68,11 @@ width: normal
 
 # if you do/don't need pagination, toggle 'enabled' between true/false below
 pagination:
-  enabled: true
-  sort_reverse: true # display recent posts first
-  title: ":title" # Changing this will mess up the header display logic
-  per_page: 5
-  permalink: "/:num/" # pagination link that will be appended
+    enabled: true
+    sort_reverse: true # display recent posts first
+    title: ":title" # Changing this will mess up the header display logic
+    per_page: 5
+    permalink: "/:num/" # pagination link that will be appended
 
 # if you don't need projects, comment the *projects* configs below
 projects: false
@@ -101,39 +101,39 @@ animation: true
 
 # add default values to specific pages or layouts
 defaults:
-  - scope:
-      path: "" # an empty string here means all files in the project
-      layout: "post"
-    values:
-      # setting all post to not hidden by default,
-      # can be overridden in the front matter for a specific post
-      hidden: false
+    - scope:
+          path: "" # an empty string here means all files in the project
+          layout: "post"
+      values:
+          # setting all post to not hidden by default,
+          # can be overridden in the front matter for a specific post
+          hidden: false
 
 plugins:
-  - jekyll-seo-tag
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-  - jekyll-admin
-  - jekyll-paginate-v2
+    - jekyll-seo-tag
+    - jekyll-gist
+    - jekyll-feed
+    - jemoji
+    - jekyll-admin
+    - jekyll-paginate-v2
 
 jekyll-mentions:
-  base_url: https://github.com
+    base_url: https://github.com
 
 compress_html:
-  ignore:
-    envs:
-      - development
-      - stage
+    ignore:
+        envs:
+            - development
+            - stage
 
 exclude:
-  [
-    "travis.sh",
-    "README.md",
-    "Gemfile",
-    "Gemfile.lock",
-    "FAQ.md",
-    "node_modules",
-    "vendor",
-    "sync.sh"
-  ]
+    [
+        "travis.sh",
+        "README.md",
+        "Gemfile",
+        "Gemfile.lock",
+        "FAQ.md",
+        "node_modules",
+        "vendor",
+        "sync.sh",
+    ]
