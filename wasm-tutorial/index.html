@@ -10,7 +10,7 @@
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Building a Web Assembly powered password generator | Collins Muriuki</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Building a Web Assembly powered password generator" />
 <meta name="author" content="collinsmuriuki" />
 <meta property="og:locale" content="en_US" />
@@ -623,7 +623,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     <span class="k">let</span> <span class="k">mut</span> <span class="n">rng</span> <span class="o">=</span> <span class="nn">rand</span><span class="p">::</span><span class="nf">thread_rng</span><span class="p">();</span>
 
     <span class="k">let</span> <span class="n">password</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">len</span><span class="p">)</span>
-        <span class="nf">.map</span><span class="p">(|</span><span class="mi">_</span><span class="p">|</span> <span class="p">{</span>
+        <span class="nf">.map</span><span class="p">(|</span><span class="n">_</span><span class="p">|</span> <span class="p">{</span>
             <span class="k">let</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">rng</span><span class="nf">.gen_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CHARSET</span><span class="nf">.len</span><span class="p">());</span>
             <span class="n">CHARSET</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">as</span> <span class="nb">char</span>
         <span class="p">})</span>
@@ -640,7 +640,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[cfg(test)]</span>
 <span class="k">mod</span> <span class="n">tests</span> <span class="p">{</span>
-    <span class="k">use</span> <span class="nn">super</span><span class="p">::</span><span class="n">generate</span><span class="p">;</span>
+    <span class="k">use</span> <span class="k">super</span><span class="p">::</span><span class="n">generate</span><span class="p">;</span>
 
     <span class="nd">#[test]</span>
     <span class="k">fn</span> <span class="nf">test_generate</span><span class="p">()</span> <span class="p">{</span>

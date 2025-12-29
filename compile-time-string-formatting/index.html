@@ -10,7 +10,7 @@
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>The Quest for Compile-Time String Formatting in Rust | Collins Muriuki</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="The Quest for Compile-Time String Formatting in Rust" />
 <meta name="author" content="Collins Muriuki" />
 <meta property="og:locale" content="en_US" />
@@ -547,7 +547,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 <span class="k">const</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
 <span class="k">const</span> <span class="n">COMPATIBLE_VERSION</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
 
-<span class="c">// This doesn't work!</span>
+<span class="c1">// This doesn't work!</span>
 <span class="k">const</span> <span class="n">ABOUT</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
     <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
     <span class="n">TOOL_NAME</span><span class="p">,</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">,</span> <span class="n">COMPATIBLE_VERSION</span>
@@ -556,7 +556,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 <span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
 <span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">ABOUT)]</span>
 <span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
-    <span class="c">// CLI arguments would go here</span>
+    <span class="c1">// CLI arguments would go here</span>
 <span class="p">}</span>
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -631,7 +631,7 @@ error: aborting due to previous error
 <span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
 <span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">env</span><span class="err">!</span><span class="nd">(</span><span class="s">"ABOUT"</span><span class="nd">))]</span>
 <span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
-    <span class="c">// CLI arguments would go here</span>
+    <span class="c1">// CLI arguments would go here</span>
 <span class="p">}</span>
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>

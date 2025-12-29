@@ -1,225 +1,225 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-12-12T12:54:00+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/">&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2025-12-29T22:48:03+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/"><![CDATA[<h1 id="motivation">Motivation</h1>
 
-&lt;p&gt;I built bunge-bits out of frustration. Kenya’s National Assembly and Senate regularly livestream their proceedings, but these sessions are long, often poorly indexed, and inaccessible to most people. The average citizen doesn’t have the time, or bandwidth, to sit through up to five-hour videos of parliamentary debates. Most people end up relying on the media to highlight key moments, often missing the full context or nuance.&lt;/p&gt;
+<p>I built bunge-bits out of frustration. Kenya’s National Assembly and Senate regularly livestream their proceedings, but these sessions are long, often poorly indexed, and inaccessible to most people. The average citizen doesn’t have the time, or bandwidth, to sit through up to five-hour videos of parliamentary debates. Most people end up relying on the media to highlight key moments, often missing the full context or nuance.</p>
 
-&lt;p&gt;At the same time, Kenya is experiencing a generational shift. Young people are increasingly vocal about governance, public spending, and corruption. I wanted to contribute something tangible to that movement, something that makes civic discussions more transparent, digestible, and shareable.&lt;/p&gt;
+<p>At the same time, Kenya is experiencing a generational shift. Young people are increasingly vocal about governance, public spending, and corruption. I wanted to contribute something tangible to that movement, something that makes civic discussions more transparent, digestible, and shareable.</p>
 
-&lt;p&gt;Bunge Bits is my attempt to bridge that gap: an AI-powered pipeline that listens to Parliament so citizens don’t have to, and summarizes the highlights in plain markdown.&lt;/p&gt;
+<p>Bunge Bits is my attempt to bridge that gap: an AI-powered pipeline that listens to Parliament so citizens don’t have to, and summarizes the highlights in plain markdown.</p>
 
-&lt;h1 id=&quot;the-stack&quot;&gt;The Stack&lt;/h1&gt;
+<h1 id="the-stack">The Stack</h1>
 
-&lt;p&gt;This project leans heavily on modern AI tools and a reliable Rust backbone:&lt;/p&gt;
+<p>This project leans heavily on modern AI tools and a reliable Rust backbone:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rust&lt;/code&gt;: For performance, error handling, and concurrency.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yt-dlp&lt;/code&gt;: To fetch livestream recordings from YouTube.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ffmpeg&lt;/code&gt;: For slicing audio into manageable chunks.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenAI Whisper&lt;/code&gt;: To transcribe spoken audio to text.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPT-4&lt;/code&gt;: To summarize transcripts into clear, structured markdown.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Postgres&lt;/code&gt;: For storing metadata and summaries.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cron jobs&lt;/code&gt;: For scheduling runs and cleaning up old artifacts.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Rust</code>: For performance, error handling, and concurrency.</li>
+  <li><code class="language-plaintext highlighter-rouge">yt-dlp</code>: To fetch livestream recordings from YouTube.</li>
+  <li><code class="language-plaintext highlighter-rouge">ffmpeg</code>: For slicing audio into manageable chunks.</li>
+  <li><code class="language-plaintext highlighter-rouge">OpenAI Whisper</code>: To transcribe spoken audio to text.</li>
+  <li><code class="language-plaintext highlighter-rouge">GPT-4</code>: To summarize transcripts into clear, structured markdown.</li>
+  <li><code class="language-plaintext highlighter-rouge">Postgres</code>: For storing metadata and summaries.</li>
+  <li><code class="language-plaintext highlighter-rouge">Cron jobs</code>: For scheduling runs and cleaning up old artifacts.</li>
+</ul>
 
-&lt;p&gt;Here’s how data flows through the system:&lt;/p&gt;
+<p>Here’s how data flows through the system:</p>
 
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;/assets/images/bunge-bits-pipeline.png&quot; alt=&quot;bunge-bits Pipeline Diagram&quot; width=&quot;200&quot; /&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="/assets/images/bunge-bits-pipeline.png" alt="bunge-bits Pipeline Diagram" width="200" />
+</p>
 
-&lt;h1 id=&quot;engineering-challenges&quot;&gt;Engineering Challenges&lt;/h1&gt;
+<h1 id="engineering-challenges">Engineering Challenges</h1>
 
-&lt;p&gt;Some parts of this were painful:&lt;/p&gt;
+<p>Some parts of this were painful:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Whisper often mangled Kenyan names: “John Mbadi” became “John Birdy”, and it only got worse with native pronunciations.&lt;/li&gt;
-  &lt;li&gt;Bad transcriptions created hallucinated summaries: GPT-4 would fill in gaps with confident nonsense.&lt;/li&gt;
-  &lt;li&gt;OpenAI context limits: Long transcripts could easily exceed GPT’s token window, making summarization error-prone or impossible.&lt;/li&gt;
-  &lt;li&gt;Multiple streams per day: My VPS filled up fast with raw audio and transcripts.&lt;/li&gt;
-  &lt;li&gt;Chunk order and retries: Ensuring chunks were in sequence and retried correctly took careful design.&lt;/li&gt;
-  &lt;li&gt;Summary formatting: I needed markdown output with clean headings, bullets, and time-stamped key moments.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Whisper often mangled Kenyan names: “John Mbadi” became “John Birdy”, and it only got worse with native pronunciations.</li>
+  <li>Bad transcriptions created hallucinated summaries: GPT-4 would fill in gaps with confident nonsense.</li>
+  <li>OpenAI context limits: Long transcripts could easily exceed GPT’s token window, making summarization error-prone or impossible.</li>
+  <li>Multiple streams per day: My VPS filled up fast with raw audio and transcripts.</li>
+  <li>Chunk order and retries: Ensuring chunks were in sequence and retried correctly took careful design.</li>
+  <li>Summary formatting: I needed markdown output with clean headings, bullets, and time-stamped key moments.</li>
+</ul>
 
-&lt;h1 id=&quot;solutions-and-architecture-decisions&quot;&gt;Solutions and Architecture Decisions&lt;/h1&gt;
+<h1 id="solutions-and-architecture-decisions">Solutions and Architecture Decisions</h1>
 
-&lt;p&gt;To tackle these, I made a few key calls:&lt;/p&gt;
+<p>To tackle these, I made a few key calls:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Name mangling and hallucinations: To improve recognition of Kenyan public figures, I enrich GPT-4 prompts with curated lists of MPs, Senators, and Cabinet Secretaries. This leverages both GPT’s internal knowledge and its ability to ground responses via web search, reducing hallucinations and transcription errors.&lt;/li&gt;
-  &lt;li&gt;System/user prompt separation: This helps enforce markdown formatting, avoid emojis, and ensure consistent structure.&lt;/li&gt;
-  &lt;li&gt;Linear, contextual summarization pipeline: This was the biggest challenge. To avoid exceeding OpenAI’s context window, I chunk transcripts and summarize each piece separately, feeding each new summary back in as context for the next. The final output is then stitched together in a “combine” step. This closure-based approach let me scale summaries without blowing the token limit.&lt;/li&gt;
-  &lt;li&gt;Batching via cron: The job runs every 12 hours, fetching and processing only new streams. To conserve storage on the VPS, each run processes a fixed number of unprocessed streams (currently capped at 3), prioritized by upload date. This prevents overload during periods of high parliamentary activity.&lt;/li&gt;
-  &lt;li&gt;Separate cron for cleanup: A lightweight system cron wipes old audio/transcripts after processing to avoid disk bloat.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Name mangling and hallucinations: To improve recognition of Kenyan public figures, I enrich GPT-4 prompts with curated lists of MPs, Senators, and Cabinet Secretaries. This leverages both GPT’s internal knowledge and its ability to ground responses via web search, reducing hallucinations and transcription errors.</li>
+  <li>System/user prompt separation: This helps enforce markdown formatting, avoid emojis, and ensure consistent structure.</li>
+  <li>Linear, contextual summarization pipeline: This was the biggest challenge. To avoid exceeding OpenAI’s context window, I chunk transcripts and summarize each piece separately, feeding each new summary back in as context for the next. The final output is then stitched together in a “combine” step. This closure-based approach let me scale summaries without blowing the token limit.</li>
+  <li>Batching via cron: The job runs every 12 hours, fetching and processing only new streams. To conserve storage on the VPS, each run processes a fixed number of unprocessed streams (currently capped at 3), prioritized by upload date. This prevents overload during periods of high parliamentary activity.</li>
+  <li>Separate cron for cleanup: A lightweight system cron wipes old audio/transcripts after processing to avoid disk bloat.</li>
+</ul>
 
-&lt;h1 id=&quot;whats-next&quot;&gt;What’s Next&lt;/h1&gt;
+<h1 id="whats-next">What’s Next</h1>
 
-&lt;p&gt;There’s a lot more I want to do (in order of priority):&lt;/p&gt;
+<p>There’s a lot more I want to do (in order of priority):</p>
 
-&lt;ul&gt;
-  &lt;li&gt;A public UI where users can browse summaries and filter by topic or MP.&lt;/li&gt;
-  &lt;li&gt;Automatic timestamp injection for key moments (e.g. heated debates, bill passages, speaker interventions) to make summaries easier to navigate — this is a planned feature.&lt;/li&gt;
-  &lt;li&gt;The repo is already open source, but I plan to apply for OpenAI credits, civic tech grants, or journalism fellowships to fund ongoing compute and infrastructure costs.&lt;/li&gt;
-  &lt;li&gt;Eventually, I’d love to collaborate with civil society groups, media houses, or transparency orgs to expand its reach.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>A public UI where users can browse summaries and filter by topic or MP.</li>
+  <li>Automatic timestamp injection for key moments (e.g. heated debates, bill passages, speaker interventions) to make summaries easier to navigate — this is a planned feature.</li>
+  <li>The repo is already open source, but I plan to apply for OpenAI credits, civic tech grants, or journalism fellowships to fund ongoing compute and infrastructure costs.</li>
+  <li>Eventually, I’d love to collaborate with civil society groups, media houses, or transparency orgs to expand its reach.</li>
+</ul>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/c12i/bunge-bits&quot;&gt;View the code on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Rust" /><category term="AI" /><category term="CivicTech" /><category term="Kenya" /><category term="GPT-4" /><category term="Whisper" /><summary type="html">Motivation</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Quest for Compile-Time String Formatting in Rust</title><link href="https://collinsmuriuki.xyz/compile-time-string-formatting/" rel="alternate" type="text/html" title="The Quest for Compile-Time String Formatting in Rust" /><published>2024-09-01T02:30:00+03:00</published><updated>2024-09-01T02:30:00+03:00</updated><id>https://collinsmuriuki.xyz/compile-time-string-formatting</id><content type="html" xml:base="https://collinsmuriuki.xyz/compile-time-string-formatting/">&lt;p&gt;Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clap&lt;/code&gt; derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;about&lt;/code&gt; attribute to show compatibility information, and Rust isn’t playing ball.&lt;/p&gt;
+<p><a href="https://github.com/c12i/bunge-bits">View the code on GitHub</a></p>]]></content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Rust" /><category term="AI" /><category term="CivicTech" /><category term="Kenya" /><category term="GPT-4" /><category term="Whisper" /><summary type="html"><![CDATA[A deep dive into how I used Rust, Whisper, and GPT-4 to build a reliable AI pipeline that summarizes livestreams of Kenya’s Parliament, making civic proceedings more accessible to everyday citizens.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/bunge-bits.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Quest for Compile-Time String Formatting in Rust</title><link href="https://collinsmuriuki.xyz/compile-time-string-formatting/" rel="alternate" type="text/html" title="The Quest for Compile-Time String Formatting in Rust" /><published>2024-09-01T02:30:00+03:00</published><updated>2024-09-01T02:30:00+03:00</updated><id>https://collinsmuriuki.xyz/compile-time-string-formatting</id><content type="html" xml:base="https://collinsmuriuki.xyz/compile-time-string-formatting/"><![CDATA[<p>Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your <code class="language-plaintext highlighter-rouge">clap</code> derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your <code class="language-plaintext highlighter-rouge">about</code> attribute to show compatibility information, and Rust isn’t playing ball.</p>
 
-&lt;p&gt;Welcome to Rust, where safety and zero-cost abstractions reign supreme, but sometimes the simplest tasks can become unexpected challenges.&lt;/p&gt;
+<p>Welcome to Rust, where safety and zero-cost abstractions reign supreme, but sometimes the simplest tasks can become unexpected challenges.</p>
 
-&lt;h2 id=&quot;the-problem-rusts-compile-time-conundrum&quot;&gt;The Problem: Rust’s Compile-Time Conundrum&lt;/h2&gt;
+<h2 id="the-problem-rusts-compile-time-conundrum">The Problem: Rust’s Compile-Time Conundrum</h2>
 
-&lt;p&gt;Why can’t Rust handle simple string concatenation at compile time? Well, it’s not as straightforward as you might think.&lt;/p&gt;
+<p>Why can’t Rust handle simple string concatenation at compile time? Well, it’s not as straightforward as you might think.</p>
 
-&lt;p&gt;Let’s look at an example that seems like it should work, but doesn’t:&lt;/p&gt;
+<p>Let’s look at an example that seems like it should work, but doesn’t:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;clap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">clap</span><span class="p">::</span><span class="n">Parser</span><span class="p">;</span>
 
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TOOL_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SuperTool&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_CRATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AwesomeDependency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_VERSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1.2.3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<span class="k">const</span> <span class="n">TOOL_NAME</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">COMPATIBLE_VERSION</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
 
-&lt;span class=&quot;c&quot;&gt;// This doesn't work!&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ABOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;format!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;{} - Compatible with {} version {}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TOOL_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_CRATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_VERSION&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+<span class="c1">// This doesn't work!</span>
+<span class="k">const</span> <span class="n">ABOUT</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
+    <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
+    <span class="n">TOOL_NAME</span><span class="p">,</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">,</span> <span class="n">COMPATIBLE_VERSION</span>
+<span class="p">);</span>
 
-&lt;span class=&quot;nd&quot;&gt;#[derive(Parser,&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;Debug)]&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;#[command(author&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Alice&quot;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;version,&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;about&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;ABOUT)]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Cli&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;// CLI arguments would go here&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
+<span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">ABOUT)]</span>
+<span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
+    <span class="c1">// CLI arguments would go here</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;println!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{:?}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">args</span> <span class="o">=</span> <span class="nn">Cli</span><span class="p">::</span><span class="nf">parse</span><span class="p">();</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Try to compile this, and Rust responds with an error:&lt;/p&gt;
+<p>Try to compile this, and Rust responds with an error:</p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;error[E0015]: calls in constants are limited to constant functions, tuple structs and tuple variants
- --&amp;gt; src/main.rs:8:21
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error[E0015]: calls in constants are limited to constant functions, tuple structs and tuple variants
+ --&gt; src/main.rs:8:21
   |
 8 | const ABOUT: String = format!(
   |                       ^^^^^^ ...
 
 error: aborting due to previous error
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;format!&lt;/code&gt; macro, usually so helpful for string formatting, suddenly becomes unavailable in the compile-time context.&lt;/p&gt;
+<p>The <code class="language-plaintext highlighter-rouge">format!</code> macro, usually so helpful for string formatting, suddenly becomes unavailable in the compile-time context.</p>
 
-&lt;p&gt;Rust’s const evaluation capabilities, while continuously improving, still have limitations. The language designers have prioritized other features, leaving compile-time string formatting as a challenge to overcome.&lt;/p&gt;
+<p>Rust’s const evaluation capabilities, while continuously improving, still have limitations. The language designers have prioritized other features, leaving compile-time string formatting as a challenge to overcome.</p>
 
-&lt;h2 id=&quot;the-solution-leveraging-crates&quot;&gt;The Solution: Leveraging Crates&lt;/h2&gt;
+<h2 id="the-solution-leveraging-crates">The Solution: Leveraging Crates</h2>
 
-&lt;p&gt;Fortunately, the Rust ecosystem provides solutions. One such solution is the &lt;a href=&quot;https://docs.rs/const_format/latest/const_format/index.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;const_format&lt;/code&gt;&lt;/a&gt; crate, which allows for compile-time string formatting.&lt;/p&gt;
+<p>Fortunately, the Rust ecosystem provides solutions. One such solution is the <a href="https://docs.rs/const_format/latest/const_format/index.html"><code class="language-plaintext highlighter-rouge">const_format</code></a> crate, which allows for compile-time string formatting.</p>
 
-&lt;p&gt;With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;const_format&lt;/code&gt;, you can write:&lt;/p&gt;
+<p>With <code class="language-plaintext highlighter-rouge">const_format</code>, you can write:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;const_format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;formatcp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">const_format</span><span class="p">::</span><span class="n">formatcp</span><span class="p">;</span>
 
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TOOL_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SuperTool&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_CRATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AwesomeDependency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_VERSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1.2.3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ABOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;formatcp!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;{} - Compatible with {} version {}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TOOL_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_CRATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMPATIBLE_VERSION&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="k">const</span> <span class="n">TOOL_NAME</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">COMPATIBLE_VERSION</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">ABOUT</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="nd">formatcp!</span><span class="p">(</span>
+    <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
+    <span class="n">TOOL_NAME</span><span class="p">,</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">,</span> <span class="n">COMPATIBLE_VERSION</span>
+<span class="p">);</span>
+</code></pre></div></div>
 
-&lt;p&gt;This approach gives us the compile-time string formatting we need.&lt;/p&gt;
+<p>This approach gives us the compile-time string formatting we need.</p>
 
-&lt;h2 id=&quot;an-alternative-build-scripts&quot;&gt;An Alternative: Build Scripts&lt;/h2&gt;
+<h2 id="an-alternative-build-scripts">An Alternative: Build Scripts</h2>
 
-&lt;p&gt;There’s another way to achieve compile-time string formatting without additional crates: build scripts and environment variables.&lt;/p&gt;
+<p>There’s another way to achieve compile-time string formatting without additional crates: build scripts and environment variables.</p>
 
-&lt;p&gt;By using a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build.rs&lt;/code&gt; file, we can generate our formatted strings at compile time and pass them to our main code as environment variables. Here’s how:&lt;/p&gt;
+<p>By using a <code class="language-plaintext highlighter-rouge">build.rs</code> file, we can generate our formatted strings at compile time and pass them to our main code as environment variables. Here’s how:</p>
 
-&lt;ol&gt;
-  &lt;li&gt;Create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build.rs&lt;/code&gt; file in your project root:&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li>Create a <code class="language-plaintext highlighter-rouge">build.rs</code> file in your project root:</li>
+</ol>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tool_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SuperTool&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compatible_crate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AwesomeDependency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compatible_version&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1.2.3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;about&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;format!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&quot;{} - Compatible with {} version {}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;tool_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compatible_crate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compatible_version&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">tool_name</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">compatible_crate</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">compatible_version</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">about</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
+        <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
+        <span class="n">tool_name</span><span class="p">,</span> <span class="n">compatible_crate</span><span class="p">,</span> <span class="n">compatible_version</span>
+    <span class="p">);</span>
 
-    &lt;span class=&quot;nd&quot;&gt;println!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cargo:rustc-env=ABOUT={}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;about&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"cargo:rustc-env=ABOUT={}"</span><span class="p">,</span> <span class="n">about</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;ol&gt;
-  &lt;li&gt;In your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.rs&lt;/code&gt;, use the environment variable:&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li>In your <code class="language-plaintext highlighter-rouge">main.rs</code>, use the environment variable:</li>
+</ol>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;clap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">clap</span><span class="p">::</span><span class="n">Parser</span><span class="p">;</span>
 
-&lt;span class=&quot;nd&quot;&gt;#[derive(Parser,&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;Debug)]&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;#[command(author&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Alice&quot;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;version,&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;about&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ABOUT&quot;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;))]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Cli&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;// CLI arguments would go here&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
+<span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">env</span><span class="err">!</span><span class="nd">(</span><span class="s">"ABOUT"</span><span class="nd">))]</span>
+<span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
+    <span class="c1">// CLI arguments would go here</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;println!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{:?}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">args</span> <span class="o">=</span> <span class="nn">Cli</span><span class="p">::</span><span class="nf">parse</span><span class="p">();</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;This method allows us to perform the string formatting during the build process and inject the result into our main code.&lt;/p&gt;
+<p>This method allows us to perform the string formatting during the build process and inject the result into our main code.</p>
 
-&lt;h2 id=&quot;lessons-learned&quot;&gt;Lessons Learned&lt;/h2&gt;
+<h2 id="lessons-learned">Lessons Learned</h2>
 
-&lt;p&gt;This journey through compile-time string formatting in Rust teaches us a few valuable lessons:&lt;/p&gt;
+<p>This journey through compile-time string formatting in Rust teaches us a few valuable lessons:</p>
 
-&lt;ol&gt;
-  &lt;li&gt;Rust prioritizes safety and performance, sometimes at the cost of convenience.&lt;/li&gt;
-  &lt;li&gt;The Rust ecosystem often provides solutions for language limitations.&lt;/li&gt;
-  &lt;li&gt;Build scripts are powerful tools that can help overcome certain restrictions.&lt;/li&gt;
-  &lt;li&gt;Sometimes, the simplest solutions (like using environment variables) can solve complex problems.&lt;/li&gt;
-  &lt;li&gt;With some creativity, we can usually find a way around language limitations.&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li>Rust prioritizes safety and performance, sometimes at the cost of convenience.</li>
+  <li>The Rust ecosystem often provides solutions for language limitations.</li>
+  <li>Build scripts are powerful tools that can help overcome certain restrictions.</li>
+  <li>Sometimes, the simplest solutions (like using environment variables) can solve complex problems.</li>
+  <li>With some creativity, we can usually find a way around language limitations.</li>
+</ol>
 
-&lt;p&gt;While Rust may not support compile-time formatting out of the box, we have multiple ways to achieve our goals. Whether it’s through community-created crates or clever use of build scripts, Rust developers always find a way forward.&lt;/p&gt;</content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="rust" /><category term="programming" /><category term="cli" /><category term="compile-time" /><category term="string-formatting" /><summary type="html">Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your clap derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your about attribute to show compatibility information, and Rust isn’t playing ball.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Web Assembly powered password generator</title><link href="https://collinsmuriuki.xyz/wasm-tutorial/" rel="alternate" type="text/html" title="Building a Web Assembly powered password generator" /><published>2020-10-24T22:44:00+03:00</published><updated>2020-10-24T22:44:00+03:00</updated><id>https://collinsmuriuki.xyz/wasm-tutorial</id><content type="html" xml:base="https://collinsmuriuki.xyz/wasm-tutorial/">&lt;h1 id=&quot;building-a-web-assembly-powered-password-generator-with-rust-and-react&quot;&gt;Building a Web Assembly-powered Password Generator with Rust and React&lt;/h1&gt;
+<p>While Rust may not support compile-time formatting out of the box, we have multiple ways to achieve our goals. Whether it’s through community-created crates or clever use of build scripts, Rust developers always find a way forward.</p>]]></content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="rust" /><category term="programming" /><category term="cli" /><category term="compile-time" /><category term="string-formatting" /><summary type="html"><![CDATA[Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/rust-crab.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Web Assembly powered password generator</title><link href="https://collinsmuriuki.xyz/wasm-tutorial/" rel="alternate" type="text/html" title="Building a Web Assembly powered password generator" /><published>2020-10-24T22:44:00+03:00</published><updated>2020-10-24T22:44:00+03:00</updated><id>https://collinsmuriuki.xyz/wasm-tutorial</id><content type="html" xml:base="https://collinsmuriuki.xyz/wasm-tutorial/"><![CDATA[<h1 id="building-a-web-assembly-powered-password-generator-with-rust-and-react">Building a Web Assembly-powered Password Generator with Rust and React</h1>
 
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<h2 id="introduction">Introduction</h2>
 
-&lt;p&gt;In this tutorial, we will explore the fascinating intersection of Rust, Web Assembly (Wasm), and React by building a simple password generator. We’ll leverage the speed and performance benefits of Rust, compile it into Wasm, and seamlessly integrate it into a React application. By the end of this project, you’ll have a clear understanding of how these technologies work together.&lt;/p&gt;
+<p>In this tutorial, we will explore the fascinating intersection of Rust, Web Assembly (Wasm), and React by building a simple password generator. We’ll leverage the speed and performance benefits of Rust, compile it into Wasm, and seamlessly integrate it into a React application. By the end of this project, you’ll have a clear understanding of how these technologies work together.</p>
 
-&lt;h2 id=&quot;why-rust-and-web-assembly&quot;&gt;Why Rust and Web Assembly?&lt;/h2&gt;
+<h2 id="why-rust-and-web-assembly">Why Rust and Web Assembly?</h2>
 
-&lt;p&gt;Web Assembly is a low-level virtual machine that allows executing code at near-native speeds within web browsers. Rust, known for its speed and memory safety, is an ideal language for Wasm. Unlike high-level languages like JavaScript, Rust provides developers with low-level control and reliable performance, making it an excellent choice for Wasm.&lt;/p&gt;
+<p>Web Assembly is a low-level virtual machine that allows executing code at near-native speeds within web browsers. Rust, known for its speed and memory safety, is an ideal language for Wasm. Unlike high-level languages like JavaScript, Rust provides developers with low-level control and reliable performance, making it an excellent choice for Wasm.</p>
 
-&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+<h2 id="prerequisites">Prerequisites</h2>
 
-&lt;p&gt;Before we dive into the project, ensure you have the following tools and knowledge:&lt;/p&gt;
+<p>Before we dive into the project, ensure you have the following tools and knowledge:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Rust and Cargo: Install them using &lt;a href=&quot;https://www.rust-lang.org/tools/install&quot;&gt;this link&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;wasm-pack: A tool for building and working with Rust-generated Web Assembly. Install it &lt;a href=&quot;https://rustwasm.github.io/wasm-pack/installer/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Node.js: Required for React development. Install it from &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;nodejs.org&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Basic knowledge of Rust and JavaScript/React.js.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Rust and Cargo: Install them using <a href="https://www.rust-lang.org/tools/install">this link</a>.</li>
+  <li>wasm-pack: A tool for building and working with Rust-generated Web Assembly. Install it <a href="https://rustwasm.github.io/wasm-pack/installer/">here</a>.</li>
+  <li>Node.js: Required for React development. Install it from <a href="https://nodejs.org/en/">nodejs.org</a>.</li>
+  <li>Basic knowledge of Rust and JavaScript/React.js.</li>
+</ul>
 
-&lt;h2 id=&quot;initializing-the-rust-project&quot;&gt;Initializing the Rust Project&lt;/h2&gt;
+<h2 id="initializing-the-rust-project">Initializing the Rust Project</h2>
 
-&lt;p&gt;Let’s start by creating a new Rust Web Assembly project using the following command:&lt;/p&gt;
+<p>Let’s start by creating a new Rust Web Assembly project using the following command:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wasm-pack new wasm_pass
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wasm-pack new wasm_pass
+</code></pre></div></div>
 
-&lt;p&gt;This command generates a Rust library crate with Web Assembly support. The crucial files are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cargo.toml&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src/lib.rs&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src/utils.rs&lt;/code&gt;.&lt;/p&gt;
+<p>This command generates a Rust library crate with Web Assembly support. The crucial files are <code class="language-plaintext highlighter-rouge">Cargo.toml</code>, <code class="language-plaintext highlighter-rouge">src/lib.rs</code>, and <code class="language-plaintext highlighter-rouge">src/utils.rs</code>.</p>
 
-&lt;h2 id=&quot;dissecting-the-boilerplate&quot;&gt;Dissecting the Boilerplate&lt;/h2&gt;
+<h2 id="dissecting-the-boilerplate">Dissecting the Boilerplate</h2>
 
-&lt;p&gt;Explore the generated project structure:&lt;/p&gt;
+<p>Explore the generated project structure:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wasm_pass/
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wasm_pass/
 ├── Cargo.toml
 ├── LICENSE_APACHE
 ├── LICENSE_MIT
@@ -227,217 +227,217 @@ error: aborting due to previous error
 └── src
     ├── lib.rs
     └── utils.rs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Cargo.toml&lt;/strong&gt;: Contains project dependencies and metadata.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;lib.rs&lt;/strong&gt;: The root of the crate, compiled into Web Assembly.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;utils.rs&lt;/strong&gt;: Includes debugging utilities (not used in this project).&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><strong>Cargo.toml</strong>: Contains project dependencies and metadata.</li>
+  <li><strong>lib.rs</strong>: The root of the crate, compiled into Web Assembly.</li>
+  <li><strong>utils.rs</strong>: Includes debugging utilities (not used in this project).</li>
+</ul>
 
-&lt;h2 id=&quot;initial-build&quot;&gt;Initial Build&lt;/h2&gt;
+<h2 id="initial-build">Initial Build</h2>
 
-&lt;p&gt;Build the project using:&lt;/p&gt;
+<p>Build the project using:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wasm-pack build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wasm-pack build
+</code></pre></div></div>
 
-&lt;p&gt;This creates a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkg&lt;/code&gt; directory with the following artifacts:&lt;/p&gt;
+<p>This creates a <code class="language-plaintext highlighter-rouge">pkg</code> directory with the following artifacts:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pkg/
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pkg/
 ├── package.json
 ├── README.md
 ├── wasm_pass.wasm
 ├── wasm_pass.d.ts
 └── wasm_pass.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;These files enable npm integration and contain the compiled Web Assembly code.&lt;/p&gt;
+<p>These files enable npm integration and contain the compiled Web Assembly code.</p>
 
-&lt;h2 id=&quot;writing-rust-code&quot;&gt;Writing Rust Code&lt;/h2&gt;
+<h2 id="writing-rust-code">Writing Rust Code</h2>
 
-&lt;p&gt;Update the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cargo.toml&lt;/code&gt; file to include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rand&lt;/code&gt; crate:&lt;/p&gt;
+<p>Update the <code class="language-plaintext highlighter-rouge">Cargo.toml</code> file to include the <code class="language-plaintext highlighter-rouge">rand</code> crate:</p>
 
-&lt;div class=&quot;language-toml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[dependencies]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;wasm-bindgen&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;0.2.63&quot;&lt;/span&gt;
-&lt;span class=&quot;nn&quot;&gt;rand&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;0.7.3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;features&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;[&quot;wasm-bindgen&quot;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[dependencies]</span>
+<span class="py">wasm-bindgen</span> <span class="p">=</span> <span class="s">"0.2.63"</span>
+<span class="nn">rand</span> <span class="o">=</span> <span class="p">{</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"0.7.3"</span><span class="p">,</span> <span class="py">features</span> <span class="p">=</span> <span class="nn">["wasm-bindgen"]</span> <span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;This adds the random number generation utility to our project. Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cargo build&lt;/code&gt; to download the new dependency.&lt;/p&gt;
+<p>This adds the random number generation utility to our project. Run <code class="language-plaintext highlighter-rouge">cargo build</code> to download the new dependency.</p>
 
-&lt;p&gt;Implement the password generator logic in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src/lib.rs&lt;/code&gt;:&lt;/p&gt;
+<p>Implement the password generator logic in <code class="language-plaintext highlighter-rouge">src/lib.rs</code>:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;wasm_bindgen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;prelude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">wasm_bindgen</span><span class="p">::</span><span class="nn">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">rand</span><span class="p">::</span><span class="n">Rng</span><span class="p">;</span>
 
-&lt;span class=&quot;nd&quot;&gt;#[wasm_bindgen]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;usize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CHARSET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;u8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;
-                            abcdefghijklmnopqrstuvwxyz&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;
-                            0123456789)(*&amp;amp;^%$#@!~&quot;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.as_bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+<span class="nd">#[wasm_bindgen]</span>
+<span class="k">pub</span> <span class="k">fn</span> <span class="nf">generate</span><span class="p">(</span><span class="n">len</span><span class="p">:</span> <span class="nb">usize</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">CHARSET</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">u8</span><span class="p">]</span> <span class="o">=</span> <span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><span class="err">\</span><span class="s">
+                            abcdefghijklmnopqrstuvwxyz</span><span class="err">\</span><span class="s">
+                            0123456789)(*&amp;^%$#@!~"</span><span class="nf">.as_bytes</span><span class="p">();</span>
 
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mut&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rng&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;thread_rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">rng</span> <span class="o">=</span> <span class="nn">rand</span><span class="p">::</span><span class="nf">thread_rng</span><span class="p">();</span>
 
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;.map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(|&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rng&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.gen_range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CHARSET&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;CHARSET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;.collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+    <span class="k">let</span> <span class="n">password</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">len</span><span class="p">)</span>
+        <span class="nf">.map</span><span class="p">(|</span><span class="n">_</span><span class="p">|</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">rng</span><span class="nf">.gen_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CHARSET</span><span class="nf">.len</span><span class="p">());</span>
+            <span class="n">CHARSET</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">as</span> <span class="nb">char</span>
+        <span class="p">})</span>
+        <span class="nf">.collect</span><span class="p">();</span>
+    <span class="n">password</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;This function generates a random password of the specified length using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rand&lt;/code&gt; crate.&lt;/p&gt;
+<p>This function generates a random password of the specified length using the <code class="language-plaintext highlighter-rouge">rand</code> crate.</p>
 
-&lt;h2 id=&quot;testing-the-code&quot;&gt;Testing the Code&lt;/h2&gt;
+<h2 id="testing-the-code">Testing the Code</h2>
 
-&lt;p&gt;Write a test for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;generate&lt;/code&gt; function in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src/lib.rs&lt;/code&gt;:&lt;/p&gt;
+<p>Write a test for the <code class="language-plaintext highlighter-rouge">generate</code> function in <code class="language-plaintext highlighter-rouge">src/lib.rs</code>:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[cfg(test)]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[cfg(test)]</span>
+<span class="k">mod</span> <span class="n">tests</span> <span class="p">{</span>
+    <span class="k">use</span> <span class="k">super</span><span class="p">::</span><span class="n">generate</span><span class="p">;</span>
 
-    &lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nd&quot;&gt;assert_eq!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">test_generate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">password</span> <span class="o">=</span> <span class="nf">generate</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">password</span><span class="nf">.len</span><span class="p">(),</span> <span class="mi">20</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Run the tests with:&lt;/p&gt;
+<p>Run the tests with:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cargo &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--show-output&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cargo <span class="nb">test</span> <span class="nt">--</span> <span class="nt">--show-output</span>
+</code></pre></div></div>
 
-&lt;p&gt;Ensure the tests pass, confirming the functionality of the password generator.&lt;/p&gt;
+<p>Ensure the tests pass, confirming the functionality of the password generator.</p>
 
-&lt;h2 id=&quot;implementing-web-assembly-in-a-react-app&quot;&gt;Implementing Web Assembly in a React App&lt;/h2&gt;
+<h2 id="implementing-web-assembly-in-a-react-app">Implementing Web Assembly in a React App</h2>
 
-&lt;p&gt;Create a React app in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app&lt;/code&gt; directory:&lt;/p&gt;
+<p>Create a React app in the <code class="language-plaintext highlighter-rouge">app</code> directory:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;app
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;app
-&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;src
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/node_modules&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; .gitignore
-npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>app
+<span class="nb">cd </span>app
+<span class="nb">mkdir </span>src
+<span class="nb">echo</span> <span class="s2">"/node_modules"</span> <span class="o">&gt;</span> .gitignore
+npm init <span class="nt">-y</span>
+</code></pre></div></div>
 
-&lt;p&gt;Install necessary dependencies:&lt;/p&gt;
+<p>Install necessary dependencies:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--save&lt;/span&gt; react react-dom
-npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt; @babel/core @babel/preset-env @babel/preset-react babel-loader webpack webpack-cli webpack-dev-server html-webpack-plugin style-loader css-loader html-loader
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save</span> react react-dom
+npm <span class="nb">install</span> <span class="nt">--save-dev</span> @babel/core @babel/preset-env @babel/preset-react babel-loader webpack webpack-cli webpack-dev-server html-webpack-plugin style-loader css-loader html-loader
+</code></pre></div></div>
 
-&lt;p&gt;Create the React app files: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.html&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.js&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;App.js&lt;/code&gt;. Configure Babel with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt; and Webpack with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webpack.config.js&lt;/code&gt;.&lt;/p&gt;
+<p>Create the React app files: <code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">index.js</code>, and <code class="language-plaintext highlighter-rouge">App.js</code>. Configure Babel with <code class="language-plaintext highlighter-rouge">.babelrc</code> and Webpack with <code class="language-plaintext highlighter-rouge">webpack.config.js</code>.</p>
 
-&lt;p&gt;Finally, run the development server:&lt;/p&gt;
+<p>Finally, run the development server:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm start
+</code></pre></div></div>
 
-&lt;h2 id=&quot;using-the-package-in-react&quot;&gt;Using the Package in React&lt;/h2&gt;
+<h2 id="using-the-package-in-react">Using the Package in React</h2>
 
-&lt;p&gt;Update the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;App.js&lt;/code&gt; file to use the Rust-generated Web Assembly package:&lt;/p&gt;
+<p>Update the <code class="language-plaintext highlighter-rouge">App.js</code> file to use the Rust-generated Web Assembly package:</p>
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useCallback</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setPassword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+<span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">password</span><span class="p">,</span> <span class="nx">setPassword</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">input</span><span class="p">,</span> <span class="nx">setInput</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
 
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handleChange&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;setInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    <span class="kd">const</span> <span class="nx">handleChange</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setInput</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">};</span>
 
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generatePassword&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;wasm-pass&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;setPassword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    <span class="kd">const</span> <span class="nx">generatePassword</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">module</span> <span class="o">=</span> <span class="k">import</span><span class="p">(</span><span class="dl">"</span><span class="s2">wasm-pass</span><span class="dl">"</span><span class="p">)</span>
+        <span class="nx">module</span><span class="p">.</span><span class="nx">then</span><span class="p">(({</span><span class="nx">generate</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">setPassword</span><span class="p">(</span><span class="nx">generate</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">input</span><span class="p">)))</span>
+        <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+        <span class="p">})</span>
+    <span class="p">},</span> <span class="p">[</span><span class="nx">input</span><span class="p">]);</span>
 
-    &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;generatePassword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">generatePassword</span><span class="p">()</span>
+    <span class="p">},</span> <span class="p">[</span><span class="nx">input</span><span class="p">]);</span>
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Enter&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;generatePassword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Generate&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/button&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Your&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;strong&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/strong&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Enter</span> <span class="nx">password</span> <span class="na">length</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">handleChange</span><span class="p">}</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">number</span><span class="dl">"</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">input</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">generatePassword</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Generate</span> <span class="nx">Password</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Your</span> <span class="na">password</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">password</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/strong</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">};</span>
 
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div></div>
 
-&lt;p&gt;This React component allows users to input a password length, click a button, and receive a randomly generated password from the Rust Web Assembly package.&lt;/p&gt;
+<p>This React component allows users to input a password length, click a button, and receive a randomly generated password from the Rust Web Assembly package.</p>
 
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+<h2 id="conclusion">Conclusion</h2>
 
-&lt;p&gt;This tutorial showcases the integration of Rust and Web Assembly in a React application, providing a powerful blend of performance and modern front-end technologies. Explore further resources to deepen your understanding of Rust and Web Assembly:&lt;/p&gt;
+<p>This tutorial showcases the integration of Rust and Web Assembly in a React application, providing a powerful blend of performance and modern front-end technologies. Explore further resources to deepen your understanding of Rust and Web Assembly:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://doc.rust-lang.org/book/&quot;&gt;The Rust Book&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://rustwasm.github.io/docs/book/&quot;&gt;Rust and Web Assembly Book&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://rustwasm.github.io/docs/wasm-bindgen/introduction.html&quot;&gt;wasm-bindgen Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://wasmbyexample.dev/home.en-us.html&quot;&gt;Wasm By Example&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://webassembly.org/&quot;&gt;WebAssembly.org&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><a href="https://doc.rust-lang.org/book/">The Rust Book</a></li>
+  <li><a href="https://rustwasm.github.io/docs/book/">Rust and Web Assembly Book</a></li>
+  <li><a href="https://rustwasm.github.io/docs/wasm-bindgen/introduction.html">wasm-bindgen Documentation</a></li>
+  <li><a href="https://wasmbyexample.dev/home.en-us.html">Wasm By Example</a></li>
+  <li><a href="https://webassembly.org/">WebAssembly.org</a></li>
+</ul>
 
-&lt;p&gt;Check the &lt;a href=&quot;https://wasm-pass.collinsmuriuki.xyz&quot;&gt;full working implementation&lt;/a&gt; of this project for reference. Happy coding!&lt;/p&gt;</content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="rust" /><category term="wasm" /><category term="react.js" /><category term="javascript" /><summary type="html">Building a Web Assembly-powered Password Generator with Rust and React</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/rust-ferris.jpeg" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/rust-ferris.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Optimizing Node.js Memory Allocation for High-Performance Applications</title><link href="https://collinsmuriuki.xyz/node-memory/" rel="alternate" type="text/html" title="Optimizing Node.js Memory Allocation for High-Performance Applications" /><published>2018-05-23T19:00:00+03:00</published><updated>2018-05-23T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/node-memory</id><content type="html" xml:base="https://collinsmuriuki.xyz/node-memory/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<p>Check the <a href="https://wasm-pass.collinsmuriuki.xyz">full working implementation</a> of this project for reference. Happy coding!</p>]]></content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="rust" /><category term="wasm" /><category term="react.js" /><category term="javascript" /><summary type="html"><![CDATA[Building a Web Assembly powered password generator with rust-wasm and React.js.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://collinsmuriuki.xyz/assets/images/rust-ferris.jpeg" /><media:content medium="image" url="https://collinsmuriuki.xyz/assets/images/rust-ferris.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Optimizing Node.js Memory Allocation for High-Performance Applications</title><link href="https://collinsmuriuki.xyz/node-memory/" rel="alternate" type="text/html" title="Optimizing Node.js Memory Allocation for High-Performance Applications" /><published>2018-05-23T19:00:00+03:00</published><updated>2018-05-23T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/node-memory</id><content type="html" xml:base="https://collinsmuriuki.xyz/node-memory/"><![CDATA[<h2 id="introduction">Introduction</h2>
 
-&lt;p&gt;If you’re frequently developing and deploying Node.js applications, encountering the infamous &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed&lt;/code&gt; error is not uncommon. This issue arises particularly when your server engages in memory-intensive tasks, such as handling large data transfers with limited system resources.&lt;/p&gt;
+<p>If you’re frequently developing and deploying Node.js applications, encountering the infamous <code class="language-plaintext highlighter-rouge">FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed</code> error is not uncommon. This issue arises particularly when your server engages in memory-intensive tasks, such as handling large data transfers with limited system resources.</p>
 
-&lt;h2 id=&quot;understanding-the-v8-engine&quot;&gt;Understanding the V8 Engine&lt;/h2&gt;
+<h2 id="understanding-the-v8-engine">Understanding the V8 Engine</h2>
 
-&lt;p&gt;Node.js relies on Google’s V8 engine, an open-source, high-performance JavaScript and WebAssembly engine written in C++. Integrated into both Chrome and Node.js, V8 implements ECMAScript and WebAssembly and caters to various operating systems and processor architectures.&lt;/p&gt;
+<p>Node.js relies on Google’s V8 engine, an open-source, high-performance JavaScript and WebAssembly engine written in C++. Integrated into both Chrome and Node.js, V8 implements ECMAScript and WebAssembly and caters to various operating systems and processor architectures.</p>
 
-&lt;p&gt;When a Node.js process begins, V8 allocates a specific amount of memory based on your hardware specifications. Monitoring and managing this allocated memory is crucial, especially when dealing with resource-demanding applications.&lt;/p&gt;
+<p>When a Node.js process begins, V8 allocates a specific amount of memory based on your hardware specifications. Monitoring and managing this allocated memory is crucial, especially when dealing with resource-demanding applications.</p>
 
-&lt;h2 id=&quot;checking-allocated-memory&quot;&gt;Checking Allocated Memory&lt;/h2&gt;
+<h2 id="checking-allocated-memory">Checking Allocated Memory</h2>
 
-&lt;p&gt;To gain insights into your process’s allocated memory, create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.js&lt;/code&gt; script with the following code:&lt;/p&gt;
+<p>To gain insights into your process’s allocated memory, create an <code class="language-plaintext highlighter-rouge">index.js</code> script with the following code:</p>
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;v8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">v8</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">v8</span><span class="dl">"</span><span class="p">);</span>
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;totalHeapSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHeapStatistics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;total_available_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;totalHeapSizeInGB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;totalHeapSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toFixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;`Total Heap Size is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;totalHeapSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; bytes`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;totalHeapSizeInGB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; GB`&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="kd">const</span> <span class="nx">totalHeapSize</span> <span class="o">=</span> <span class="nx">v8</span><span class="p">.</span><span class="nx">getHeapStatistics</span><span class="p">().</span><span class="nx">total_available_size</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">totalHeapSizeInGB</span> <span class="o">=</span> <span class="p">(</span><span class="nx">totalHeapSize</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="s2">`Total Heap Size is </span><span class="p">${</span><span class="nx">totalHeapSize</span><span class="p">}</span><span class="s2"> bytes`</span><span class="p">,</span>
+    <span class="s2">`</span><span class="p">${</span><span class="nx">totalHeapSizeInGB</span><span class="p">}</span><span class="s2"> GB`</span>
+<span class="p">);</span>
+</code></pre></div></div>
 
-&lt;p&gt;This script utilizes the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v8&lt;/code&gt; module, an integral part of Node.js, offering methods like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v8.getHeapStatistics()&lt;/code&gt; to fetch heap-related memory information.&lt;/p&gt;
+<p>This script utilizes the <code class="language-plaintext highlighter-rouge">v8</code> module, an integral part of Node.js, offering methods like <code class="language-plaintext highlighter-rouge">v8.getHeapStatistics()</code> to fetch heap-related memory information.</p>
 
-&lt;h3 id=&quot;adjusting-memory-capacity&quot;&gt;Adjusting Memory Capacity&lt;/h3&gt;
+<h3 id="adjusting-memory-capacity">Adjusting Memory Capacity</h3>
 
-&lt;p&gt;You can increase the memory capacity by using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--max-old-space-size&lt;/code&gt; argument when running your script, specifying the desired memory allocation in kilobytes:&lt;/p&gt;
+<p>You can increase the memory capacity by using the <code class="language-plaintext highlighter-rouge">--max-old-space-size</code> argument when running your script, specifying the desired memory allocation in kilobytes:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4096 index.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node <span class="nt">--max-old-space-size</span><span class="o">=</span>4096 index.js
+</code></pre></div></div>
 
-&lt;p&gt;Upon rerunning the script, you should observe an augmented total heap size:&lt;/p&gt;
+<p>Upon rerunning the script, you should observe an augmented total heap size:</p>
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Total Heap Size is 4283117000,   GB 3.99
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Total Heap Size is 4283117000,   GB 3.99
+</code></pre></div></div>
 
-&lt;p&gt;In this example, the memory has been doubled, providing more breathing room for your processes.&lt;/p&gt;
+<p>In this example, the memory has been doubled, providing more breathing room for your processes.</p>
 
-&lt;h2 id=&quot;important-considerations&quot;&gt;Important Considerations&lt;/h2&gt;
+<h2 id="important-considerations">Important Considerations</h2>
 
-&lt;p&gt;Before adjusting memory allocation, ensure you have sufficient free memory. Attempting to allocate more memory than available on your system is counterproductive.&lt;/p&gt;
+<p>Before adjusting memory allocation, ensure you have sufficient free memory. Attempting to allocate more memory than available on your system is counterproductive.</p>
 
-&lt;p&gt;Moreover, prioritize refactoring your code for better memory efficiency as a primary strategy before resorting to memory allocation adjustments.&lt;/p&gt;
+<p>Moreover, prioritize refactoring your code for better memory efficiency as a primary strategy before resorting to memory allocation adjustments.</p>
 
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+<h2 id="conclusion">Conclusion</h2>
 
-&lt;p&gt;Optimizing memory allocation is a key aspect of maintaining high-performance Node.js applications. By understanding the V8 engine’s role and implementing judicious memory adjustments, you can enhance your application’s stability and responsiveness. Always balance these optimizations with efficient code practices to achieve optimal results.&lt;/p&gt;</content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="node" /><category term="javascript" /><summary type="html">Introduction</summary></entry></feed>
+<p>Optimizing memory allocation is a key aspect of maintaining high-performance Node.js applications. By understanding the V8 engine’s role and implementing judicious memory adjustments, you can enhance your application’s stability and responsiveness. Always balance these optimizations with efficient code practices to achieve optimal results.</p>]]></content><author><name>collinsmuriuki</name></author><category term="blog" /><category term="node" /><category term="javascript" /><summary type="html"><![CDATA[Optimizing Node.js Memory Allocation for High-Performance Applications.]]></summary></entry></feed>
