@@ -1,6 +1,6 @@
 # main text of home
 name: Collins Muriuki
-bio:
+bio: 🛠️ 🥋 ⚙️
 
 # twitter summary info
 description: Understanding the universe and explaining it to a three year old.
@@ -8,12 +8,12 @@ description: Understanding the universe and explaining it to a three year old.
 # if it's an external image, update below for true
 # better with square images
 external-image: false
-picture: assets/images/profile.jpg
+picture: assets/images/profile-2026.jpg
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
 resume: false
-esume-external: false
+resume-external: false
 resume-url: assets/resume.pdf
 
 url: https://collinsmuriuki.xyz
@@ -42,7 +42,8 @@ linkedin: collinsmuriuki
 # youtube: myyoutube
 # spotify: myspotify
 github: c12i
-gitlab: c12i
+# leetcode: collinsmuriuki
+# gitlab: c12i
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora

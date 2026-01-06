@@ -32,9 +32,7 @@ I’m especially interested in problems where correctness, performance, and clar
     <li>
       <a href="https://babel.c12i.xyz" target="_blank"><b>babel-go</b></a>:
       A Golang exploration of the
-      <a href="https://en.wikipedia.org/wiki/The_Library_of_Babel" target="_blank">
-        Library of Babel
-      </a>,
+      <a href="https://en.wikipedia.org/wiki/The_Library_of_Babel" target="_blank">Library of Babel</a>,
       using big-integer encoding and modular arithmetic to deterministically generate text.
     </li>
 </ul>
