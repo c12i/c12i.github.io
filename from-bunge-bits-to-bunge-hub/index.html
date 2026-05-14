@@ -581,7 +581,7 @@ odnelazm current profile https://mzalendo.com/mps-performance/national-assembly/
 
 <h2 id="odnelazm-mcp-asking-questions-about-parliament-in-plain-english">odnelazm-mcp: asking questions about Parliament in plain English</h2>
 
-<p>The next step was making the data accessible to LLM clients. I built <a href="https://github.com/mwananchi-tech/odnelazm/tree/main/crates/odnelazm-mcp"><code class="language-plaintext highlighter-rouge">odnelazm-mcp</code></a>, an MCP (Model Context Protocol) server that exposes the scraper as tools, so any compatible client (Claude Desktop, Cursor, Zed) can query parliamentary data directly in conversation.</p>
+<p>The next step was making the data accessible to LLM clients. I built <a href="https://github.com/mwananchi-tech/odnelazm/tree/main/crates/odnelazm-mcp"><code class="language-plaintext highlighter-rouge">odnelazm-mcp</code></a>, an MCP (Model Context Protocol) server that exposes the scraper as tools, so any compatible client (Claude or ChatGPT) can query parliamentary data directly in conversation.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cargo <span class="nb">install</span> <span class="nt">--git</span> https://github.com/mwananchi-tech/odnelazm odnelazm-mcp-local
 </code></pre></div></div>
