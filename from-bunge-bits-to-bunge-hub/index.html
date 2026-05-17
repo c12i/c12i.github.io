@@ -565,19 +565,19 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 </code></pre></div></div>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List recent sittings</span>
-odnelazm current sittings
+odnelazm sittings
 
-<span class="c"># Fetch a full sitting transcript</span>
-odnelazm current sitting thursday-12th-february-2026-afternoon-sitting-2438
+<span class="c"># Fetch a full sitting transcript (source detected automatically from the URL)</span>
+odnelazm sitting thursday-12th-february-2026-afternoon-sitting-2438
 
 <span class="c"># List all members of the 13th Parliament National Assembly</span>
-odnelazm current members na 13th-parliament <span class="nt">--all</span> <span class="nt">-o</span> json
+odnelazm members na 13th-parliament <span class="nt">--all</span> <span class="nt">-o</span> json
 
 <span class="c"># Fetch a member's full profile</span>
-odnelazm current profile https://mzalendo.com/mps-performance/national-assembly/13th-parliament/boss-gladys-jepkosgei/
+odnelazm profile https://mzalendo.com/mps-performance/national-assembly/13th-parliament/boss-gladys-jepkosgei/
 </code></pre></div></div>
 
-<p>It supports both archive and current data sources, outputs JSON, CSV, or Parquet, and handles pagination. It is the kind of tool I wished existed when I was building Bunge Bits.</p>
+<p>It supports both archive and current data sources with automatic routing, outputs JSON, CSV, or Parquet, and handles pagination. It is the kind of tool I wished existed when I was building Bunge Bits.</p>
 
 <h2 id="odnelazm-mcp-asking-questions-about-parliament-in-plain-english">odnelazm-mcp: asking questions about Parliament in plain English</h2>
 
