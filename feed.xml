@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2026-05-17T18:59:11+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer</title><link href="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/" rel="alternate" type="text/html" title="From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer" /><published>2026-05-14T12:00:00+03:00</published><updated>2026-05-14T12:00:00+03:00</updated><id>https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub</id><content type="html" xml:base="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/"><![CDATA[<p>This is a story about a problem I kept coming back to, two failed starts, one pivot that changed everything, and a project that is finally built to last.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2026-05-18T13:59:55+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer</title><link href="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/" rel="alternate" type="text/html" title="From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer" /><published>2026-05-14T12:00:00+03:00</published><updated>2026-05-14T12:00:00+03:00</updated><id>https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub</id><content type="html" xml:base="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/"><![CDATA[<p>This is a story about a problem I kept coming back to, two failed starts, one pivot that changed everything, and a project that is finally built to last.</p>
 
 <h2 id="where-it-started-bunge-bits">Where it started: Bunge Bits</h2>
 
@@ -113,11 +113,320 @@ odnelazm profile https://mzalendo.com/mps-performance/national-assembly/13th-par
 
 <p>I did worry, at some point, about tying my identity too closely to civic tech. It is a niche space and not always the most visible one. But I have stopped caring about that.</p>
 
-<p>There was also a more uncomfortable fear. People who work in civic tech in Kenya get reminded, sometimes only half-jokingly, that Subarus might come for them. That fear is not entirely abstract. What happened to Rose Njeri was a real reminder of the risks that come with this kind of work in this environment. I thought about it. I will not pretend I did not. But I am confident that what I am building is not illegal. All the data I use is publicly available. The Hansard is the official parliamentary record. I am not hacking anything, exposing anything that is not already public, or doing anything I could not defend clearly and loudly if I had to. I would.</p>
+<p>There was also a more uncomfortable fear. People who work in civic tech in Kenya get reminded, sometimes only half-jokingly, that Subarus might come for them. That fear is not entirely abstract. What happened to Rose Njeri was a real reminder of the risks that come with this kind of work in this environment. I thought about it. I will not pretend I did not. But I am confident that what I am building is not illegal. All the data I use is publicly available. The Hansard is the official parliamentary record. I am not hacking anything, exposing anything that is not already public, or doing anything I could not defend clearly and loudly if I had to.</p>
 
 <p>A few days ago I attended a Tech and Democracy meetup organized by <a href="https://sparkable.cc/?tab=Public">Sparkable</a> and met some genuinely interesting people working on accountability and governance from different angles. That conversation spurred me on more than anything else has in a while. If this is the cause my name ends up attached to, I am fine with it. It is technically challenging, it is for the greater good, and it is using the latest tooling and AI to bring some meaning to an era where that can be hard to find.</p>
 
-<p>Also, full transparency: I have had a lot of free time. Not working a full-time job at the moment, which is partly how a project this scope got built by one person in under a year. If you are hiring and any of this resonates, <a href="mailto:hell@collinsmuriuki.xyz">I am open to it</a>.</p>]]></content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Rust" /><category term="AI" /><category term="CivicTech" /><category term="Kenya" /><category term="PostgreSQL" /><category term="MCP" /><summary type="html"><![CDATA[A year-long journey from an AI transcription pipeline that shut down due to cost, to a sustainable open-source platform for Kenya's parliamentary record built on the Hansard itself.]]></summary></entry><entry><title type="html">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/"><![CDATA[<h1 id="motivation">Motivation</h1>
+<p>Also, full transparency: I have had a lot of free time. Not working a full-time job at the moment, which is partly how a project this scope got built by one person in under a year. If you are hiring and any of this resonates, <a href="mailto:hell@collinsmuriuki.xyz">I am open to it</a>.</p>]]></content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Rust" /><category term="AI" /><category term="CivicTech" /><category term="Kenya" /><category term="PostgreSQL" /><category term="MCP" /><summary type="html"><![CDATA[A year-long journey from an AI transcription pipeline that shut down due to cost, to a sustainable open-source platform for Kenya's parliamentary record built on the Hansard itself.]]></summary></entry><entry><title type="html">Building the Library of Babel in Go</title><link href="https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/" rel="alternate" type="text/html" title="Building the Library of Babel in Go" /><published>2025-12-18T10:00:00+03:00</published><updated>2025-12-18T10:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-the-library-of-babel-in-go</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/"><![CDATA[<p>Most of my Go experience before this project was through IaC with Pulumi. Useful work, but it barely scratches the surface of the language. I have been writing Rust for a while, and I found Go’s concurrency model genuinely odd at first. Channels and goroutines felt strange coming from Rust’s ownership model. The syntax took getting used to too. But the more I used it, the more it grew on me. Go is not trying to be Rust. It is simpler, more opinionated, and that simplicity turns out to be a feature.</p>
+
+<p>This project was an excuse to go deeper.</p>
+
+<h2 id="the-library-of-babel">The Library of Babel</h2>
+
+<p>The Library of Babel is a short story by Jorge Luis Borges. The premise is a library that contains every possible 410-page book. Not just the books that have been written, but every combination of characters that could exist. Your biography, before you have lived it. This documentation. Complete nonsense. Every text, in every order, somewhere on a shelf.</p>
+
+<p><a href="https://libraryofbabel.info">Jonathan Basile</a> built a working web implementation of this. A few months ago, <a href="https://youtu.be/yZ6S8fvP5xM?si=jIZt0UBhEMzOBUDG">this video</a> by Merlin on YouTube was randomly recommended to me. I watched it and immediately fell into a rabbit hole about deterministic randomness.</p>
+
+<p>The interesting part is not that the library contains everything. It is how it does it. The content of any page is not stored anywhere. It is computed on demand, deterministically, from its address. Search for a piece of text, and you get back a location in the library where that exact text appears, generated from the search itself as a seed. The library does not remember your query. It just consistently gives you the same page for the same input every time.</p>
+
+<p>That idea stuck with me. I wanted to build it.</p>
+
+<h2 id="the-character-set-and-base29-encoding">The Character Set and Base29 Encoding</h2>
+
+<p>The original Borges concept uses a small alphabet. Most implementations converge on a 29-character set: lowercase a to z, a space, a comma, and a period. That gives you enough to write something coherent, and 29 is a prime number, which has nice properties for base conversion.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">charset</span> <span class="o">:=</span> <span class="s">" abcdefghijklmnopqrstuvwxyz,."</span>
+</code></pre></div></div>
+
+<p>Each page in the library is 3,200 characters (40 lines of 80 characters). To find a page, you convert its content into a single base-29 number. That number, decomposed into its hierarchical parts, gives you the address. The conversion treats each character as a digit in base 29: space = 0, a = 1, b = 2, and so on through to period = 28.</p>
+
+<p>Going the other way (address back to page content) is repeated division by 29, collecting remainders, then mapping each remainder back to a character. The library is just a very large number space dressed up as rooms and shelves.</p>
+
+<h2 id="seeding-the-search">Seeding the Search</h2>
+
+<p>The thing that makes search work is using the search text itself as a seed to generate a deterministic position. When you search for “hello”, the library does not scan billions of pages looking for the word. It hashes “hello” with SHA256, seeds an RNG from that hash, generates a full 3,200-character page with “hello” planted at a position within it, then converts that page to its base-29 address.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">seedPageChars</span><span class="p">(</span><span class="n">text</span> <span class="kt">string</span><span class="p">,</span> <span class="n">variant</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="n">input</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\x00</span><span class="s">%d"</span><span class="p">,</span> <span class="n">strings</span><span class="o">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">variant</span><span class="p">)</span>
+    <span class="n">textHash</span> <span class="o">:=</span> <span class="n">sha256</span><span class="o">.</span><span class="n">Sum256</span><span class="p">([]</span><span class="kt">byte</span><span class="p">(</span><span class="n">input</span><span class="p">))</span>
+    <span class="n">textSeed</span> <span class="o">:=</span> <span class="kt">int64</span><span class="p">(</span><span class="n">binary</span><span class="o">.</span><span class="n">BigEndian</span><span class="o">.</span><span class="n">Uint64</span><span class="p">(</span><span class="n">textHash</span><span class="p">[</span><span class="o">:</span><span class="m">8</span><span class="p">]))</span>
+    <span class="n">rng</span> <span class="o">:=</span> <span class="n">rand</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">NewSource</span><span class="p">(</span><span class="n">textSeed</span><span class="p">))</span>
+
+    <span class="n">maxPosition</span> <span class="o">:=</span> <span class="n">charsPerPage</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">position</span> <span class="o">:=</span> <span class="n">rng</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="n">maxPosition</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span>
+
+    <span class="n">pageChars</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="n">charsPerPage</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">charsPerPage</span> <span class="p">{</span>
+        <span class="n">pageChars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">charset</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">charset</span><span class="p">))]</span>
+    <span class="p">}</span>
+
+    <span class="nb">copy</span><span class="p">(</span><span class="n">pageChars</span><span class="p">[</span><span class="n">position</span><span class="o">:</span><span class="p">],</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">(</span><span class="n">strings</span><span class="o">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">text</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="kt">string</span><span class="p">(</span><span class="n">pageChars</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">variant</code> parameter is how multiple results work. Searching with variant 0 gives you one address, variant 1 gives you a different one. The same text plus a different variant integer produces a different seed, a different page, a different address. Every text “appears” in the library an essentially unlimited number of times, just at different coordinates.</p>
+
+<h2 id="how-many-results">How Many Results?</h2>
+
+<p>This is where the math got interesting, and I will be honest: I relied on AI a lot here because combinatorics is not really my forte.</p>
+
+<p>The number of locations where a given text appears should scale inversely with the length of that text. A single character like “a” appears everywhere. The phrase “to be or not to be” appears much less frequently. A full paragraph is vanishingly rare.</p>
+
+<p>I modeled this with exponential decay:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">exponentialDecayRate</span> <span class="o">=</span> <span class="m">1.10</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">GetOccurrenceCount</span><span class="p">(</span><span class="n">text</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="n">textLen</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">maxCount</span> <span class="o">:=</span> <span class="m">1</span><span class="n">_000_000_000</span> <span class="c">// 1 billion for single characters</span>
+    <span class="n">baseCount</span> <span class="o">:=</span> <span class="n">maxCount</span> <span class="o">/</span> <span class="kt">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">exponentialDecayRate</span><span class="p">,</span> <span class="kt">float64</span><span class="p">(</span><span class="n">textLen</span><span class="o">-</span><span class="m">1</span><span class="p">)))</span>
+    <span class="n">baseCount</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">baseCount</span><span class="p">)</span>
+
+    <span class="n">hash</span> <span class="o">:=</span> <span class="n">sha256</span><span class="o">.</span><span class="n">Sum256</span><span class="p">([]</span><span class="kt">byte</span><span class="p">(</span><span class="n">strings</span><span class="o">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">text</span><span class="p">)))</span>
+    <span class="n">seed</span> <span class="o">:=</span> <span class="kt">int64</span><span class="p">(</span><span class="n">binary</span><span class="o">.</span><span class="n">BigEndian</span><span class="o">.</span><span class="n">Uint64</span><span class="p">(</span><span class="n">hash</span><span class="p">[</span><span class="o">:</span><span class="m">8</span><span class="p">]))</span>
+    <span class="n">rng</span> <span class="o">:=</span> <span class="n">rand</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">NewSource</span><span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+
+    <span class="n">variation</span> <span class="o">:=</span> <span class="n">max</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">baseCount</span><span class="o">/</span><span class="m">4</span><span class="p">)</span>
+    <span class="n">adjustment</span> <span class="o">:=</span> <span class="n">rng</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="m">2</span><span class="o">*</span><span class="n">variation</span><span class="p">)</span> <span class="o">-</span> <span class="n">variation</span>
+
+    <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">baseCount</span><span class="o">+</span><span class="n">adjustment</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Starting at 1 billion for a single character, each additional character divides the result by 1.10. By the time you reach a moderately long phrase, you are down to a handful of results. The ±25% variation seeded from the text hash gives each query a consistent but unique feel. The tradeoff is that the billion cap is completely hardcoded. It is a reasonable approximation of “effectively infinite”, not something derived from first principles. Good enough for this.</p>
+
+<h2 id="the-addressing-system">The Addressing System</h2>
+
+<p>Every page in the library has a five-part address: <code class="language-plaintext highlighter-rouge">&lt;hexagon&gt;.&lt;wall&gt;.&lt;shelf&gt;.&lt;book&gt;.&lt;page&gt;</code>. The structure mirrors Borges’ description: hexagonal rooms with four walls, each holding five shelves, each shelf holding 32 books, each book with 410 pages.</p>
+
+<p>Converting a base-29 number to an address is a series of modular divisions:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">newFromBase29Number</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span> <span class="o">*</span><span class="n">Location</span> <span class="p">{</span>
+    <span class="n">temp</span><span class="p">,</span> <span class="n">quotient</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span><span class="o">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+
+    <span class="n">page</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">page</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">pagesPerBook</span><span class="p">),</span> <span class="n">page</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="n">book</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">book</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">booksPerShelf</span><span class="p">),</span> <span class="n">book</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="n">shelf</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">shelf</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">shelvesPerWall</span><span class="p">),</span> <span class="n">shelf</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="n">wall</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">wall</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">wallsPerHexagon</span><span class="p">),</span> <span class="n">wall</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">Location</span><span class="p">{</span>
+        <span class="n">Hexagon</span><span class="o">:</span> <span class="n">quotient</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="m">36</span><span class="p">),</span>
+        <span class="n">Wall</span><span class="o">:</span>    <span class="kt">int</span><span class="p">(</span><span class="n">wall</span><span class="o">.</span><span class="n">Int64</span><span class="p">()),</span>
+        <span class="n">Shelf</span><span class="o">:</span>   <span class="kt">int</span><span class="p">(</span><span class="n">shelf</span><span class="o">.</span><span class="n">Int64</span><span class="p">()),</span>
+        <span class="n">Book</span><span class="o">:</span>    <span class="kt">int</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">Int64</span><span class="p">()),</span>
+        <span class="n">Page</span><span class="o">:</span>    <span class="kt">int</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">Int64</span><span class="p">())</span> <span class="o">+</span> <span class="m">1</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The hexagon identifier is whatever is left after stripping out wall, shelf, book, and page. It can be an astronomically large number, so it is stored as a base-36 string (digits and lowercase letters). An address ends up looking something like <code class="language-plaintext highlighter-rouge">3q7z.2.1.14.207</code>. The hierarchy is reversible: you can reconstruct the original base-29 number from any valid address, which is how browsing works.</p>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>One thing the original concept glosses over is what pagination even means when a search for “a” returns close to a billion results.</p>
+
+<p>The variant approach makes this tractable. Variants are sequential integers starting from 0. Pagination is just offset and limit over that sequence:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">SearchPaginated</span><span class="p">(</span><span class="n">text</span> <span class="kt">string</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">limit</span> <span class="kt">int</span><span class="p">)</span> <span class="p">([]</span><span class="o">*</span><span class="n">Location</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">totalCount</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">GetOccurrenceCount</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="m">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"offset cannot be negative"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">limit</span> <span class="o">&lt;=</span> <span class="m">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"limit must be positive"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">offset</span> <span class="o">&gt;=</span> <span class="n">totalCount</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[]</span><span class="o">*</span><span class="n">Location</span><span class="p">{},</span> <span class="no">nil</span>
+    <span class="p">}</span>
+
+    <span class="n">endIndex</span> <span class="o">:=</span> <span class="n">min</span><span class="p">(</span><span class="n">offset</span><span class="o">+</span><span class="n">limit</span><span class="p">,</span> <span class="n">totalCount</span><span class="p">)</span>
+    <span class="n">locations</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="o">*</span><span class="n">Location</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">endIndex</span><span class="o">-</span><span class="n">offset</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">variant</span> <span class="o">:=</span> <span class="n">offset</span><span class="p">;</span> <span class="n">variant</span> <span class="o">&lt;</span> <span class="n">endIndex</span><span class="p">;</span> <span class="n">variant</span><span class="o">++</span> <span class="p">{</span>
+        <span class="n">bigInt</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">generateBase29Number</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"error generating location for variant %d: %w"</span><span class="p">,</span> <span class="n">variant</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">newFromBase29Number</span><span class="p">(</span><span class="n">bigInt</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">locations</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Each page of results is a slice of variant integers. No state, no cursors, no database. You can reproduce any page of results for any query deterministically.</p>
+
+<h2 id="hacks-and-loose-ends">Hacks and Loose Ends</h2>
+
+<p>There are a few places in the code where I left honest markers of imperfection.</p>
+
+<p>The significant one is in <code class="language-plaintext highlighter-rouge">base29NumberToString</code>. The browse API accepts any valid address, and hexagon identifiers can be any integer from 1 up to the maximum <code class="language-plaintext highlighter-rouge">big.Int</code>. If you manually navigate to a small address like <code class="language-plaintext highlighter-rouge">1.0.0.0.1</code>, the corresponding base-29 number is tiny, and decoding it back to characters produces a single-character page. A page with one character is not ideal. The hack is to take whatever characters the conversion produced, hash them, seed an RNG from that hash, and fill the remaining space. It preserves determinism (the same small address always fills the same way) but it is not elegant.</p>
+
+<h2 id="concurrency-and-the-worker-pool">Concurrency and the Worker Pool</h2>
+
+<p><code class="language-plaintext highlighter-rouge">SearchStream</code> was my first real exercise in Go concurrency. Rather than blocking until all results are computed, it returns a channel immediately and lets the caller consume locations as they are generated. The full implementation looks like this:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">SearchStream</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">text</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">&lt;-</span><span class="k">chan</span> <span class="o">*</span><span class="n">Location</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">totalCount</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">GetOccurrenceCount</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">locationChan</span><span class="p">,</span> <span class="n">workerChan</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="o">*</span><span class="n">Location</span><span class="p">),</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="m">100</span><span class="p">)</span>
+    <span class="n">numWorkers</span> <span class="o">:=</span> <span class="n">runtime</span><span class="o">.</span><span class="n">NumCPU</span><span class="p">()</span>
+    <span class="k">var</span> <span class="n">wg</span> <span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span>
+
+    <span class="k">for</span> <span class="k">range</span> <span class="n">numWorkers</span> <span class="p">{</span>
+        <span class="n">wg</span><span class="o">.</span><span class="n">Go</span><span class="p">(</span><span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">{</span>
+                <span class="k">select</span> <span class="p">{</span>
+                <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+                    <span class="k">return</span>
+                <span class="k">case</span> <span class="n">variant</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">workerChan</span><span class="o">:</span>
+                    <span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="p">{</span>
+                        <span class="n">workerChan</span> <span class="o">=</span> <span class="no">nil</span>
+                        <span class="k">continue</span>
+                    <span class="p">}</span>
+                    <span class="n">bigInt</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">generateBase29Number</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+                        <span class="k">continue</span>
+                    <span class="p">}</span>
+                    <span class="n">location</span> <span class="o">:=</span> <span class="n">newFromBase29Number</span><span class="p">(</span><span class="n">bigInt</span><span class="p">)</span>
+                    <span class="k">select</span> <span class="p">{</span>
+                    <span class="k">case</span> <span class="n">locationChan</span> <span class="o">&lt;-</span> <span class="n">location</span><span class="o">:</span>
+                    <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+                        <span class="k">return</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="n">workerChan</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">variant</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">totalCount</span> <span class="p">{</span>
+            <span class="k">select</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="n">workerChan</span> <span class="o">&lt;-</span> <span class="n">variant</span><span class="o">:</span>
+            <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+                <span class="k">return</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}()</span>
+
+    <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="n">locationChan</span><span class="p">)</span>
+        <span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
+    <span class="p">}()</span>
+
+    <span class="k">return</span> <span class="n">locationChan</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>There are three moving parts.</p>
+
+<p>The dispatcher goroutine sends variant integers (0, 1, 2…) into a buffered <code class="language-plaintext highlighter-rouge">workerChan</code>. The buffer size of 100 means the dispatcher can stay ahead of the workers without blocking. It stops early if the context is cancelled.</p>
+
+<p>The worker goroutines (one per CPU) pull variants from <code class="language-plaintext highlighter-rouge">workerChan</code>, compute a location, and send it to <code class="language-plaintext highlighter-rouge">locationChan</code>. Each of the two send operations checks <code class="language-plaintext highlighter-rouge">ctx.Done()</code> so that a cancelled context unblocks workers whether they are waiting to receive a job or waiting to send a result.</p>
+
+<p>The closer goroutine waits for all workers to finish via <code class="language-plaintext highlighter-rouge">sync.WaitGroup</code>, then closes <code class="language-plaintext highlighter-rouge">locationChan</code>. The consumer knows the stream is exhausted when the channel closes.</p>
+
+<h2 id="goroutine-leaks">Goroutine Leaks</h2>
+
+<p>The more interesting case is when you only want a subset of results. The test below reads exactly 100 locations then stops:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">TestLibrarySearchStream</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">library</span> <span class="o">:=</span> <span class="n">New</span><span class="p">()</span>
+    <span class="n">ctx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithCancel</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Background</span><span class="p">())</span>
+    <span class="k">defer</span> <span class="n">cancel</span><span class="p">()</span>
+
+    <span class="n">results</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">library</span><span class="o">.</span><span class="n">SearchStream</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">searchText</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"search stream failed: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">locations</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">*</span><span class="n">Location</span><span class="p">{}</span>
+    <span class="n">limit</span> <span class="o">:=</span> <span class="m">100</span>
+    <span class="k">for</span> <span class="k">range</span> <span class="n">limit</span> <span class="p">{</span>
+        <span class="n">location</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">results</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">cancel</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">l</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">);</span> <span class="n">l</span> <span class="o">!=</span> <span class="n">limit</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"expected %d locations, got %d"</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Once the loop exits, we call <code class="language-plaintext highlighter-rouge">cancel()</code> explicitly rather than relying on <code class="language-plaintext highlighter-rouge">defer</code>. Both work, but calling it immediately after collecting the results we need is the right instinct: it signals the workers to stop as soon as possible rather than waiting until the function returns.</p>
+
+<p>Without that cancellation, you get a goroutine leak. Here is the scenario. <code class="language-plaintext highlighter-rouge">locationChan</code> is unbuffered. Once the consumer stops reading, the next worker trying to send a location will block forever on this:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">locationChan</span> <span class="o">&lt;-</span> <span class="n">location</span><span class="o">:</span> <span class="c">// blocked: nobody reading</span>
+<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>             <span class="c">// never fires: context not cancelled</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>All workers stall. <code class="language-plaintext highlighter-rouge">wg.Wait()</code> never returns. <code class="language-plaintext highlighter-rouge">locationChan</code> is never closed. Everything is stuck.</p>
+
+<p>Cancelling the context is what breaks the deadlock. The <code class="language-plaintext highlighter-rouge">case &lt;-ctx.Done()</code> branch fires in every worker, they all return, <code class="language-plaintext highlighter-rouge">wg.Wait()</code> completes, and <code class="language-plaintext highlighter-rouge">locationChan</code> closes. Whether you call <code class="language-plaintext highlighter-rouge">cancel()</code> explicitly after collecting what you need or rely on <code class="language-plaintext highlighter-rouge">defer</code>, the important thing is that it always runs.</p>
+
+<p>The dispatcher has the same guard. If the context is cancelled while the dispatcher is still enqueuing variants, it exits immediately rather than blocking on a full <code class="language-plaintext highlighter-rouge">workerChan</code>:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">workerChan</span> <span class="o">&lt;-</span> <span class="n">variant</span><span class="o">:</span>
+<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="the-nil-channel-trick">The Nil Channel Trick</h2>
+
+<p>There is one subtlety in how workers handle a closed <code class="language-plaintext highlighter-rouge">workerChan</code>. When the dispatcher has sent all variants and its goroutine exits, it closes <code class="language-plaintext highlighter-rouge">workerChan</code>. A worker receives the zero value with <code class="language-plaintext highlighter-rouge">ok = false</code>, then does something that looks odd:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="n">variant</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">workerChan</span><span class="o">:</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="p">{</span>
+        <span class="n">workerChan</span> <span class="o">=</span> <span class="no">nil</span>
+        <span class="k">continue</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>It sets its local copy of <code class="language-plaintext highlighter-rouge">workerChan</code> to <code class="language-plaintext highlighter-rouge">nil</code> and loops. A receive on a nil channel blocks forever. On the next iteration, the worker’s <code class="language-plaintext highlighter-rouge">select</code> effectively becomes:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="p">{</span>
+<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+    <span class="k">return</span>
+<span class="k">case</span> <span class="n">variant</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="no">nil</span><span class="o">:</span> <span class="c">// blocks forever, never selected</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The worker is now parked, waiting only for context cancellation. This is intentional. The alternative would be for the worker to return immediately when <code class="language-plaintext highlighter-rouge">workerChan</code> closes, but that would decrement the <code class="language-plaintext highlighter-rouge">WaitGroup</code> before the worker has necessarily finished sending its last computed location to <code class="language-plaintext highlighter-rouge">locationChan</code>. Staying alive until <code class="language-plaintext highlighter-rouge">ctx.Done()</code> ensures the worker fully drains before the <code class="language-plaintext highlighter-rouge">WaitGroup</code> completes and <code class="language-plaintext highlighter-rouge">locationChan</code> is closed.</p>
+
+<p>Coming from Rust, this all felt foreign. In Rust the compiler enforces the invariants: ownership, <code class="language-plaintext highlighter-rouge">Send</code>/<code class="language-plaintext highlighter-rouge">Sync</code> bounds, lifetime constraints. In Go you reason about it yourself and encode the contract in patterns like this one. The channel syntax took time to internalize, especially <code class="language-plaintext highlighter-rouge">select</code> across multiple channels. I leaned heavily on <a href="https://www.oreilly.com/library/view/learning-go-2nd/9781098139293/">Learning Go</a> by Jon Bodner throughout this project, particularly for the concurrency chapter and general idiomatic patterns. It is a well-written book and I would recommend it to anyone coming from a statically typed language who finds Go’s conventions a bit opaque at first. The mental model holds up once it clicks. Channels are typed queues, goroutines are lightweight threads, and the patterns (worker pool, fan-out, context cancellation) are consistent everywhere you look in the ecosystem.</p>
+
+<h2 id="the-cli-and-web-app">The CLI and Web App</h2>
+
+<p>You can interact with the library through a CLI or the web app at <a href="https://babel.c12i.xyz">babel.c12i.xyz</a>. For the CLI, I used <a href="https://github.com/alecthomas/kong"><code class="language-plaintext highlighter-rouge">kong</code></a>. My bias towards it is straightforward: coming from Rust, I am used to defining CLI commands as structs and letting the framework derive the parser from struct field tags, which is exactly how <code class="language-plaintext highlighter-rouge">clap</code> works. <code class="language-plaintext highlighter-rouge">kong</code> is the closest equivalent in Go, and that familiarity made it an easy call over something like <code class="language-plaintext highlighter-rouge">cobra</code>.</p>
+
+<p>For the web layer, I used <a href="https://github.com/gin-gonic/gin">Gin</a>. It is fast, the routing API is clean, and the choice did not need much deliberation. The UI is mostly AI-generated. I gave Claude some rough requirements for a search form, results list, and browse view with previous/next navigation, and iterated from there. The interesting parts of this project were in the library core, not the frontend.</p>
+
+<hr />
+
+<p>This was a genuinely enjoyable side project. It pushed me further into Go than IaC work ever did, gave me a working understanding of goroutines and channels, and produced something I find kind of beautiful: an infinite library you can search, that requires no storage, generates every page on demand, and always gives you the same answer for the same question.</p>
+
+<p>The code is open source at <a href="https://github.com/c12i/babel-go">github.com/c12i/babel-go</a>. The web app is live at <a href="https://babel.c12i.xyz">babel.c12i.xyz</a>. Go check what the library has to say about your name.</p>]]></content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Go" /><category term="programming" /><category term="library-of-babel" /><category term="concurrency" /><summary type="html"><![CDATA[A deep dive into building a Go implementation of the Library of Babel, exploring deterministic randomness, base29 encoding, and what it taught me about Go's concurrency model.]]></summary></entry><entry><title type="html">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya</title><link href="https://collinsmuriuki.xyz/building-bunge-bits/" rel="alternate" type="text/html" title="Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya" /><published>2025-06-12T19:00:00+03:00</published><updated>2025-06-12T19:00:00+03:00</updated><id>https://collinsmuriuki.xyz/building-bunge-bits</id><content type="html" xml:base="https://collinsmuriuki.xyz/building-bunge-bits/"><![CDATA[<h1 id="motivation">Motivation</h1>
 
 <p>I built bunge-bits out of frustration. Kenya’s National Assembly and Senate regularly livestream their proceedings, but these sessions are long, often poorly indexed, and inaccessible to most people. The average citizen doesn’t have the time, or bandwidth, to sit through up to five-hour videos of parliamentary debates. Most people end up relying on the media to highlight key moments, often missing the full context or nuance.</p>
 

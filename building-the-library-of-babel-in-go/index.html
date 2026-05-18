@@ -9,26 +9,24 @@
     <meta name=author content="Collins Muriuki">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>The Quest for Compile-Time String Formatting in Rust | Collins Muriuki</title>
+<title>Building the Library of Babel in Go | Collins Muriuki</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="The Quest for Compile-Time String Formatting in Rust" />
+<meta property="og:title" content="Building the Library of Babel in Go" />
 <meta name="author" content="Collins Muriuki" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications" />
-<meta property="og:description" content="Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications" />
-<link rel="canonical" href="https://collinsmuriuki.xyz/compile-time-string-formatting/" />
-<meta property="og:url" content="https://collinsmuriuki.xyz/compile-time-string-formatting/" />
+<meta name="description" content="A deep dive into building a Go implementation of the Library of Babel, exploring deterministic randomness, base29 encoding, and what it taught me about Go’s concurrency model." />
+<meta property="og:description" content="A deep dive into building a Go implementation of the Library of Babel, exploring deterministic randomness, base29 encoding, and what it taught me about Go’s concurrency model." />
+<link rel="canonical" href="https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/" />
+<meta property="og:url" content="https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/" />
 <meta property="og:site_name" content="Collins Muriuki" />
-<meta property="og:image" content="https://collinsmuriuki.xyz/assets/images/rust-crab.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-01T02:30:00+03:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://collinsmuriuki.xyz/assets/images/rust-crab.png" />
-<meta property="twitter:title" content="The Quest for Compile-Time String Formatting in Rust" />
+<meta property="article:published_time" content="2025-12-18T10:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building the Library of Babel in Go" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Collins Muriuki" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Collins Muriuki"},"dateModified":"2024-09-01T02:30:00+03:00","datePublished":"2024-09-01T02:30:00+03:00","description":"Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications","headline":"The Quest for Compile-Time String Formatting in Rust","image":"https://collinsmuriuki.xyz/assets/images/rust-crab.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://collinsmuriuki.xyz/compile-time-string-formatting/"},"url":"https://collinsmuriuki.xyz/compile-time-string-formatting/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Collins Muriuki"},"dateModified":"2025-12-18T10:00:00+03:00","datePublished":"2025-12-18T10:00:00+03:00","description":"A deep dive into building a Go implementation of the Library of Babel, exploring deterministic randomness, base29 encoding, and what it taught me about Go’s concurrency model.","headline":"Building the Library of Babel in Go","mainEntityOfPage":{"@type":"WebPage","@id":"https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/"},"url":"https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -54,7 +52,7 @@
 <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 
 
-    <link rel="canonical" href="https://collinsmuriuki.xyz/compile-time-string-formatting/">
+    <link rel="canonical" href="https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/">
     <link rel="alternate" type="application/rss+xml" title="" href="https://collinsmuriuki.xyz/feed.xml" />
 
     <style>
@@ -498,18 +496,16 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 
 
-    <img class="title-image" src="/assets/images/rust-crab.png" alt="The Quest for Compile-Time String Formatting in Rust">
 
-
-<h1 class="title">The Quest for Compile-Time String Formatting in Rust</h1>
+<h1 class="title">Building the Library of Babel in Go</h1>
 
 <span class="date">
-    <time datetime="01-09-2024">Sunday. September 01, 2024</time>
+    <time datetime="18-12-2025">Thursday. December 18, 2025</time>
      - <span class="reading-time" title="Estimated read time">
     
 
     
-        4 mins
+        19 mins
     
 </span>
 
@@ -518,152 +514,336 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
     <div class="post-tags">
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#rust">rust</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#go">Go</a>
         
             <a class="item" href="https://collinsmuriuki.xyz/tags/#programming">programming</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#cli">cli</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#library-of-babel">library-of-babel</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#compile-time">compile-time</a>
-        
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#string-formatting">string-formatting</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#concurrency">concurrency</a>
         
     </div>
 
 
-<p>Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your <code class="language-plaintext highlighter-rouge">clap</code> derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your <code class="language-plaintext highlighter-rouge">about</code> attribute to show compatibility information, and Rust isn’t playing ball.</p>
+<p>Most of my Go experience before this project was through IaC with Pulumi. Useful work, but it barely scratches the surface of the language. I have been writing Rust for a while, and I found Go’s concurrency model genuinely odd at first. Channels and goroutines felt strange coming from Rust’s ownership model. The syntax took getting used to too. But the more I used it, the more it grew on me. Go is not trying to be Rust. It is simpler, more opinionated, and that simplicity turns out to be a feature.</p>
 
-<p>Welcome to Rust, where safety and zero-cost abstractions reign supreme, but sometimes the simplest tasks can become unexpected challenges.</p>
+<p>This project was an excuse to go deeper.</p>
 
-<h2 id="the-problem-rusts-compile-time-conundrum">The Problem: Rust’s Compile-Time Conundrum</h2>
+<h2 id="the-library-of-babel">The Library of Babel</h2>
 
-<p>Why can’t Rust handle simple string concatenation at compile time? Well, it’s not as straightforward as you might think.</p>
+<p>The Library of Babel is a short story by Jorge Luis Borges. The premise is a library that contains every possible 410-page book. Not just the books that have been written, but every combination of characters that could exist. Your biography, before you have lived it. This documentation. Complete nonsense. Every text, in every order, somewhere on a shelf.</p>
 
-<p>Let’s look at an example that seems like it should work, but doesn’t:</p>
+<p><a href="https://libraryofbabel.info">Jonathan Basile</a> built a working web implementation of this. A few months ago, <a href="https://youtu.be/yZ6S8fvP5xM?si=jIZt0UBhEMzOBUDG">this video</a> by Merlin on YouTube was randomly recommended to me. I watched it and immediately fell into a rabbit hole about deterministic randomness.</p>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">clap</span><span class="p">::</span><span class="n">Parser</span><span class="p">;</span>
+<p>The interesting part is not that the library contains everything. It is how it does it. The content of any page is not stored anywhere. It is computed on demand, deterministically, from its address. Search for a piece of text, and you get back a location in the library where that exact text appears, generated from the search itself as a seed. The library does not remember your query. It just consistently gives you the same page for the same input every time.</p>
 
-<span class="k">const</span> <span class="n">TOOL_NAME</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_VERSION</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
+<p>That idea stuck with me. I wanted to build it.</p>
 
-<span class="c1">// This doesn't work!</span>
-<span class="k">const</span> <span class="n">ABOUT</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
-    <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
-    <span class="n">TOOL_NAME</span><span class="p">,</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">,</span> <span class="n">COMPATIBLE_VERSION</span>
-<span class="p">);</span>
+<h2 id="the-character-set-and-base29-encoding">The Character Set and Base29 Encoding</h2>
 
-<span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
-<span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">ABOUT)]</span>
-<span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
-    <span class="c1">// CLI arguments would go here</span>
-<span class="p">}</span>
+<p>The original Borges concept uses a small alphabet. Most implementations converge on a 29-character set: lowercase a to z, a space, a comma, and a period. That gives you enough to write something coherent, and 29 is a prime number, which has nice properties for base conversion.</p>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">args</span> <span class="o">=</span> <span class="nn">Cli</span><span class="p">::</span><span class="nf">parse</span><span class="p">();</span>
-    <span class="nd">println!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">charset</span> <span class="o">:=</span> <span class="s">" abcdefghijklmnopqrstuvwxyz,."</span>
 </code></pre></div></div>
 
-<p>Try to compile this, and Rust responds with an error:</p>
+<p>Each page in the library is 3,200 characters (40 lines of 80 characters). To find a page, you convert its content into a single base-29 number. That number, decomposed into its hierarchical parts, gives you the address. The conversion treats each character as a digit in base 29: space = 0, a = 1, b = 2, and so on through to period = 28.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error[E0015]: calls in constants are limited to constant functions, tuple structs and tuple variants
- --&gt; src/main.rs:8:21
-  |
-8 | const ABOUT: String = format!(
-  |                       ^^^^^^ ...
+<p>Going the other way (address back to page content) is repeated division by 29, collecting remainders, then mapping each remainder back to a character. The library is just a very large number space dressed up as rooms and shelves.</p>
 
-error: aborting due to previous error
-</code></pre></div></div>
+<h2 id="seeding-the-search">Seeding the Search</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">format!</code> macro, usually so helpful for string formatting, suddenly becomes unavailable in the compile-time context.</p>
+<p>The thing that makes search work is using the search text itself as a seed to generate a deterministic position. When you search for “hello”, the library does not scan billions of pages looking for the word. It hashes “hello” with SHA256, seeds an RNG from that hash, generates a full 3,200-character page with “hello” planted at a position within it, then converts that page to its base-29 address.</p>
 
-<p>Rust’s const evaluation capabilities, while continuously improving, still have limitations. The language designers have prioritized other features, leaving compile-time string formatting as a challenge to overcome.</p>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">seedPageChars</span><span class="p">(</span><span class="n">text</span> <span class="kt">string</span><span class="p">,</span> <span class="n">variant</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="n">input</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\x00</span><span class="s">%d"</span><span class="p">,</span> <span class="n">strings</span><span class="o">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">variant</span><span class="p">)</span>
+    <span class="n">textHash</span> <span class="o">:=</span> <span class="n">sha256</span><span class="o">.</span><span class="n">Sum256</span><span class="p">([]</span><span class="kt">byte</span><span class="p">(</span><span class="n">input</span><span class="p">))</span>
+    <span class="n">textSeed</span> <span class="o">:=</span> <span class="kt">int64</span><span class="p">(</span><span class="n">binary</span><span class="o">.</span><span class="n">BigEndian</span><span class="o">.</span><span class="n">Uint64</span><span class="p">(</span><span class="n">textHash</span><span class="p">[</span><span class="o">:</span><span class="m">8</span><span class="p">]))</span>
+    <span class="n">rng</span> <span class="o">:=</span> <span class="n">rand</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">NewSource</span><span class="p">(</span><span class="n">textSeed</span><span class="p">))</span>
 
-<h2 id="the-solution-leveraging-crates">The Solution: Leveraging Crates</h2>
+    <span class="n">maxPosition</span> <span class="o">:=</span> <span class="n">charsPerPage</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">position</span> <span class="o">:=</span> <span class="n">rng</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="n">maxPosition</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span>
 
-<p>Fortunately, the Rust ecosystem provides solutions. One such solution is the <a href="https://docs.rs/const_format/latest/const_format/index.html"><code class="language-plaintext highlighter-rouge">const_format</code></a> crate, which allows for compile-time string formatting.</p>
+    <span class="n">pageChars</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="n">charsPerPage</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">charsPerPage</span> <span class="p">{</span>
+        <span class="n">pageChars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">charset</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">charset</span><span class="p">))]</span>
+    <span class="p">}</span>
 
-<p>With <code class="language-plaintext highlighter-rouge">const_format</code>, you can write:</p>
-
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">const_format</span><span class="p">::</span><span class="n">formatcp</span><span class="p">;</span>
-
-<span class="k">const</span> <span class="n">TOOL_NAME</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_VERSION</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">ABOUT</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="nd">formatcp!</span><span class="p">(</span>
-    <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
-    <span class="n">TOOL_NAME</span><span class="p">,</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">,</span> <span class="n">COMPATIBLE_VERSION</span>
-<span class="p">);</span>
-</code></pre></div></div>
-
-<p>This approach gives us the compile-time string formatting we need.</p>
-
-<h2 id="an-alternative-build-scripts">An Alternative: Build Scripts</h2>
-
-<p>There’s another way to achieve compile-time string formatting without additional crates: build scripts and environment variables.</p>
-
-<p>By using a <code class="language-plaintext highlighter-rouge">build.rs</code> file, we can generate our formatted strings at compile time and pass them to our main code as environment variables. Here’s how:</p>
-
-<ol>
-  <li>Create a <code class="language-plaintext highlighter-rouge">build.rs</code> file in your project root:</li>
-</ol>
-
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">tool_name</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
-    <span class="k">let</span> <span class="n">compatible_crate</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
-    <span class="k">let</span> <span class="n">compatible_version</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
-    <span class="k">let</span> <span class="n">about</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
-        <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
-        <span class="n">tool_name</span><span class="p">,</span> <span class="n">compatible_crate</span><span class="p">,</span> <span class="n">compatible_version</span>
-    <span class="p">);</span>
-
-    <span class="nd">println!</span><span class="p">(</span><span class="s">"cargo:rustc-env=ABOUT={}"</span><span class="p">,</span> <span class="n">about</span><span class="p">);</span>
+    <span class="nb">copy</span><span class="p">(</span><span class="n">pageChars</span><span class="p">[</span><span class="n">position</span><span class="o">:</span><span class="p">],</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">(</span><span class="n">strings</span><span class="o">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">text</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="kt">string</span><span class="p">(</span><span class="n">pageChars</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ol>
-  <li>In your <code class="language-plaintext highlighter-rouge">main.rs</code>, use the environment variable:</li>
-</ol>
+<p>The <code class="language-plaintext highlighter-rouge">variant</code> parameter is how multiple results work. Searching with variant 0 gives you one address, variant 1 gives you a different one. The same text plus a different variant integer produces a different seed, a different page, a different address. Every text “appears” in the library an essentially unlimited number of times, just at different coordinates.</p>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">clap</span><span class="p">::</span><span class="n">Parser</span><span class="p">;</span>
+<h2 id="how-many-results">How Many Results?</h2>
 
-<span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
-<span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">env</span><span class="err">!</span><span class="nd">(</span><span class="s">"ABOUT"</span><span class="nd">))]</span>
-<span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
-    <span class="c1">// CLI arguments would go here</span>
-<span class="p">}</span>
+<p>This is where the math got interesting, and I will be honest: I relied on AI a lot here because combinatorics is not really my forte.</p>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">args</span> <span class="o">=</span> <span class="nn">Cli</span><span class="p">::</span><span class="nf">parse</span><span class="p">();</span>
-    <span class="nd">println!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+<p>The number of locations where a given text appears should scale inversely with the length of that text. A single character like “a” appears everywhere. The phrase “to be or not to be” appears much less frequently. A full paragraph is vanishingly rare.</p>
+
+<p>I modeled this with exponential decay:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">exponentialDecayRate</span> <span class="o">=</span> <span class="m">1.10</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">GetOccurrenceCount</span><span class="p">(</span><span class="n">text</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="n">textLen</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">maxCount</span> <span class="o">:=</span> <span class="m">1</span><span class="n">_000_000_000</span> <span class="c">// 1 billion for single characters</span>
+    <span class="n">baseCount</span> <span class="o">:=</span> <span class="n">maxCount</span> <span class="o">/</span> <span class="kt">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">exponentialDecayRate</span><span class="p">,</span> <span class="kt">float64</span><span class="p">(</span><span class="n">textLen</span><span class="o">-</span><span class="m">1</span><span class="p">)))</span>
+    <span class="n">baseCount</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">baseCount</span><span class="p">)</span>
+
+    <span class="n">hash</span> <span class="o">:=</span> <span class="n">sha256</span><span class="o">.</span><span class="n">Sum256</span><span class="p">([]</span><span class="kt">byte</span><span class="p">(</span><span class="n">strings</span><span class="o">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">text</span><span class="p">)))</span>
+    <span class="n">seed</span> <span class="o">:=</span> <span class="kt">int64</span><span class="p">(</span><span class="n">binary</span><span class="o">.</span><span class="n">BigEndian</span><span class="o">.</span><span class="n">Uint64</span><span class="p">(</span><span class="n">hash</span><span class="p">[</span><span class="o">:</span><span class="m">8</span><span class="p">]))</span>
+    <span class="n">rng</span> <span class="o">:=</span> <span class="n">rand</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">NewSource</span><span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+
+    <span class="n">variation</span> <span class="o">:=</span> <span class="n">max</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">baseCount</span><span class="o">/</span><span class="m">4</span><span class="p">)</span>
+    <span class="n">adjustment</span> <span class="o">:=</span> <span class="n">rng</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="m">2</span><span class="o">*</span><span class="n">variation</span><span class="p">)</span> <span class="o">-</span> <span class="n">variation</span>
+
+    <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">baseCount</span><span class="o">+</span><span class="n">adjustment</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>This method allows us to perform the string formatting during the build process and inject the result into our main code.</p>
+<p>Starting at 1 billion for a single character, each additional character divides the result by 1.10. By the time you reach a moderately long phrase, you are down to a handful of results. The ±25% variation seeded from the text hash gives each query a consistent but unique feel. The tradeoff is that the billion cap is completely hardcoded. It is a reasonable approximation of “effectively infinite”, not something derived from first principles. Good enough for this.</p>
 
-<h2 id="lessons-learned">Lessons Learned</h2>
+<h2 id="the-addressing-system">The Addressing System</h2>
 
-<p>This journey through compile-time string formatting in Rust teaches us a few valuable lessons:</p>
+<p>Every page in the library has a five-part address: <code class="language-plaintext highlighter-rouge">&lt;hexagon&gt;.&lt;wall&gt;.&lt;shelf&gt;.&lt;book&gt;.&lt;page&gt;</code>. The structure mirrors Borges’ description: hexagonal rooms with four walls, each holding five shelves, each shelf holding 32 books, each book with 410 pages.</p>
 
-<ol>
-  <li>Rust prioritizes safety and performance, sometimes at the cost of convenience.</li>
-  <li>The Rust ecosystem often provides solutions for language limitations.</li>
-  <li>Build scripts are powerful tools that can help overcome certain restrictions.</li>
-  <li>Sometimes, the simplest solutions (like using environment variables) can solve complex problems.</li>
-  <li>With some creativity, we can usually find a way around language limitations.</li>
-</ol>
+<p>Converting a base-29 number to an address is a series of modular divisions:</p>
 
-<p>While Rust may not support compile-time formatting out of the box, we have multiple ways to achieve our goals. Whether it’s through community-created crates or clever use of build scripts, Rust developers always find a way forward.</p>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">newFromBase29Number</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span> <span class="o">*</span><span class="n">Location</span> <span class="p">{</span>
+    <span class="n">temp</span><span class="p">,</span> <span class="n">quotient</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span><span class="o">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+
+    <span class="n">page</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">page</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">pagesPerBook</span><span class="p">),</span> <span class="n">page</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="n">book</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">book</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">booksPerShelf</span><span class="p">),</span> <span class="n">book</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="n">shelf</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">shelf</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">shelvesPerWall</span><span class="p">),</span> <span class="n">shelf</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="n">wall</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">quotient</span><span class="p">,</span> <span class="n">wall</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">.</span><span class="n">DivMod</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="n">wallsPerHexagon</span><span class="p">),</span> <span class="n">wall</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">Location</span><span class="p">{</span>
+        <span class="n">Hexagon</span><span class="o">:</span> <span class="n">quotient</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="m">36</span><span class="p">),</span>
+        <span class="n">Wall</span><span class="o">:</span>    <span class="kt">int</span><span class="p">(</span><span class="n">wall</span><span class="o">.</span><span class="n">Int64</span><span class="p">()),</span>
+        <span class="n">Shelf</span><span class="o">:</span>   <span class="kt">int</span><span class="p">(</span><span class="n">shelf</span><span class="o">.</span><span class="n">Int64</span><span class="p">()),</span>
+        <span class="n">Book</span><span class="o">:</span>    <span class="kt">int</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">Int64</span><span class="p">()),</span>
+        <span class="n">Page</span><span class="o">:</span>    <span class="kt">int</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">Int64</span><span class="p">())</span> <span class="o">+</span> <span class="m">1</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The hexagon identifier is whatever is left after stripping out wall, shelf, book, and page. It can be an astronomically large number, so it is stored as a base-36 string (digits and lowercase letters). An address ends up looking something like <code class="language-plaintext highlighter-rouge">3q7z.2.1.14.207</code>. The hierarchy is reversible: you can reconstruct the original base-29 number from any valid address, which is how browsing works.</p>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>One thing the original concept glosses over is what pagination even means when a search for “a” returns close to a billion results.</p>
+
+<p>The variant approach makes this tractable. Variants are sequential integers starting from 0. Pagination is just offset and limit over that sequence:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">SearchPaginated</span><span class="p">(</span><span class="n">text</span> <span class="kt">string</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">limit</span> <span class="kt">int</span><span class="p">)</span> <span class="p">([]</span><span class="o">*</span><span class="n">Location</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">totalCount</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">GetOccurrenceCount</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="m">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"offset cannot be negative"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">limit</span> <span class="o">&lt;=</span> <span class="m">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"limit must be positive"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">offset</span> <span class="o">&gt;=</span> <span class="n">totalCount</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[]</span><span class="o">*</span><span class="n">Location</span><span class="p">{},</span> <span class="no">nil</span>
+    <span class="p">}</span>
+
+    <span class="n">endIndex</span> <span class="o">:=</span> <span class="n">min</span><span class="p">(</span><span class="n">offset</span><span class="o">+</span><span class="n">limit</span><span class="p">,</span> <span class="n">totalCount</span><span class="p">)</span>
+    <span class="n">locations</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="o">*</span><span class="n">Location</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">endIndex</span><span class="o">-</span><span class="n">offset</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">variant</span> <span class="o">:=</span> <span class="n">offset</span><span class="p">;</span> <span class="n">variant</span> <span class="o">&lt;</span> <span class="n">endIndex</span><span class="p">;</span> <span class="n">variant</span><span class="o">++</span> <span class="p">{</span>
+        <span class="n">bigInt</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">generateBase29Number</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"error generating location for variant %d: %w"</span><span class="p">,</span> <span class="n">variant</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">newFromBase29Number</span><span class="p">(</span><span class="n">bigInt</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">locations</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Each page of results is a slice of variant integers. No state, no cursors, no database. You can reproduce any page of results for any query deterministically.</p>
+
+<h2 id="hacks-and-loose-ends">Hacks and Loose Ends</h2>
+
+<p>There are a few places in the code where I left honest markers of imperfection.</p>
+
+<p>The significant one is in <code class="language-plaintext highlighter-rouge">base29NumberToString</code>. The browse API accepts any valid address, and hexagon identifiers can be any integer from 1 up to the maximum <code class="language-plaintext highlighter-rouge">big.Int</code>. If you manually navigate to a small address like <code class="language-plaintext highlighter-rouge">1.0.0.0.1</code>, the corresponding base-29 number is tiny, and decoding it back to characters produces a single-character page. A page with one character is not ideal. The hack is to take whatever characters the conversion produced, hash them, seed an RNG from that hash, and fill the remaining space. It preserves determinism (the same small address always fills the same way) but it is not elegant.</p>
+
+<h2 id="concurrency-and-the-worker-pool">Concurrency and the Worker Pool</h2>
+
+<p><code class="language-plaintext highlighter-rouge">SearchStream</code> was my first real exercise in Go concurrency. Rather than blocking until all results are computed, it returns a channel immediately and lets the caller consume locations as they are generated. The full implementation looks like this:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">SearchStream</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">text</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">&lt;-</span><span class="k">chan</span> <span class="o">*</span><span class="n">Location</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">totalCount</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">GetOccurrenceCount</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">locationChan</span><span class="p">,</span> <span class="n">workerChan</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="o">*</span><span class="n">Location</span><span class="p">),</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="m">100</span><span class="p">)</span>
+    <span class="n">numWorkers</span> <span class="o">:=</span> <span class="n">runtime</span><span class="o">.</span><span class="n">NumCPU</span><span class="p">()</span>
+    <span class="k">var</span> <span class="n">wg</span> <span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span>
+
+    <span class="k">for</span> <span class="k">range</span> <span class="n">numWorkers</span> <span class="p">{</span>
+        <span class="n">wg</span><span class="o">.</span><span class="n">Go</span><span class="p">(</span><span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">{</span>
+                <span class="k">select</span> <span class="p">{</span>
+                <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+                    <span class="k">return</span>
+                <span class="k">case</span> <span class="n">variant</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">workerChan</span><span class="o">:</span>
+                    <span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="p">{</span>
+                        <span class="n">workerChan</span> <span class="o">=</span> <span class="no">nil</span>
+                        <span class="k">continue</span>
+                    <span class="p">}</span>
+                    <span class="n">bigInt</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">generateBase29Number</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+                        <span class="k">continue</span>
+                    <span class="p">}</span>
+                    <span class="n">location</span> <span class="o">:=</span> <span class="n">newFromBase29Number</span><span class="p">(</span><span class="n">bigInt</span><span class="p">)</span>
+                    <span class="k">select</span> <span class="p">{</span>
+                    <span class="k">case</span> <span class="n">locationChan</span> <span class="o">&lt;-</span> <span class="n">location</span><span class="o">:</span>
+                    <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+                        <span class="k">return</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="n">workerChan</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">variant</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">totalCount</span> <span class="p">{</span>
+            <span class="k">select</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="n">workerChan</span> <span class="o">&lt;-</span> <span class="n">variant</span><span class="o">:</span>
+            <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+                <span class="k">return</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}()</span>
+
+    <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="n">locationChan</span><span class="p">)</span>
+        <span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
+    <span class="p">}()</span>
+
+    <span class="k">return</span> <span class="n">locationChan</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>There are three moving parts.</p>
+
+<p>The dispatcher goroutine sends variant integers (0, 1, 2…) into a buffered <code class="language-plaintext highlighter-rouge">workerChan</code>. The buffer size of 100 means the dispatcher can stay ahead of the workers without blocking. It stops early if the context is cancelled.</p>
+
+<p>The worker goroutines (one per CPU) pull variants from <code class="language-plaintext highlighter-rouge">workerChan</code>, compute a location, and send it to <code class="language-plaintext highlighter-rouge">locationChan</code>. Each of the two send operations checks <code class="language-plaintext highlighter-rouge">ctx.Done()</code> so that a cancelled context unblocks workers whether they are waiting to receive a job or waiting to send a result.</p>
+
+<p>The closer goroutine waits for all workers to finish via <code class="language-plaintext highlighter-rouge">sync.WaitGroup</code>, then closes <code class="language-plaintext highlighter-rouge">locationChan</code>. The consumer knows the stream is exhausted when the channel closes.</p>
+
+<h2 id="goroutine-leaks">Goroutine Leaks</h2>
+
+<p>The more interesting case is when you only want a subset of results. The test below reads exactly 100 locations then stops:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">TestLibrarySearchStream</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">library</span> <span class="o">:=</span> <span class="n">New</span><span class="p">()</span>
+    <span class="n">ctx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithCancel</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Background</span><span class="p">())</span>
+    <span class="k">defer</span> <span class="n">cancel</span><span class="p">()</span>
+
+    <span class="n">results</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">library</span><span class="o">.</span><span class="n">SearchStream</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">searchText</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"search stream failed: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">locations</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">*</span><span class="n">Location</span><span class="p">{}</span>
+    <span class="n">limit</span> <span class="o">:=</span> <span class="m">100</span>
+    <span class="k">for</span> <span class="k">range</span> <span class="n">limit</span> <span class="p">{</span>
+        <span class="n">location</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">results</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">cancel</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">l</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">);</span> <span class="n">l</span> <span class="o">!=</span> <span class="n">limit</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"expected %d locations, got %d"</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Once the loop exits, we call <code class="language-plaintext highlighter-rouge">cancel()</code> explicitly rather than relying on <code class="language-plaintext highlighter-rouge">defer</code>. Both work, but calling it immediately after collecting the results we need is the right instinct: it signals the workers to stop as soon as possible rather than waiting until the function returns.</p>
+
+<p>Without that cancellation, you get a goroutine leak. Here is the scenario. <code class="language-plaintext highlighter-rouge">locationChan</code> is unbuffered. Once the consumer stops reading, the next worker trying to send a location will block forever on this:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">locationChan</span> <span class="o">&lt;-</span> <span class="n">location</span><span class="o">:</span> <span class="c">// blocked: nobody reading</span>
+<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>             <span class="c">// never fires: context not cancelled</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>All workers stall. <code class="language-plaintext highlighter-rouge">wg.Wait()</code> never returns. <code class="language-plaintext highlighter-rouge">locationChan</code> is never closed. Everything is stuck.</p>
+
+<p>Cancelling the context is what breaks the deadlock. The <code class="language-plaintext highlighter-rouge">case &lt;-ctx.Done()</code> branch fires in every worker, they all return, <code class="language-plaintext highlighter-rouge">wg.Wait()</code> completes, and <code class="language-plaintext highlighter-rouge">locationChan</code> closes. Whether you call <code class="language-plaintext highlighter-rouge">cancel()</code> explicitly after collecting what you need or rely on <code class="language-plaintext highlighter-rouge">defer</code>, the important thing is that it always runs.</p>
+
+<p>The dispatcher has the same guard. If the context is cancelled while the dispatcher is still enqueuing variants, it exits immediately rather than blocking on a full <code class="language-plaintext highlighter-rouge">workerChan</code>:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">workerChan</span> <span class="o">&lt;-</span> <span class="n">variant</span><span class="o">:</span>
+<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="the-nil-channel-trick">The Nil Channel Trick</h2>
+
+<p>There is one subtlety in how workers handle a closed <code class="language-plaintext highlighter-rouge">workerChan</code>. When the dispatcher has sent all variants and its goroutine exits, it closes <code class="language-plaintext highlighter-rouge">workerChan</code>. A worker receives the zero value with <code class="language-plaintext highlighter-rouge">ok = false</code>, then does something that looks odd:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="n">variant</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">workerChan</span><span class="o">:</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="p">{</span>
+        <span class="n">workerChan</span> <span class="o">=</span> <span class="no">nil</span>
+        <span class="k">continue</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>It sets its local copy of <code class="language-plaintext highlighter-rouge">workerChan</code> to <code class="language-plaintext highlighter-rouge">nil</code> and loops. A receive on a nil channel blocks forever. On the next iteration, the worker’s <code class="language-plaintext highlighter-rouge">select</code> effectively becomes:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="p">{</span>
+<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+    <span class="k">return</span>
+<span class="k">case</span> <span class="n">variant</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="no">nil</span><span class="o">:</span> <span class="c">// blocks forever, never selected</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The worker is now parked, waiting only for context cancellation. This is intentional. The alternative would be for the worker to return immediately when <code class="language-plaintext highlighter-rouge">workerChan</code> closes, but that would decrement the <code class="language-plaintext highlighter-rouge">WaitGroup</code> before the worker has necessarily finished sending its last computed location to <code class="language-plaintext highlighter-rouge">locationChan</code>. Staying alive until <code class="language-plaintext highlighter-rouge">ctx.Done()</code> ensures the worker fully drains before the <code class="language-plaintext highlighter-rouge">WaitGroup</code> completes and <code class="language-plaintext highlighter-rouge">locationChan</code> is closed.</p>
+
+<p>Coming from Rust, this all felt foreign. In Rust the compiler enforces the invariants: ownership, <code class="language-plaintext highlighter-rouge">Send</code>/<code class="language-plaintext highlighter-rouge">Sync</code> bounds, lifetime constraints. In Go you reason about it yourself and encode the contract in patterns like this one. The channel syntax took time to internalize, especially <code class="language-plaintext highlighter-rouge">select</code> across multiple channels. I leaned heavily on <a href="https://www.oreilly.com/library/view/learning-go-2nd/9781098139293/">Learning Go</a> by Jon Bodner throughout this project, particularly for the concurrency chapter and general idiomatic patterns. It is a well-written book and I would recommend it to anyone coming from a statically typed language who finds Go’s conventions a bit opaque at first. The mental model holds up once it clicks. Channels are typed queues, goroutines are lightweight threads, and the patterns (worker pool, fan-out, context cancellation) are consistent everywhere you look in the ecosystem.</p>
+
+<h2 id="the-cli-and-web-app">The CLI and Web App</h2>
+
+<p>You can interact with the library through a CLI or the web app at <a href="https://babel.c12i.xyz">babel.c12i.xyz</a>. For the CLI, I used <a href="https://github.com/alecthomas/kong"><code class="language-plaintext highlighter-rouge">kong</code></a>. My bias towards it is straightforward: coming from Rust, I am used to defining CLI commands as structs and letting the framework derive the parser from struct field tags, which is exactly how <code class="language-plaintext highlighter-rouge">clap</code> works. <code class="language-plaintext highlighter-rouge">kong</code> is the closest equivalent in Go, and that familiarity made it an easy call over something like <code class="language-plaintext highlighter-rouge">cobra</code>.</p>
+
+<p>For the web layer, I used <a href="https://github.com/gin-gonic/gin">Gin</a>. It is fast, the routing API is clean, and the choice did not need much deliberation. The UI is mostly AI-generated. I gave Claude some rough requirements for a search form, results list, and browse view with previous/next navigation, and iterated from there. The interesting parts of this project were in the library core, not the frontend.</p>
+
+<hr />
+
+<p>This was a genuinely enjoyable side project. It pushed me further into Go than IaC work ever did, gave me a working understanding of goroutines and channels, and produced something I find kind of beautiful: an infinite library you can search, that requires no storage, generates every page on demand, and always gives you the same answer for the same question.</p>
+
+<p>The code is open source at <a href="https://github.com/c12i/babel-go">github.com/c12i/babel-go</a>. The web app is live at <a href="https://babel.c12i.xyz">babel.c12i.xyz</a>. Go check what the library has to say about your name.</p>
 
 
 
     <div class="blog-navigation">
         
-            <a class="prev" href="https://collinsmuriuki.xyz/wasm-tutorial/">&laquo; Building a Web Assembly powered password generator</a>
+            <a class="prev" href="https://collinsmuriuki.xyz/building-bunge-bits/">&laquo; Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya</a>
         
         
-            <a class="next" href="https://collinsmuriuki.xyz/building-bunge-bits/">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya &raquo;</a>
+            <a class="next" href="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/">From Bunge Bits to Bunge Hub: building Kenya's parliamentary data layer &raquo;</a>
         
     </div>
 
@@ -683,23 +863,7 @@ error: aborting due to previous error
             
                 
             
-                
-            
         
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -719,6 +883,14 @@ error: aborting due to previous error
             
                 
             
+        
+            
+                
+            
+                
+            
+                
+            
                 
             
         
@@ -731,11 +903,7 @@ error: aborting due to previous error
             
                 
             
-                
-            
         
-            
-                
             
                 
             
@@ -751,6 +919,110 @@ error: aborting due to previous error
         
             
                 
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+    
+        
+        
             
                 
             
@@ -770,7 +1042,7 @@ error: aborting due to previous error
                     <ul>
                     
                     <li class="relatedPost">
-                        <a href="https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/">Building the Library of Babel in Go
+                        <a href="https://collinsmuriuki.xyz/compile-time-string-formatting/">The Quest for Compile-Time String Formatting in Rust
                         
                         </a>
                     </li>
@@ -782,38 +1054,7 @@ error: aborting due to previous error
             
                 
             
-                
-            
         
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
             
                 
             
@@ -833,47 +1074,7 @@ error: aborting due to previous error
             
                 
             
-                
-            
         
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -896,23 +1097,7 @@ error: aborting due to previous error
             
                 
             
-                
-            
         
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -932,71 +1117,7 @@ error: aborting due to previous error
             
                 
             
-                
-            
         
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-                    
-                    <li class="relatedPost">
-                        <a href="https://collinsmuriuki.xyz/wasm-tutorial/">Building a Web Assembly powered password generator
-                        
-                        </a>
-                    </li>
-                    
-                    
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -1019,11 +1140,7 @@ error: aborting due to previous error
             
                 
             
-                
-            
         
-            
-                
             
                 
             
@@ -1061,7 +1178,7 @@ error: aborting due to previous error
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=https://collinsmuriuki.xyz/compile-time-string-formatting/ - The Quest for Compile-Time String Formatting in Rust by @"
+                href="https://twitter.com/intent/tweet?text=https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/ - Building the Library of Babel in Go by @"
             >
                 <svg class="icon icon-twitter">
                     <use xlink:href="#icon-twitter"></use></svg
@@ -1078,11 +1195,11 @@ error: aborting due to previous error
                 ><span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://collinsmuriuki.xyz/compile-time-string-formatting/&amp;title=The Quest for Compile-Time String Formatting in Rust&amp;summary=Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications&amp;source=https://collinsmuriuki.xyz" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/&amp;title=Building the Library of Babel in Go&amp;summary=A deep dive into building a Go implementation of the Library of Babel, exploring deterministic randomness, base29 encoding, and what it taught me about Go's concurrency model.&amp;source=https://collinsmuriuki.xyz" target="_blank">
                 <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg><span class="icon-linkedin">Share</span>
             </a> -->
 
-            <!-- <a class="reddit" href="https://reddit.com/submit?url=https://collinsmuriuki.xyz/compile-time-string-formatting/&amp;title=The Quest for Compile-Time String Formatting in Rust" target="_blank">
+            <!-- <a class="reddit" href="https://reddit.com/submit?url=https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/&amp;title=Building the Library of Babel in Go" target="_blank">
                 <svg class="icon icon-reddit"><use xlink:href="#icon-reddit"></use></svg><span class="icon-reddit">Share</span>
             </a> -->
         </div>
@@ -1097,8 +1214,8 @@ error: aborting due to previous error
     <script type="text/javascript">
 
         var disqus_config = function () {
-            this.page.url = 'https://collinsmuriuki.xyz/compile-time-string-formatting/';
-            this.page.identifier = '/compile-time-string-formatting';
+            this.page.url = 'https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/';
+            this.page.identifier = '/building-the-library-of-babel-in-go';
         };
         var disqus_shortname = 'https-muriuki-dev';
         var disqus_developer = 0;
