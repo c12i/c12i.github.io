@@ -509,7 +509,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     
 
     
-        20 mins
+        21 mins
     
 </span>
 
@@ -576,6 +576,24 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     <span class="k">return</span> <span class="kt">string</span><span class="p">(</span><span class="n">pageChars</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">seedPageChars</code> is called by <code class="language-plaintext highlighter-rouge">generateBase29Number</code>, which walks the page character by character and builds the actual base-29 number:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="p">(</span><span class="n">l</span> <span class="n">Library</span><span class="p">)</span> <span class="n">generateBase29Number</span><span class="p">(</span><span class="n">text</span> <span class="kt">string</span><span class="p">,</span> <span class="n">variant</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="n">big</span><span class="o">.</span><span class="n">Int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">result</span> <span class="o">:=</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+    <span class="n">pageChars</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">seedPageChars</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">char</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">pageChars</span> <span class="p">{</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">Mul</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">:=</span> <span class="n">l</span><span class="o">.</span><span class="n">charToIndex</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="kt">int64</span><span class="p">(</span><span class="n">index</span><span class="p">)))</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Each character is treated as a digit: multiply the running total by 29, add the character’s index. After 3,200 characters you have a single very large integer that uniquely encodes the page. That number is what gets decomposed into the hexagon, wall, shelf, book, and page coordinates.</p>
 
 <p>The <code class="language-plaintext highlighter-rouge">variant</code> parameter is how multiple results work. Searching with variant 0 gives you one address, variant 1 gives you a different one. The same text plus a different variant integer produces a different seed, a different page, a different address. Every text “appears” in the library an essentially unlimited number of times, just at different coordinates.</p>
 
