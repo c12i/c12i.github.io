@@ -505,7 +505,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     
 
     
-        19 mins
+        20 mins
     
 </span>
 
@@ -541,7 +541,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 <h2 id="the-character-set-and-base29-encoding">The Character Set and Base29 Encoding</h2>
 
-<p>The original Borges concept uses a small alphabet. Most implementations converge on a 29-character set: lowercase a to z, a space, a comma, and a period. That gives you enough to write something coherent, and 29 is a prime number, which has nice properties for base conversion.</p>
+<p>The original Borges concept uses a small alphabet. Most implementations converge on a 29-character set: lowercase a to z, a space, a comma, and a period. That gives you enough to write something coherent, and 29 is a prime number, which has nice properties for base conversion. Some implementations go further: <a href="https://github.com/tdjsnelling/babel">this TypeScript implementation</a> by tdjsnelling extends the charset to 32 characters. I chose to stick with the original 29. I did borrow the addressing system from that project though, which I found quite intuitive.</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">charset</span> <span class="o">:=</span> <span class="s">" abcdefghijklmnopqrstuvwxyz,."</span>
 </code></pre></div></div>
