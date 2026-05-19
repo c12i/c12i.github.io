@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2026-05-19T16:07:36+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">How the odnelazm-ingest pipeline works</title><link href="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/" rel="alternate" type="text/html" title="How the odnelazm-ingest pipeline works" /><published>2026-05-19T12:00:00+03:00</published><updated>2026-05-19T12:00:00+03:00</updated><id>https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works</id><content type="html" xml:base="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/"><![CDATA[<p><a href="https://bunge-hub.mwananchi.tech">Bunge Hub</a> is currently in preview. It exposes Kenya’s parliamentary record as structured, searchable data; every bill, debate, and member contribution from the 13th Parliament. This post walks through the pipeline that builds and maintains the database behind it.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2026-05-19T16:22:23+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">How the odnelazm-ingest pipeline works</title><link href="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/" rel="alternate" type="text/html" title="How the odnelazm-ingest pipeline works" /><published>2026-05-19T12:00:00+03:00</published><updated>2026-05-19T12:00:00+03:00</updated><id>https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works</id><content type="html" xml:base="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/"><![CDATA[<p><a href="https://bunge-hub.mwananchi.tech">Bunge Hub</a> is currently in preview. It exposes Kenya’s parliamentary record as structured, searchable data; every bill, debate, and member contribution from the 13th Parliament. This post walks through the pipeline that builds and maintains the database behind it.</p>
 
 <p>The pipeline lives in <a href="https://github.com/mwananchi-tech/odnelazm/tree/main/crates/odnelazm-ingest"><code class="language-plaintext highlighter-rouge">odnelazm-ingest</code></a>, a Rust crate that handles scraping, extraction, storage, and AI enrichment.</p>
 
@@ -50,7 +50,7 @@
 
 <ol>
   <li>
-    <p><strong>URL matching</strong>: when mzalendo includes a profile link on a contribution, exact URL match is used. Most reliable.</p>
+    <p><strong>URL matching</strong>: when mzalendo includes a profile link on a contribution, exact URL match is used. Most reliable. This accounts for 1,871 of 3,021 speaker records in the current dataset.</p>
   </li>
   <li>
     <p><strong>Fuzzy name matching</strong>: for speakers without a URL, <code class="language-plaintext highlighter-rouge">pg_trgm</code> trigram similarity is computed against all member names via a <code class="language-plaintext highlighter-rouge">match_member</code> SQL function. Matches above a 0.45 score are accepted.</p>
@@ -59,6 +59,8 @@
     <p><strong>Role-based matching</strong>: presiding officers like “Hon. Speaker” and “Hon. Deputy Speaker” don’t fuzzy-match well because the names are too generic. These are resolved by looking up members with <code class="language-plaintext highlighter-rouge">role = 'Speaker'</code> or <code class="language-plaintext highlighter-rouge">role ILIKE '%deputy speaker%'</code> scoped to the relevant house and parliament.</p>
   </li>
 </ol>
+
+<p>Steps 2 and 3 combined account for a further 722 matches. 428 speaker records remain unmatched, mostly extraction noise where speech content leaked into the speaker name field.</p>
 
 <p>The <code class="language-plaintext highlighter-rouge">clean_speaker_name</code> SQL function strips honorifics, titles, constituency parentheticals, and presiding-role prefixes before matching. The Hansard produces a surprising variety of name formats:</p>
 

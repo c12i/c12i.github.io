@@ -505,7 +505,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     
 
     
-        7 mins
+        8 mins
     
 </span>
 
@@ -579,7 +579,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 <ol>
   <li>
-    <p><strong>URL matching</strong>: when mzalendo includes a profile link on a contribution, exact URL match is used. Most reliable.</p>
+    <p><strong>URL matching</strong>: when mzalendo includes a profile link on a contribution, exact URL match is used. Most reliable. This accounts for 1,871 of 3,021 speaker records in the current dataset.</p>
   </li>
   <li>
     <p><strong>Fuzzy name matching</strong>: for speakers without a URL, <code class="language-plaintext highlighter-rouge">pg_trgm</code> trigram similarity is computed against all member names via a <code class="language-plaintext highlighter-rouge">match_member</code> SQL function. Matches above a 0.45 score are accepted.</p>
@@ -588,6 +588,8 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     <p><strong>Role-based matching</strong>: presiding officers like “Hon. Speaker” and “Hon. Deputy Speaker” don’t fuzzy-match well because the names are too generic. These are resolved by looking up members with <code class="language-plaintext highlighter-rouge">role = 'Speaker'</code> or <code class="language-plaintext highlighter-rouge">role ILIKE '%deputy speaker%'</code> scoped to the relevant house and parliament.</p>
   </li>
 </ol>
+
+<p>Steps 2 and 3 combined account for a further 722 matches. 428 speaker records remain unmatched, mostly extraction noise where speech content leaked into the speaker name field.</p>
 
 <p>The <code class="language-plaintext highlighter-rouge">clean_speaker_name</code> SQL function strips honorifics, titles, constituency parentheticals, and presiding-role prefixes before matching. The Hansard produces a surprising variety of name formats:</p>
 
