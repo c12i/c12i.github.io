@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2026-05-18T14:22:17+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer</title><link href="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/" rel="alternate" type="text/html" title="From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer" /><published>2026-05-14T12:00:00+03:00</published><updated>2026-05-14T12:00:00+03:00</updated><id>https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub</id><content type="html" xml:base="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/"><![CDATA[<p>This is a story about a problem I kept coming back to, two failed starts, one pivot that changed everything, and a project that is finally built to last.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://collinsmuriuki.xyz/feed.xml" rel="self" type="application/atom+xml" /><link href="https://collinsmuriuki.xyz/" rel="alternate" type="text/html" /><updated>2026-05-19T15:52:12+03:00</updated><id>https://collinsmuriuki.xyz/feed.xml</id><title type="html">Collins Muriuki</title><subtitle>Understanding the universe and explaining it to a three year old.</subtitle><entry><title type="html">How the odnelazm-ingest pipeline works</title><link href="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/" rel="alternate" type="text/html" title="How the odnelazm-ingest pipeline works" /><published>2026-05-19T12:00:00+03:00</published><updated>2026-05-19T12:00:00+03:00</updated><id>https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works</id><content type="html" xml:base="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/"><![CDATA[<p><a href="https://bunge-hub.mwananchi.tech">Bunge Hub</a> is currently in preview. It exposes Kenya’s parliamentary record as structured, searchable data; every bill, debate, and member contribution from the 13th Parliament. This post walks through the pipeline that builds and maintains the database behind it.</p>
+
+<p>The pipeline lives in <a href="https://github.com/mwananchi-tech/odnelazm/tree/main/crates/odnelazm-ingest"><code class="language-plaintext highlighter-rouge">odnelazm-ingest</code></a>, a Rust crate that handles scraping, extraction, storage, and AI enrichment.</p>
+
+<h2 id="the-source">The source</h2>
+
+<p>Kenya’s Hansard is published through mzalendo.com as structured HTML. Each sitting is a flat document of sections, subsections, and contributions with speaker names. The <a href="https://github.com/mwananchi-tech/odnelazm"><code class="language-plaintext highlighter-rouge">odnelazm</code></a> core library parses these into typed Rust structs. <code class="language-plaintext highlighter-rouge">odnelazm-ingest</code> takes those structs and writes them to PostgreSQL.</p>
+
+<h2 id="the-pipeline">The pipeline</h2>
+
+<p>Everything runs through <code class="language-plaintext highlighter-rouge">IngestPipeline</code>, which is generic over any <code class="language-plaintext highlighter-rouge">DataStore</code> implementation. It holds a scraper, an optional embedder, an optional summarizer, and an optional metrics sink.</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">struct</span> <span class="n">IngestPipeline</span><span class="o">&lt;</span><span class="n">S</span><span class="p">:</span> <span class="n">DataStore</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">scraper</span><span class="p">:</span> <span class="n">HansardScraper</span><span class="p">,</span>
+    <span class="n">store</span><span class="p">:</span> <span class="n">S</span><span class="p">,</span>
+    <span class="n">embedder</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Embedder</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">summarizer</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Summarizer</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">metrics</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">MetricsSink</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The public surface is small: <code class="language-plaintext highlighter-rouge">ingest_all_sittings</code>, <code class="language-plaintext highlighter-rouge">ingest_sittings_in_range</code>, <code class="language-plaintext highlighter-rouge">ingest_members</code>, and <code class="language-plaintext highlighter-rouge">ingest_member_profiles</code>. Everything else is private.</p>
+
+<h2 id="what-happens-when-a-sitting-is-ingested">What happens when a sitting is ingested</h2>
+
+<p><code class="language-plaintext highlighter-rouge">ingest_sitting</code> is the core unit of work. For each sitting:</p>
+
+<ol>
+  <li>
+    <p><strong>Sitting</strong>: upserted by URL. The full transcript is stored as JSONB in <code class="language-plaintext highlighter-rouge">raw_json</code>. On conflict, the raw JSON is overwritten but existing summaries are preserved.</p>
+  </li>
+  <li>
+    <p><strong>Speakers</strong>: every distinct contributor name becomes a <code class="language-plaintext highlighter-rouge">speakers</code> row. Speaker names are extracted as-is from the HTML, which means the same person can appear under multiple names across sittings (“Hon. Kaluma”, “Peter Kaluma”, “Hon. Peter Kaluma”).</p>
+  </li>
+  <li>
+    <p><strong>Bills</strong>: the bill extractor scans section headings for patterns ending in “BILL” or “ACT”. Each match becomes a <code class="language-plaintext highlighter-rouge">bill_mentions</code> row joining a <code class="language-plaintext highlighter-rouge">bills</code> record to the sitting, with stage detected from the heading or contribution text.</p>
+  </li>
+  <li>
+    <p><strong>Topics</strong>: questions, statements, motions, and communications from the chair are extracted as <code class="language-plaintext highlighter-rouge">topics</code>, each linked to their speakers via <code class="language-plaintext highlighter-rouge">topic_speakers</code>.</p>
+  </li>
+</ol>
+
+<h2 id="the-linking-problem">The linking problem</h2>
+
+<p>After sittings are ingested, member profiles are imported from mzalendo’s member performance tracker. This gives us canonical names, constituencies, parties, and profile URLs.</p>
+
+<p>Linking speakers to members is a three-step pass:</p>
+
+<ol>
+  <li>
+    <p><strong>URL matching</strong>: when mzalendo includes a profile link on a contribution, exact URL match is used. Most reliable.</p>
+  </li>
+  <li>
+    <p><strong>Fuzzy name matching</strong>: for speakers without a URL, <code class="language-plaintext highlighter-rouge">pg_trgm</code> trigram similarity is computed against all member names via a <code class="language-plaintext highlighter-rouge">match_member</code> SQL function. Matches above a 0.45 score are accepted.</p>
+  </li>
+  <li>
+    <p><strong>Role-based matching</strong>: presiding officers like “Hon. Speaker” and “Hon. Deputy Speaker” don’t fuzzy-match well because the names are too generic. These are resolved by looking up members with <code class="language-plaintext highlighter-rouge">role = 'Speaker'</code> or <code class="language-plaintext highlighter-rouge">role ILIKE '%deputy speaker%'</code> scoped to the relevant house and parliament.</p>
+  </li>
+</ol>
+
+<p>The <code class="language-plaintext highlighter-rouge">clean_speaker_name</code> SQL function strips honorifics, titles, constituency parentheticals, and presiding-role prefixes before matching:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- "The Temporary Speaker (Hon. (Dr) Rachael Nyamai)" → "Rachael Nyamai"</span>
+<span class="c1">-- "Hon. Kimani Ichung'wah (Kikuyu, UDA)" → "Kimani Ichung'wah"</span>
+</code></pre></div></div>
+
+<h2 id="ai-enrichment">AI enrichment</h2>
+
+<p>Summaries are generated separately from ingestion, via the <code class="language-plaintext highlighter-rouge">enrich</code> subcommand of <code class="language-plaintext highlighter-rouge">odnelazm-pipeline</code>. The pipeline supports six enrichment targets:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Target</th>
+      <th>What it generates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bill-mentions</code></td>
+      <td>Summary of each bill’s appearance in a sitting, using the full transcript as context</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bill-journeys</code></td>
+      <td>Narrative summary of a bill’s full legislative journey across all sittings</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bill-speakers</code></td>
+      <td>Per-speaker summary of their contributions to a specific bill debate</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">topics</code></td>
+      <td>Summary of a topic’s appearance in a sitting</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">topic-speakers</code></td>
+      <td>Per-speaker summary of their contributions to a topic</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sittings</code></td>
+      <td>Full structured summary of a sitting</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All enrichment is done locally using open-source models via LM Studio. No cloud API calls. The model used to generate each summary is stored alongside it so it can be attributed in the UI and re-enriched with a better model later.</p>
+
+<p>The current model is <strong>Qwen3.5 9B</strong> (<code class="language-plaintext highlighter-rouge">qwen/qwen3.5-9b</code>). I chose it for two reasons: its 262K native context window comfortably holds a full sitting transcript in a single call, and its built-in chain-of-thought reasoning produces noticeably more nuanced summaries than models that don’t reason before generating.</p>
+
+<p>The tradeoff is inference time. At 65K context, Qwen spends the bulk of its budget on reasoning before producing the actual answer. From a recent run:</p>
+
+<ul>
+  <li><strong>~14 tokens/second</strong> on Apple M-series (CPU inference)</li>
+  <li><strong>~4 seconds</strong> time to first token</li>
+  <li><strong>~18,000 input tokens</strong> per bill appearance summary</li>
+  <li><strong>~5,000 reasoning tokens</strong> generated before the final output</li>
+</ul>
+
+<p>At concurrency 1 on a MacBook, that works out to around 3-4 minutes per summary. A full run over 1,000 bill appearances takes several days of wall-clock time. Running on a machine with a dedicated GPU brings this down to under 30 seconds per summary.</p>
+
+<p>I will also be testing <strong>Gemma 4 e2b</strong> (<code class="language-plaintext highlighter-rouge">google/gemma-4-e2b</code>) as an alternative. It is a 2B parameter model with a 128K context window, designed for on-device inference, and should be significantly faster. The quality tradeoff for complex parliamentary text is still to be evaluated.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Summarizer</code> trait is simple:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">trait</span> <span class="n">Summarizer</span><span class="p">:</span> <span class="nb">Send</span> <span class="o">+</span> <span class="nb">Sync</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="k">fn</span> <span class="nf">summarize</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The caller is responsible for building the full prompt. Prompt builders for each target live in <code class="language-plaintext highlighter-rouge">enricher/prompts.rs</code>. Bill appearance prompts include the full sitting transcript as context so the model can reference cross-bill discussions. Member contribution prompts are narrower, only including that speaker’s contributions.</p>
+
+<h2 id="metrics">Metrics</h2>
+
+<p>The pipeline emits metrics to a Prometheus pushgateway after each enrichment batch. Grafana is used to visualise progress, including throughput, token counts, and time to first token per call.</p>
+
+<h2 id="running-it">Running it</h2>
+
+<p>The pipeline is driven by a single binary, <code class="language-plaintext highlighter-rouge">odnelazm-pipeline</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ingest 13th Parliament sittings</span>
+odnelazm-pipeline ingest <span class="nt">--start-date</span> 2022-09-01 <span class="nt">--end-date</span> 2026-05-19
+
+<span class="c"># Enrich bill appearance summaries</span>
+odnelazm-pipeline <span class="nt">--metrics-url</span> http://localhost:9091 <span class="se">\</span>
+  enrich bill-mentions <span class="nt">--model</span> qwen/qwen3.5-9b <span class="nt">--concurrency</span> 1
+</code></pre></div></div>
+
+<p>Enrichment is idempotent. Items that already have a summary are skipped, so runs can be interrupted and resumed without duplicating work.</p>
+
+<p>The full source is at <a href="https://github.com/mwananchi-tech/odnelazm">mwananchi-tech/odnelazm</a>. Bunge Hub is live at <a href="https://bunge-hub.mwananchi.tech">bunge-hub.mwananchi.tech</a>.</p>]]></content><author><name>Collins Muriuki</name></author><category term="blog" /><category term="Rust" /><category term="PostgreSQL" /><category term="CivicTech" /><category term="Kenya" /><category term="DataEngineering" /><summary type="html"><![CDATA[A technical walkthrough of the data pipeline that powers Bunge Hub. Covers scraping, extraction, speaker linking, and AI enrichment.]]></summary></entry><entry><title type="html">From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer</title><link href="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/" rel="alternate" type="text/html" title="From Bunge Bits to Bunge Hub: building Kenya’s parliamentary data layer" /><published>2026-05-14T12:00:00+03:00</published><updated>2026-05-14T12:00:00+03:00</updated><id>https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub</id><content type="html" xml:base="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/"><![CDATA[<p>This is a story about a problem I kept coming back to, two failed starts, one pivot that changed everything, and a project that is finally built to last.</p>
 
 <h2 id="where-it-started-bunge-bits">Where it started: Bunge Bits</h2>
 

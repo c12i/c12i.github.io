@@ -9,26 +9,24 @@
     <meta name=author content="Collins Muriuki">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>The Quest for Compile-Time String Formatting in Rust | Collins Muriuki</title>
+<title>How the odnelazm-ingest pipeline works | Collins Muriuki</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="The Quest for Compile-Time String Formatting in Rust" />
+<meta property="og:title" content="How the odnelazm-ingest pipeline works" />
 <meta name="author" content="Collins Muriuki" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications" />
-<meta property="og:description" content="Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications" />
-<link rel="canonical" href="https://collinsmuriuki.xyz/compile-time-string-formatting/" />
-<meta property="og:url" content="https://collinsmuriuki.xyz/compile-time-string-formatting/" />
+<meta name="description" content="A technical walkthrough of the data pipeline that powers Bunge Hub. Covers scraping, extraction, speaker linking, and AI enrichment." />
+<meta property="og:description" content="A technical walkthrough of the data pipeline that powers Bunge Hub. Covers scraping, extraction, speaker linking, and AI enrichment." />
+<link rel="canonical" href="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/" />
+<meta property="og:url" content="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/" />
 <meta property="og:site_name" content="Collins Muriuki" />
-<meta property="og:image" content="https://collinsmuriuki.xyz/assets/images/rust-crab.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-01T02:30:00+03:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://collinsmuriuki.xyz/assets/images/rust-crab.png" />
-<meta property="twitter:title" content="The Quest for Compile-Time String Formatting in Rust" />
+<meta property="article:published_time" content="2026-05-19T12:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How the odnelazm-ingest pipeline works" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Collins Muriuki" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Collins Muriuki"},"dateModified":"2024-09-01T02:30:00+03:00","datePublished":"2024-09-01T02:30:00+03:00","description":"Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications","headline":"The Quest for Compile-Time String Formatting in Rust","image":"https://collinsmuriuki.xyz/assets/images/rust-crab.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://collinsmuriuki.xyz/compile-time-string-formatting/"},"url":"https://collinsmuriuki.xyz/compile-time-string-formatting/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Collins Muriuki"},"dateModified":"2026-05-19T12:00:00+03:00","datePublished":"2026-05-19T12:00:00+03:00","description":"A technical walkthrough of the data pipeline that powers Bunge Hub. Covers scraping, extraction, speaker linking, and AI enrichment.","headline":"How the odnelazm-ingest pipeline works","mainEntityOfPage":{"@type":"WebPage","@id":"https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/"},"url":"https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -54,7 +52,7 @@
 <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 
 
-    <link rel="canonical" href="https://collinsmuriuki.xyz/compile-time-string-formatting/">
+    <link rel="canonical" href="https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/">
     <link rel="alternate" type="application/rss+xml" title="" href="https://collinsmuriuki.xyz/feed.xml" />
 
     <style>
@@ -498,18 +496,16 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 
 
-    <img class="title-image" src="/assets/images/rust-crab.png" alt="The Quest for Compile-Time String Formatting in Rust">
 
-
-<h1 class="title">The Quest for Compile-Time String Formatting in Rust</h1>
+<h1 class="title">How the odnelazm-ingest pipeline works</h1>
 
 <span class="date">
-    <time datetime="01-09-2024">Sunday. September 01, 2024</time>
+    <time datetime="19-05-2026">Tuesday. May 19, 2026</time>
      - <span class="reading-time" title="Estimated read time">
     
 
     
-        4 mins
+        6 mins
     
 </span>
 
@@ -518,152 +514,176 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
     <div class="post-tags">
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#rust">rust</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#rust">Rust</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#programming">programming</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#postgresql">PostgreSQL</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#cli">cli</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#civictech">CivicTech</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#compile-time">compile-time</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#kenya">Kenya</a>
         
-            <a class="item" href="https://collinsmuriuki.xyz/tags/#string-formatting">string-formatting</a>
+            <a class="item" href="https://collinsmuriuki.xyz/tags/#dataengineering">DataEngineering</a>
         
     </div>
 
 
-<p>Imagine you’re deep in Rust code, building a CLI tool that’s going to make waves in the developer community. You’ve got your <code class="language-plaintext highlighter-rouge">clap</code> derive macros set up perfectly, ready to handle command parsing with ease. But then you hit a snag. You need to concatenate some constants for your <code class="language-plaintext highlighter-rouge">about</code> attribute to show compatibility information, and Rust isn’t playing ball.</p>
+<p><a href="https://bunge-hub.mwananchi.tech">Bunge Hub</a> is currently in preview. It exposes Kenya’s parliamentary record as structured, searchable data; every bill, debate, and member contribution from the 13th Parliament. This post walks through the pipeline that builds and maintains the database behind it.</p>
 
-<p>Welcome to Rust, where safety and zero-cost abstractions reign supreme, but sometimes the simplest tasks can become unexpected challenges.</p>
+<p>The pipeline lives in <a href="https://github.com/mwananchi-tech/odnelazm/tree/main/crates/odnelazm-ingest"><code class="language-plaintext highlighter-rouge">odnelazm-ingest</code></a>, a Rust crate that handles scraping, extraction, storage, and AI enrichment.</p>
 
-<h2 id="the-problem-rusts-compile-time-conundrum">The Problem: Rust’s Compile-Time Conundrum</h2>
+<h2 id="the-source">The source</h2>
 
-<p>Why can’t Rust handle simple string concatenation at compile time? Well, it’s not as straightforward as you might think.</p>
+<p>Kenya’s Hansard is published through mzalendo.com as structured HTML. Each sitting is a flat document of sections, subsections, and contributions with speaker names. The <a href="https://github.com/mwananchi-tech/odnelazm"><code class="language-plaintext highlighter-rouge">odnelazm</code></a> core library parses these into typed Rust structs. <code class="language-plaintext highlighter-rouge">odnelazm-ingest</code> takes those structs and writes them to PostgreSQL.</p>
 
-<p>Let’s look at an example that seems like it should work, but doesn’t:</p>
+<h2 id="the-pipeline">The pipeline</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">clap</span><span class="p">::</span><span class="n">Parser</span><span class="p">;</span>
+<p>Everything runs through <code class="language-plaintext highlighter-rouge">IngestPipeline</code>, which is generic over any <code class="language-plaintext highlighter-rouge">DataStore</code> implementation. It holds a scraper, an optional embedder, an optional summarizer, and an optional metrics sink.</p>
 
-<span class="k">const</span> <span class="n">TOOL_NAME</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_VERSION</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
-
-<span class="c1">// This doesn't work!</span>
-<span class="k">const</span> <span class="n">ABOUT</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
-    <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
-    <span class="n">TOOL_NAME</span><span class="p">,</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">,</span> <span class="n">COMPATIBLE_VERSION</span>
-<span class="p">);</span>
-
-<span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
-<span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">ABOUT)]</span>
-<span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
-    <span class="c1">// CLI arguments would go here</span>
-<span class="p">}</span>
-
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">args</span> <span class="o">=</span> <span class="nn">Cli</span><span class="p">::</span><span class="nf">parse</span><span class="p">();</span>
-    <span class="nd">println!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">struct</span> <span class="n">IngestPipeline</span><span class="o">&lt;</span><span class="n">S</span><span class="p">:</span> <span class="n">DataStore</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">scraper</span><span class="p">:</span> <span class="n">HansardScraper</span><span class="p">,</span>
+    <span class="n">store</span><span class="p">:</span> <span class="n">S</span><span class="p">,</span>
+    <span class="n">embedder</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Embedder</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">summarizer</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Summarizer</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">metrics</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">MetricsSink</span><span class="o">&gt;&gt;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Try to compile this, and Rust responds with an error:</p>
+<p>The public surface is small: <code class="language-plaintext highlighter-rouge">ingest_all_sittings</code>, <code class="language-plaintext highlighter-rouge">ingest_sittings_in_range</code>, <code class="language-plaintext highlighter-rouge">ingest_members</code>, and <code class="language-plaintext highlighter-rouge">ingest_member_profiles</code>. Everything else is private.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error[E0015]: calls in constants are limited to constant functions, tuple structs and tuple variants
- --&gt; src/main.rs:8:21
-  |
-8 | const ABOUT: String = format!(
-  |                       ^^^^^^ ...
+<h2 id="what-happens-when-a-sitting-is-ingested">What happens when a sitting is ingested</h2>
 
-error: aborting due to previous error
-</code></pre></div></div>
-
-<p>The <code class="language-plaintext highlighter-rouge">format!</code> macro, usually so helpful for string formatting, suddenly becomes unavailable in the compile-time context.</p>
-
-<p>Rust’s const evaluation capabilities, while continuously improving, still have limitations. The language designers have prioritized other features, leaving compile-time string formatting as a challenge to overcome.</p>
-
-<h2 id="the-solution-leveraging-crates">The Solution: Leveraging Crates</h2>
-
-<p>Fortunately, the Rust ecosystem provides solutions. One such solution is the <a href="https://docs.rs/const_format/latest/const_format/index.html"><code class="language-plaintext highlighter-rouge">const_format</code></a> crate, which allows for compile-time string formatting.</p>
-
-<p>With <code class="language-plaintext highlighter-rouge">const_format</code>, you can write:</p>
-
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">const_format</span><span class="p">::</span><span class="n">formatcp</span><span class="p">;</span>
-
-<span class="k">const</span> <span class="n">TOOL_NAME</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">COMPATIBLE_VERSION</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">ABOUT</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="nd">formatcp!</span><span class="p">(</span>
-    <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
-    <span class="n">TOOL_NAME</span><span class="p">,</span> <span class="n">COMPATIBLE_CRATE</span><span class="p">,</span> <span class="n">COMPATIBLE_VERSION</span>
-<span class="p">);</span>
-</code></pre></div></div>
-
-<p>This approach gives us the compile-time string formatting we need.</p>
-
-<h2 id="an-alternative-build-scripts">An Alternative: Build Scripts</h2>
-
-<p>There’s another way to achieve compile-time string formatting without additional crates: build scripts and environment variables.</p>
-
-<p>By using a <code class="language-plaintext highlighter-rouge">build.rs</code> file, we can generate our formatted strings at compile time and pass them to our main code as environment variables. Here’s how:</p>
+<p><code class="language-plaintext highlighter-rouge">ingest_sitting</code> is the core unit of work. For each sitting:</p>
 
 <ol>
-  <li>Create a <code class="language-plaintext highlighter-rouge">build.rs</code> file in your project root:</li>
+  <li>
+    <p><strong>Sitting</strong>: upserted by URL. The full transcript is stored as JSONB in <code class="language-plaintext highlighter-rouge">raw_json</code>. On conflict, the raw JSON is overwritten but existing summaries are preserved.</p>
+  </li>
+  <li>
+    <p><strong>Speakers</strong>: every distinct contributor name becomes a <code class="language-plaintext highlighter-rouge">speakers</code> row. Speaker names are extracted as-is from the HTML, which means the same person can appear under multiple names across sittings (“Hon. Kaluma”, “Peter Kaluma”, “Hon. Peter Kaluma”).</p>
+  </li>
+  <li>
+    <p><strong>Bills</strong>: the bill extractor scans section headings for patterns ending in “BILL” or “ACT”. Each match becomes a <code class="language-plaintext highlighter-rouge">bill_mentions</code> row joining a <code class="language-plaintext highlighter-rouge">bills</code> record to the sitting, with stage detected from the heading or contribution text.</p>
+  </li>
+  <li>
+    <p><strong>Topics</strong>: questions, statements, motions, and communications from the chair are extracted as <code class="language-plaintext highlighter-rouge">topics</code>, each linked to their speakers via <code class="language-plaintext highlighter-rouge">topic_speakers</code>.</p>
+  </li>
 </ol>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">tool_name</span> <span class="o">=</span> <span class="s">"SuperTool"</span><span class="p">;</span>
-    <span class="k">let</span> <span class="n">compatible_crate</span> <span class="o">=</span> <span class="s">"AwesomeDependency"</span><span class="p">;</span>
-    <span class="k">let</span> <span class="n">compatible_version</span> <span class="o">=</span> <span class="s">"1.2.3"</span><span class="p">;</span>
-    <span class="k">let</span> <span class="n">about</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
-        <span class="s">"{} - Compatible with {} version {}"</span><span class="p">,</span>
-        <span class="n">tool_name</span><span class="p">,</span> <span class="n">compatible_crate</span><span class="p">,</span> <span class="n">compatible_version</span>
-    <span class="p">);</span>
+<h2 id="the-linking-problem">The linking problem</h2>
 
-    <span class="nd">println!</span><span class="p">(</span><span class="s">"cargo:rustc-env=ABOUT={}"</span><span class="p">,</span> <span class="n">about</span><span class="p">);</span>
+<p>After sittings are ingested, member profiles are imported from mzalendo’s member performance tracker. This gives us canonical names, constituencies, parties, and profile URLs.</p>
+
+<p>Linking speakers to members is a three-step pass:</p>
+
+<ol>
+  <li>
+    <p><strong>URL matching</strong>: when mzalendo includes a profile link on a contribution, exact URL match is used. Most reliable.</p>
+  </li>
+  <li>
+    <p><strong>Fuzzy name matching</strong>: for speakers without a URL, <code class="language-plaintext highlighter-rouge">pg_trgm</code> trigram similarity is computed against all member names via a <code class="language-plaintext highlighter-rouge">match_member</code> SQL function. Matches above a 0.45 score are accepted.</p>
+  </li>
+  <li>
+    <p><strong>Role-based matching</strong>: presiding officers like “Hon. Speaker” and “Hon. Deputy Speaker” don’t fuzzy-match well because the names are too generic. These are resolved by looking up members with <code class="language-plaintext highlighter-rouge">role = 'Speaker'</code> or <code class="language-plaintext highlighter-rouge">role ILIKE '%deputy speaker%'</code> scoped to the relevant house and parliament.</p>
+  </li>
+</ol>
+
+<p>The <code class="language-plaintext highlighter-rouge">clean_speaker_name</code> SQL function strips honorifics, titles, constituency parentheticals, and presiding-role prefixes before matching:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- "The Temporary Speaker (Hon. (Dr) Rachael Nyamai)" → "Rachael Nyamai"</span>
+<span class="c1">-- "Hon. Kimani Ichung'wah (Kikuyu, UDA)" → "Kimani Ichung'wah"</span>
+</code></pre></div></div>
+
+<h2 id="ai-enrichment">AI enrichment</h2>
+
+<p>Summaries are generated separately from ingestion, via the <code class="language-plaintext highlighter-rouge">enrich</code> subcommand of <code class="language-plaintext highlighter-rouge">odnelazm-pipeline</code>. The pipeline supports six enrichment targets:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Target</th>
+      <th>What it generates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bill-mentions</code></td>
+      <td>Summary of each bill’s appearance in a sitting, using the full transcript as context</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bill-journeys</code></td>
+      <td>Narrative summary of a bill’s full legislative journey across all sittings</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bill-speakers</code></td>
+      <td>Per-speaker summary of their contributions to a specific bill debate</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">topics</code></td>
+      <td>Summary of a topic’s appearance in a sitting</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">topic-speakers</code></td>
+      <td>Per-speaker summary of their contributions to a topic</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sittings</code></td>
+      <td>Full structured summary of a sitting</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All enrichment is done locally using open-source models via LM Studio. No cloud API calls. The model used to generate each summary is stored alongside it so it can be attributed in the UI and re-enriched with a better model later.</p>
+
+<p>The current model is <strong>Qwen3.5 9B</strong> (<code class="language-plaintext highlighter-rouge">qwen/qwen3.5-9b</code>). I chose it for two reasons: its 262K native context window comfortably holds a full sitting transcript in a single call, and its built-in chain-of-thought reasoning produces noticeably more nuanced summaries than models that don’t reason before generating.</p>
+
+<p>The tradeoff is inference time. At 65K context, Qwen spends the bulk of its budget on reasoning before producing the actual answer. From a recent run:</p>
+
+<ul>
+  <li><strong>~14 tokens/second</strong> on Apple M-series (CPU inference)</li>
+  <li><strong>~4 seconds</strong> time to first token</li>
+  <li><strong>~18,000 input tokens</strong> per bill appearance summary</li>
+  <li><strong>~5,000 reasoning tokens</strong> generated before the final output</li>
+</ul>
+
+<p>At concurrency 1 on a MacBook, that works out to around 3-4 minutes per summary. A full run over 1,000 bill appearances takes several days of wall-clock time. Running on a machine with a dedicated GPU brings this down to under 30 seconds per summary.</p>
+
+<p>I will also be testing <strong>Gemma 4 e2b</strong> (<code class="language-plaintext highlighter-rouge">google/gemma-4-e2b</code>) as an alternative. It is a 2B parameter model with a 128K context window, designed for on-device inference, and should be significantly faster. The quality tradeoff for complex parliamentary text is still to be evaluated.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Summarizer</code> trait is simple:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">trait</span> <span class="n">Summarizer</span><span class="p">:</span> <span class="nb">Send</span> <span class="o">+</span> <span class="nb">Sync</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="k">fn</span> <span class="nf">summarize</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ol>
-  <li>In your <code class="language-plaintext highlighter-rouge">main.rs</code>, use the environment variable:</li>
-</ol>
+<p>The caller is responsible for building the full prompt. Prompt builders for each target live in <code class="language-plaintext highlighter-rouge">enricher/prompts.rs</code>. Bill appearance prompts include the full sitting transcript as context so the model can reference cross-bill discussions. Member contribution prompts are narrower, only including that speaker’s contributions.</p>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">clap</span><span class="p">::</span><span class="n">Parser</span><span class="p">;</span>
+<h2 id="metrics">Metrics</h2>
 
-<span class="nd">#[derive(Parser,</span> <span class="nd">Debug)]</span>
-<span class="nd">#[command(author</span> <span class="nd">=</span> <span class="s">"Alice"</span><span class="nd">,</span> <span class="nd">version,</span> <span class="nd">about</span> <span class="nd">=</span> <span class="nd">env</span><span class="err">!</span><span class="nd">(</span><span class="s">"ABOUT"</span><span class="nd">))]</span>
-<span class="k">struct</span> <span class="n">Cli</span> <span class="p">{</span>
-    <span class="c1">// CLI arguments would go here</span>
-<span class="p">}</span>
+<p>The pipeline emits metrics to a Prometheus pushgateway after each enrichment batch. Grafana is used to visualise progress, including throughput, token counts, and time to first token per call.</p>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">args</span> <span class="o">=</span> <span class="nn">Cli</span><span class="p">::</span><span class="nf">parse</span><span class="p">();</span>
-    <span class="nd">println!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
-<span class="p">}</span>
+<h2 id="running-it">Running it</h2>
+
+<p>The pipeline is driven by a single binary, <code class="language-plaintext highlighter-rouge">odnelazm-pipeline</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ingest 13th Parliament sittings</span>
+odnelazm-pipeline ingest <span class="nt">--start-date</span> 2022-09-01 <span class="nt">--end-date</span> 2026-05-19
+
+<span class="c"># Enrich bill appearance summaries</span>
+odnelazm-pipeline <span class="nt">--metrics-url</span> http://localhost:9091 <span class="se">\</span>
+  enrich bill-mentions <span class="nt">--model</span> qwen/qwen3.5-9b <span class="nt">--concurrency</span> 1
 </code></pre></div></div>
 
-<p>This method allows us to perform the string formatting during the build process and inject the result into our main code.</p>
+<p>Enrichment is idempotent. Items that already have a summary are skipped, so runs can be interrupted and resumed without duplicating work.</p>
 
-<h2 id="lessons-learned">Lessons Learned</h2>
-
-<p>This journey through compile-time string formatting in Rust teaches us a few valuable lessons:</p>
-
-<ol>
-  <li>Rust prioritizes safety and performance, sometimes at the cost of convenience.</li>
-  <li>The Rust ecosystem often provides solutions for language limitations.</li>
-  <li>Build scripts are powerful tools that can help overcome certain restrictions.</li>
-  <li>Sometimes, the simplest solutions (like using environment variables) can solve complex problems.</li>
-  <li>With some creativity, we can usually find a way around language limitations.</li>
-</ol>
-
-<p>While Rust may not support compile-time formatting out of the box, we have multiple ways to achieve our goals. Whether it’s through community-created crates or clever use of build scripts, Rust developers always find a way forward.</p>
+<p>The full source is at <a href="https://github.com/mwananchi-tech/odnelazm">mwananchi-tech/odnelazm</a>. Bunge Hub is live at <a href="https://bunge-hub.mwananchi.tech">bunge-hub.mwananchi.tech</a>.</p>
 
 
 
     <div class="blog-navigation">
         
-            <a class="prev" href="https://collinsmuriuki.xyz/wasm-tutorial/">&laquo; Building a Web Assembly powered password generator</a>
+            <a class="prev" href="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/">&laquo; From Bunge Bits to Bunge Hub: building Kenya's parliamentary data layer</a>
         
-        
-            <a class="next" href="https://collinsmuriuki.xyz/building-bunge-bits/">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya &raquo;</a>
         
     </div>
 
@@ -739,101 +759,12 @@ error: aborting due to previous error
         
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
                     
                     <h4>Related Posts</h4>
                     <ul>
                     
                     <li class="relatedPost">
-                        <a href="https://collinsmuriuki.xyz/building-the-library-of-babel-in-go/">Building the Library of Babel in Go
+                        <a href="https://collinsmuriuki.xyz/from-bunge-bits-to-bunge-hub/">From Bunge Bits to Bunge Hub: building Kenya's parliamentary data layer
                         
                         </a>
                     </li>
@@ -847,43 +778,6 @@ error: aborting due to previous error
             
                 
             
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
         
@@ -949,18 +843,6 @@ error: aborting due to previous error
         
     
         
-        
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
         
             
                 
@@ -1017,12 +899,150 @@ error: aborting due to previous error
                 
                     
                     <li class="relatedPost">
-                        <a href="https://collinsmuriuki.xyz/wasm-tutorial/">Building a Web Assembly powered password generator
+                        <a href="https://collinsmuriuki.xyz/building-bunge-bits/">Building Bunge Bits, an AI-Powered Summary Pipeline for the Parliament of Kenya
                         
                         </a>
                     </li>
                     
                     
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
                 
             
                 
@@ -1124,7 +1144,7 @@ error: aborting due to previous error
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=https://collinsmuriuki.xyz/compile-time-string-formatting/ - The Quest for Compile-Time String Formatting in Rust by @"
+                href="https://twitter.com/intent/tweet?text=https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/ - How the odnelazm-ingest pipeline works by @"
             >
                 <svg class="icon icon-twitter">
                     <use xlink:href="#icon-twitter"></use></svg
@@ -1141,11 +1161,11 @@ error: aborting due to previous error
                 ><span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://collinsmuriuki.xyz/compile-time-string-formatting/&amp;title=The Quest for Compile-Time String Formatting in Rust&amp;summary=Exploring the challenges and solutions for compile-time string formatting in Rust CLI applications&amp;source=https://collinsmuriuki.xyz" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/&amp;title=How the odnelazm-ingest pipeline works&amp;summary=A technical walkthrough of the data pipeline that powers Bunge Hub. Covers scraping, extraction, speaker linking, and AI enrichment.&amp;source=https://collinsmuriuki.xyz" target="_blank">
                 <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg><span class="icon-linkedin">Share</span>
             </a> -->
 
-            <!-- <a class="reddit" href="https://reddit.com/submit?url=https://collinsmuriuki.xyz/compile-time-string-formatting/&amp;title=The Quest for Compile-Time String Formatting in Rust" target="_blank">
+            <!-- <a class="reddit" href="https://reddit.com/submit?url=https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/&amp;title=How the odnelazm-ingest pipeline works" target="_blank">
                 <svg class="icon icon-reddit"><use xlink:href="#icon-reddit"></use></svg><span class="icon-reddit">Share</span>
             </a> -->
         </div>
@@ -1160,8 +1180,8 @@ error: aborting due to previous error
     <script type="text/javascript">
 
         var disqus_config = function () {
-            this.page.url = 'https://collinsmuriuki.xyz/compile-time-string-formatting/';
-            this.page.identifier = '/compile-time-string-formatting';
+            this.page.url = 'https://collinsmuriuki.xyz/how-the-odnelazm-ingest-pipeline-works/';
+            this.page.identifier = '/how-the-odnelazm-ingest-pipeline-works';
         };
         var disqus_shortname = 'https-muriuki-dev';
         var disqus_developer = 0;
