@@ -632,7 +632,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
   </tbody>
 </table>
 
-<p>All enrichment is done locally using open-source models via LM Studio. No cloud API calls. The model used to generate each summary is stored alongside it so it can be attributed in the UI and re-enriched with a better model later.</p>
+<p>All enrichment is done locally using open-source models via LM Studio. The model used to generate each summary is stored alongside it so it can be attributed in the UI and re-enriched with a better model later.</p>
 
 <p>The current model is <strong>Qwen3.5 9B</strong> (<code class="language-plaintext highlighter-rouge">qwen/qwen3.5-9b</code>). I chose it for two reasons: its 262K native context window comfortably holds a full sitting transcript in a single call, and its built-in chain-of-thought reasoning produces noticeably more nuanced summaries than models that don’t reason before generating.</p>
 
