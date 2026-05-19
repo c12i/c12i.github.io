@@ -645,7 +645,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
   <li><strong>~5,000 reasoning tokens</strong> generated before the final output</li>
 </ul>
 
-<p>At concurrency 1 on a MacBook, that works out to around 3-4 minutes per summary. A full run over 1,000 bill appearances takes several days of wall-clock time. Running on a machine with a dedicated GPU brings this down to under 30 seconds per summary.</p>
+<p>At concurrency 1 on a MacBook, that works out to around 3-4 minutes per summary. A full run over 1,000 bill appearances takes several days of wall-clock time. Running on a machine with a dedicated GPU could bring this down to under 30 seconds per summary.</p>
 
 <p>I will also be testing <strong>Gemma 4 e2b</strong> (<code class="language-plaintext highlighter-rouge">google/gemma-4-e2b</code>) as an alternative. It’s a 2B parameter model with a 128K context window, designed for on-device inference, and should be significantly faster. The quality tradeoff for complex parliamentary text is still to be evaluated.</p>
 
