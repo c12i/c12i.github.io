@@ -505,7 +505,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     
 
     
-        6 mins
+        7 mins
     
 </span>
 
@@ -562,12 +562,14 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     <p><strong>Speakers</strong>: every distinct contributor name becomes a <code class="language-plaintext highlighter-rouge">speakers</code> row. Speaker names are extracted as-is from the HTML, which means the same person can appear under multiple names across sittings (“Hon. Kaluma”, “Peter Kaluma”, “Hon. Peter Kaluma”).</p>
   </li>
   <li>
-    <p><strong>Bills</strong>: the bill extractor scans section headings for patterns ending in “BILL” or “ACT”. Each match becomes a <code class="language-plaintext highlighter-rouge">bill_mentions</code> row joining a <code class="language-plaintext highlighter-rouge">bills</code> record to the sitting, with stage detected from the heading or contribution text.</p>
+    <p><strong>Bills</strong>: the bill extractor scans section headings for patterns ending in “BILL” or “ACT”. Each match becomes a <code class="language-plaintext highlighter-rouge">bill_mentions</code> row joining a <code class="language-plaintext highlighter-rouge">bills</code> record to the sitting, with stage detected from the heading or contribution text. Each speaker who contributed to that section is linked via <code class="language-plaintext highlighter-rouge">bill_mention_speakers</code>, with their full contribution text stored for enrichment.</p>
   </li>
   <li>
-    <p><strong>Topics</strong>: questions, statements, motions, and communications from the chair are extracted as <code class="language-plaintext highlighter-rouge">topics</code>, each linked to their speakers via <code class="language-plaintext highlighter-rouge">topic_speakers</code>.</p>
+    <p><strong>Topics</strong>: “topic” is a generic term used across the codebase for any non-bill discussion item: questions and statements, notices of motion, and communications from the chair. These are identified by section type rather than heading pattern. Each topic is linked to its contributors via <code class="language-plaintext highlighter-rouge">topic_speakers</code>, again with full contribution text stored for enrichment.</p>
   </li>
 </ol>
+
+<p>Because bills are linked across sittings rather than stored per-sitting, this schema makes it possible to reconstruct a bill’s full legislative journey: every sitting it appeared in, the stage at each appearance, and everyone who spoke. Bunge Hub surfaces this as an interactive timeline on each bill page. You can trace a bill across sittings, seeing who spoke at each appearance and reading AI-generated summaries of each debate. Stages are inferred from section headings in the transcript so they are a close approximation rather than a guaranteed reflection of the formal legislative record.</p>
 
 <h2 id="the-linking-problem">The linking problem</h2>
 
@@ -587,11 +589,25 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
   </li>
 </ol>
 
-<p>The <code class="language-plaintext highlighter-rouge">clean_speaker_name</code> SQL function strips honorifics, titles, constituency parentheticals, and presiding-role prefixes before matching:</p>
+<p>The <code class="language-plaintext highlighter-rouge">clean_speaker_name</code> SQL function strips honorifics, titles, constituency parentheticals, and presiding-role prefixes before matching. The Hansard produces a surprising variety of name formats:</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- "The Temporary Speaker (Hon. (Dr) Rachael Nyamai)" → "Rachael Nyamai"</span>
-<span class="c1">-- "Hon. Kimani Ichung'wah (Kikuyu, UDA)" → "Kimani Ichung'wah"</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Constituency and party stripped</span>
+<span class="nv">"Hon. Kimani Ichung'wah (Kikuyu, UDA)"</span>        <span class="err">→</span> <span class="nv">"Kimani Ichung'wah"</span>
+
+<span class="c1">-- Military/professional title stripped</span>
+<span class="nv">"Hon. (Capt.) Ronald Karauri (Kasarani, Ind)"</span> <span class="err">→</span> <span class="nv">"Ronald Karauri"</span>
+
+<span class="c1">-- Temporary Speaker with nested honorific and title</span>
+<span class="nv">"The Temporary Speaker (Hon. (Dr) Rachael Nyamai)"</span> <span class="err">→</span> <span class="nv">"Rachael Nyamai"</span>
+
+<span class="c1">-- Hon. prefix instead of The</span>
+<span class="nv">"Hon. Temporary Speaker (Hon. Farah Maalim)"</span>  <span class="err">→</span> <span class="nv">"Farah Maalim"</span>
+
+<span class="c1">-- Unclosed parenthesis from malformed HTML</span>
+<span class="nv">"Hon. Kimani Ichung'wah (Kikuyu, UDA"</span>         <span class="err">→</span> <span class="nv">"Kimani Ichung'wah"</span>
 </code></pre></div></div>
+
+<p>After cleaning, trigram similarity is computed against all member names. “Kimani Ichung’wah” matches <code class="language-plaintext highlighter-rouge">Anthony Kimani Ichung'wah</code> at 0.52, well above the 0.45 threshold. Presiding officer patterns like “Hon. Speaker” and “The Deputy Speaker” produce false positives with fuzzy matching, so those are resolved separately via the role-based pass.</p>
 
 <h2 id="ai-enrichment">AI enrichment</h2>
 
